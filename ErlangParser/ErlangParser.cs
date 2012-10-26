@@ -44,9 +44,10 @@ namespace ErlangParserLib
         public static void ParserComment(ref string Context, ref ErlangFile efile)
         {
             MatchCollection match = RegexUtils.regComment.Matches(Context);
+            Comment c;
             foreach (Match m in match)
             {
-                Comment c = new Comment();
+                c = new Comment();
                 c.Context = m.Value;
                 efile.Elements.Add(c);
             }
@@ -60,9 +61,10 @@ namespace ErlangParserLib
         public static void ParserStatement(ref string Context, ref ErlangFile efile)
         {
             MatchCollection match = RegexUtils.regStatement.Matches(Context);
+            Statement s;
             foreach (Match m in match)
             {
-                Statement s = new Statement();
+                s = new Statement();
                 s.Context = m.Value;
                 s.Flag = m.Groups[1].Value;
                 s.InnerText = m.Groups[2].Value;
@@ -78,9 +80,10 @@ namespace ErlangParserLib
         public static void ParserFunction(ref string Context, ref ErlangFile efile)
         {
             MatchCollection match = RegexUtils.regFunction.Matches(Context);
+            ErlangFunction f;
             foreach (Match m in match)
             {
-                ErlangFunction f = new ErlangFunction();
+                f = new ErlangFunction();
                 f.Context = m.Value;
                 f.Name = m.Groups[1].Value;
                 efile.Elements.Add(f);
