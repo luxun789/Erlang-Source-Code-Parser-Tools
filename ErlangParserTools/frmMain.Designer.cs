@@ -55,7 +55,7 @@
             this.lblFilepath.Name = "lblFilepath";
             this.lblFilepath.Size = new System.Drawing.Size(548, 23);
             this.lblFilepath.TabIndex = 1;
-            this.lblFilepath.Text = "D:\\workspace\\server\\src\\yg_gateway.erl";
+            this.lblFilepath.Text = "D:\\workspace\\server\\src\\data\\data_agent.erl";
             this.lblFilepath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtResult
