@@ -36,7 +36,8 @@ namespace ErlangParserLib
             {
                 Comment c = new Comment();
                 c.Context = m.Value;
-                //efile.Elements.Add(c);
+                efile.Elements.Add(c);
+                Context.Replace(c.Context, "");
             }
 
             //各种声明部分
@@ -47,7 +48,8 @@ namespace ErlangParserLib
                 s.Context = m.Value;
                 s.Flag = m.Groups[1].Value;
                 s.InnerText = m.Groups[2].Value;
-                //efile.Elements.Add(s);
+                efile.Elements.Add(s);
+                Context.Replace(s.Context, "");
             }
 
             //函数部分
@@ -56,7 +58,7 @@ namespace ErlangParserLib
             {
                 ErlangFunction f = new ErlangFunction();
                 f.Context = m.Value;
-                f.Name = m.Groups[0].Value;
+                f.Name = m.Groups[1].Value;
                 efile.Elements.Add(f);
             }
 
