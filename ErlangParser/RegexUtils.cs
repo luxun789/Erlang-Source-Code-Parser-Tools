@@ -9,7 +9,7 @@ namespace ErlangParserLib
         );
 
         public static Regex regStatement = new Regex(
-            @"^-(.*)\(((.|\n)*?)\)\.?\n?",
+            @"^-(.*)\(((.|\n)*?)\)\.\n?",
             RegexOptions.Multiline
         );
 
