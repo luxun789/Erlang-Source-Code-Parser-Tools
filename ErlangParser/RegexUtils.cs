@@ -18,7 +18,7 @@ namespace ErlangParserLib
             RegexOptions.Multiline
         );
 
-        public static Regex regex = new Regex(
+        public static Regex regElement = new Regex(
             @"(%.*\n)|(^-(.*)\(((.|\n)*?)\)\.\n?)|(([a-zA-Z_0-9]*)\(((.|\n)*?)\)(->)((.|\n)*?)[\;\.]+?)",
             RegexOptions.Multiline
         );
