@@ -14,7 +14,7 @@ namespace ErlangParserLib
         );
 
         public static Regex regFunction = new Regex(
-            @"([a-zA-Z_][a-zA-Z_0-9]*)(((.|\n)*?)(\;|\.))",
+            @"(?![-_])([a-zA-Z_0-9]*)\(((.|\n)*?)\)(->)((.|\n)*?)[\;\.]+?",
             RegexOptions.Multiline
         );
     }
