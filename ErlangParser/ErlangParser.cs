@@ -50,7 +50,6 @@ namespace ErlangParserLib
                 c = new Comment();
                 c.Context = m.Value;
                 efile.Elements.Add(c);
-                Context = Context.Replace(m.Value, "");
             }
         }
 
@@ -70,7 +69,6 @@ namespace ErlangParserLib
                 s.Flag = m.Groups[1].Value;
                 s.InnerText = m.Groups[2].Value;
                 efile.Elements.Add(s);
-                Context = Context.Replace(m.Value, "");
             }
         }
 
@@ -89,7 +87,6 @@ namespace ErlangParserLib
                 f.Context = m.Value;
                 f.Name = m.Groups[1].Value;
                 efile.Elements.Add(f);
-                Context = Context.Replace(m.Value, "");
             }
         }
     }
