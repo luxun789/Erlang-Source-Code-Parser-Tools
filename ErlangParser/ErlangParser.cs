@@ -51,6 +51,10 @@ namespace ErlangParserLib
                     s.InnerText = m.Groups[2].Value;
                     efile.Elements.Add(s);
                 }
+                else if (str.Replace(" ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Length == 0)
+                {
+                    //空白行
+                }
                 else
                 {
                     //函数
