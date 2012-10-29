@@ -29,73 +29,40 @@ namespace ErlangParserLib
         {
             ErlangFile efile = new ErlangFile();
 
-            MatchCollection match = RegexUtils.regBlankLine.Matches(Context);
-            ErlangElement e;
+            MatchCollection match = RegexUtils.regElement.Matches(Context);
+
             foreach (Match m in match)
             {
-                e = new ErlangElement(ElementType.None);
-                e.Context = m.Value;
-                efile.Elements.Add(e);
+                string str = m.Value;
+
+                if(str.StartsWith("%"))
+                {
+                    //注释
+                    Comment c = new Comment();
+                    c.Context = m.Value;
+                    efile.Elements.Add(c);
+                }
+                else if(str.StartsWith("-"))
+                {
+                    //声明
+                    Statement  s = new Statement();
+                    s.Context = m.Value;
+                    s.Flag = m.Groups[1].Value;
+                    s.InnerText = m.Groups[2].Value;
+                    efile.Elements.Add(s);
+                }
+                else
+                {
+                    //函数
+                    ErlangFunction f = new ErlangFunction();
+                    f.Context = m.Value;
+                    f.Name = m.Groups[1].Value;
+                    efile.Elements.Add(f);
+                }
             }
-            //ParserComment(ref Context, ref efile);
-            //ParserStatement(ref Context, ref efile);
-            //ParserFunction(ref Context, ref efile);
 
             return efile;
         }
 
-        /// <summary>
-        /// 解析注释
-        /// </summary>
-        /// <param name="Context"></param>
-        /// <param name="efile"></param>
-        public static void ParserComment(ref string Context, ref ErlangFile efile)
-        {
-            MatchCollection match = RegexUtils.regComment.Matches(Context);
-            Comment c;
-            foreach (Match m in match)
-            {
-                c = new Comment();
-                c.Context = m.Value;
-                efile.Elements.Add(c);
-            }
-        }
-
-        /// <summary>
-        /// 解析声明
-        /// </summary>
-        /// <param name="Context"></param>
-        /// <param name="efile"></param>
-        public static void ParserStatement(ref string Context, ref ErlangFile efile)
-        {
-            MatchCollection match = RegexUtils.regStatement.Matches(Context);
-            Statement s;
-            foreach (Match m in match)
-            {
-                s = new Statement();
-                s.Context = m.Value;
-                s.Flag = m.Groups[1].Value;
-                s.InnerText = m.Groups[2].Value;
-                efile.Elements.Add(s);
-            }
-        }
-
-        /// <summary>
-        /// 解析函数
-        /// </summary>
-        /// <param name="Context"></param>
-        /// <param name="efile"></param>
-        public static void ParserFunction(ref string Context, ref ErlangFile efile)
-        {
-            MatchCollection match = RegexUtils.regFunction.Matches(Context);
-            ErlangFunction f;
-            foreach (Match m in match)
-            {
-                f = new ErlangFunction();
-                f.Context = m.Value;
-                f.Name = m.Groups[1].Value;
-                efile.Elements.Add(f);
-            }
-        }
     }
 }
