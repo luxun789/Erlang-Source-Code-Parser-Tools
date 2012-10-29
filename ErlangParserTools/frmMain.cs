@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using ErlangParserLib;
+using ErlangParserLib.Elements;
+using ErlangParserLib.Regexs;
 using Newtonsoft.Json;
 
 namespace ErlangParserTools
@@ -14,7 +15,7 @@ namespace ErlangParserTools
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            ErlangFile efile = ErlangParser.ParserFile(lblFilepath.Text);
+            ErlangFile efile = ErlangRegexParser.ParserFile(lblFilepath.Text);
             txtResult.Text = JsonConvert.SerializeObject(efile, Formatting.Indented);
         }
     }
