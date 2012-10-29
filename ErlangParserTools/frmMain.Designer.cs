@@ -32,6 +32,7 @@
             this.lblFilepath = new System.Windows.Forms.Label();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.btnParser = new System.Windows.Forms.Button();
+            this.txtRegexStr = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnOpen
@@ -55,7 +56,7 @@
             this.lblFilepath.Name = "lblFilepath";
             this.lblFilepath.Size = new System.Drawing.Size(548, 23);
             this.lblFilepath.TabIndex = 1;
-            this.lblFilepath.Text = "D:\\workspace\\server\\src\\pp\\pp_fst.erl";
+            this.lblFilepath.Text = "D:\\workspace\\server\\src\\yg.erl";
             this.lblFilepath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtResult
@@ -63,11 +64,11 @@
             this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResult.Location = new System.Drawing.Point(12, 49);
+            this.txtResult.Location = new System.Drawing.Point(12, 78);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(710, 451);
+            this.txtResult.Size = new System.Drawing.Size(710, 422);
             this.txtResult.TabIndex = 2;
             // 
             // btnParser
@@ -81,11 +82,21 @@
             this.btnParser.UseVisualStyleBackColor = true;
             this.btnParser.Click += new System.EventHandler(this.btnOpen_Click);
             // 
+            // txtRegexStr
+            // 
+            this.txtRegexStr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRegexStr.Location = new System.Drawing.Point(12, 51);
+            this.txtRegexStr.Name = "txtRegexStr";
+            this.txtRegexStr.Size = new System.Drawing.Size(710, 21);
+            this.txtRegexStr.TabIndex = 3;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 512);
+            this.Controls.Add(this.txtRegexStr);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.lblFilepath);
             this.Controls.Add(this.btnParser);
@@ -107,6 +118,7 @@
         private System.Windows.Forms.Label lblFilepath;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Button btnParser;
+        private System.Windows.Forms.TextBox txtRegexStr;
     }
 }
 
