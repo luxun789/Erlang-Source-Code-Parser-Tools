@@ -1,4 +1,4 @@
-﻿namespace ErlangParserLib
+﻿namespace ErlangParserLib.Elements
 {
     public class Comment : ErlangElement
     {

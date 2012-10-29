@@ -1,4 +1,6 @@
-﻿namespace ErlangParserLib
+﻿using ErlangParserLib.Elements;
+
+namespace ErlangParserLib.Files
 {
     public class ModuleFile : ErlangFile
     {

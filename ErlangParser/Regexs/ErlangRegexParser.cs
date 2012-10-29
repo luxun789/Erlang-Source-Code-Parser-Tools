@@ -1,10 +1,11 @@
 ﻿using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using ErlangParserLib.Elements;
 
-namespace ErlangParserLib
+namespace ErlangParserLib.Regexs
 {
-    public static class ErlangParser
+    public static class ErlangRegexParser
     {
         /// <summary>
         /// 解析erlang(*.erl)文件

@@ -40,16 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comment.cs" />
-    <Compile Include="ErlangElement.cs" />
-    <Compile Include="ErlangFile.cs" />
-    <Compile Include="ErlangFunction.cs" />
-    <Compile Include="IncludeFile.cs" />
-    <Compile Include="ModuleFile.cs" />
-    <Compile Include="ErlangParser.cs" />
+    <Compile Include="Elements\Comment.cs" />
+    <Compile Include="Elements\ErlangElement.cs" />
+    <Compile Include="Elements\ErlangFile.cs" />
+    <Compile Include="Elements\ErlangFunction.cs" />
+    <Compile Include="Files\IncludeFile.cs" />
+    <Compile Include="Files\ModuleFile.cs" />
+    <Compile Include="Regexs\ErlangRegexParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegexUtils.cs" />
-    <Compile Include="Statement.cs" />
+    <Compile Include="Regexs\RegexUtils.cs" />
+    <Compile Include="Elements\Statement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ErlangParserLib
+namespace ErlangParserLib.Elements
 {
     /// <summary>
     /// Erlang文件基础类

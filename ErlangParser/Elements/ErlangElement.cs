@@ -1,4 +1,4 @@
-﻿namespace ErlangParserLib
+﻿namespace ErlangParserLib.Elements
 {
     /// <summary>
     /// 元素类别

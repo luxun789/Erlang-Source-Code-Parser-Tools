@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
-namespace ErlangParserLib
+
+namespace ErlangParserLib.Regexs
 {
     public static class RegexUtils
     {
