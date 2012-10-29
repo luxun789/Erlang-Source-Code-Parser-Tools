@@ -28,11 +28,11 @@ namespace ErlangParserLib.Fsm
         /// <returns></returns>
         public void Parser()
         {
-            Match m = FsmCheck.regWorkParser.Match(this.Context);
+            MatchCollection ms = FsmCheck.regWorkParser.Matches(this.Context);
 
-            foreach(Group g in m.Groups)
+            foreach(Match m in ms)
             {
-                this.words.Add(g.Value);
+                if(m.Success) this.words.Add(m.Value);
             }
         }
 
