@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ErlangParserLib.Elements;
-using ErlangParserLib.Regexs;
-using Newtonsoft.Json;
+using ErlangParserLib.Fsm;
 
 namespace ErlangParserTools
 {
@@ -15,8 +13,13 @@ namespace ErlangParserTools
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            ErlangFile efile = ErlangRegexParser.ParserFile(lblFilepath.Text);
-            txtResult.Text = JsonConvert.SerializeObject(efile, Formatting.Indented);
+            //ErlangFile efile = ErlangRegexParser.Parser(lblFilepath.Text);
+            //txtResult.Text = JsonConvert.SerializeObject(efile, Formatting.Indented);
+
+            ErlangFsmParser o = ErlangFsmParser.Instance;
+            o.Load(lblFilepath.Text);
+            o.Parser();
+            txtResult.Text = string.Join("", o.words);
         }
     }
 }

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,19 +44,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\Comment.cs" />
+    <Compile Include="Elements\ErlangDomTree.cs" />
     <Compile Include="Elements\ErlangElement.cs" />
     <Compile Include="Elements\ErlangFile.cs" />
     <Compile Include="Elements\ErlangFunction.cs" />
     <Compile Include="Files\IncludeFile.cs" />
     <Compile Include="Files\ModuleFile.cs" />
+    <Compile Include="Fsm\ErlangFsmParser.cs" />
+    <Compile Include="Fsm\FsmCheck.cs" />
+    <Compile Include="Fsm\FsmStatus.cs" />
     <Compile Include="Regexs\ErlangRegexParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regexs\RegexUtils.cs" />
     <Compile Include="Elements\Statement.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fsm\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
