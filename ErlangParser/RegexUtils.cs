@@ -18,6 +18,11 @@ namespace ErlangParserLib
             RegexOptions.Multiline
         );
 
+        public static Regex regBlankLine = new Regex(
+            @"^\b*?\n",
+            RegexOptions.Multiline
+        );
+
         public static Regex regElement = new Regex(
             @"(%.*\n)|(^-(.*)\(((.|\n)*?)\)\.\n?)|(([a-zA-Z_0-9]*)\(((.|\n)*?)\)(->)((.|\n)*?)[\;\.]+?)",
             RegexOptions.Multiline

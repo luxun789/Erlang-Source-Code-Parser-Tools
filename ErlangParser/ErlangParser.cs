@@ -29,9 +29,17 @@ namespace ErlangParserLib
         {
             ErlangFile efile = new ErlangFile();
 
-            ParserComment(ref Context, ref efile);
-            ParserStatement(ref Context, ref efile);
-            ParserFunction(ref Context, ref efile);
+            MatchCollection match = RegexUtils.regBlankLine.Matches(Context);
+            ErlangElement e;
+            foreach (Match m in match)
+            {
+                e = new ErlangElement(ElementType.None);
+                e.Context = m.Value;
+                efile.Elements.Add(e);
+            }
+            //ParserComment(ref Context, ref efile);
+            //ParserStatement(ref Context, ref efile);
+            //ParserFunction(ref Context, ref efile);
 
             return efile;
         }
