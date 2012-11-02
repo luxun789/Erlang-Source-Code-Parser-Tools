@@ -32,7 +32,7 @@ namespace ErlangParserLib.Fsm
 
             foreach(Match m in ms)
             {
-                if(m.Success) this.words.Add(m.Value);
+                if(m.Success) this.words.Add("[" + m.Value + "]");
             }
         }
 
