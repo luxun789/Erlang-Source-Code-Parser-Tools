@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using ErlangParserLib.Fsm;
 
@@ -13,7 +14,7 @@ namespace ErlangParserTools
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            lblResult.Text = string.Empty;
+            txtResult.Text = string.Empty;
             txtRegexStr.Text = FsmCheck.strWorkParser;
             this.Refresh();
 
@@ -22,18 +23,42 @@ namespace ErlangParserTools
             o.Parser();
 
             wl("Count:" + o.words.Length + "\r\n");
-            wl(string.Join("|", o.words));
+            //wl(string.Join("|", o.words));
 
-            //foreach(string s in o.words)
-            //{
-            //    wl("match=【" + s + "】\r\n");
-            //}
+            btnParser.Enabled = false;
+            foreach (string s in o.words)
+            {
+                wi(s);
+            }
+            btnParser.Enabled = true;
+        }
 
+        private bool isColor = false;
+        private void wi(string str)
+        {
+            if (str.Length <= 0) return;
+
+            int s = txtResult.TextLength;
+            txtResult.AppendText(str);
+
+            txtResult.SelectionStart = s;
+            txtResult.SelectionLength = str.Length;
+            if (isColor)
+            {
+                txtResult.SelectionColor = Color.LightGoldenrodYellow;
+                txtResult.SelectionBackColor = Color.Black;
+            }
+            else
+            {
+                txtResult.SelectionColor = Color.Blue;
+                txtResult.SelectionBackColor = Color.BlanchedAlmond;
+            }
+            isColor = !isColor;
         }
 
         private void wl(string str)
         {
-            lblResult.Text += (str + "\r\n");
+            txtResult.AppendText(str + "\r\n");
         }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.btnOpen = new System.Windows.Forms.Button();
             this.lblFilepath = new System.Windows.Forms.Label();
-            this.lblResult = new System.Windows.Forms.Label();
+            this.txtResult = new System.Windows.Forms.RichTextBox();
             this.btnParser = new System.Windows.Forms.Button();
             this.txtRegexStr = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -56,19 +56,21 @@
             this.lblFilepath.Name = "lblFilepath";
             this.lblFilepath.Size = new System.Drawing.Size(548, 23);
             this.lblFilepath.TabIndex = 1;
-            this.lblFilepath.Text = "D:\\ygfs\\server\\src\\yg_server_sup.erl";
+            this.lblFilepath.Text = "D:\\ygfs\\server\\src\\data\\data_pet.erl";
             this.lblFilepath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblResult
+            // txtResult
             // 
-            this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblResult.Location = new System.Drawing.Point(12, 78);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(710, 422);
-            this.lblResult.TabIndex = 2;
+            this.txtResult.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtResult.ForeColor = System.Drawing.Color.White;
+            this.txtResult.Location = new System.Drawing.Point(12, 78);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(710, 422);
+            this.txtResult.TabIndex = 2;
+            this.txtResult.Text = "";
             // 
             // btnParser
             // 
@@ -96,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 512);
             this.Controls.Add(this.txtRegexStr);
-            this.Controls.Add(this.lblResult);
+            this.Controls.Add(this.txtResult);
             this.Controls.Add(this.lblFilepath);
             this.Controls.Add(this.btnParser);
             this.Controls.Add(this.btnOpen);
@@ -115,7 +117,7 @@
 
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Label lblFilepath;
-        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.Button btnParser;
         private System.Windows.Forms.TextBox txtRegexStr;
     }
