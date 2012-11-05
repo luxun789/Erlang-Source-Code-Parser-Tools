@@ -23,10 +23,12 @@ namespace ErlangParserTools
 
             wl("Count:" + o.words.Length + "\r\n");
             wl(string.Join("|", o.words));
+
             //foreach(string s in o.words)
             //{
             //    wl("match=【" + s + "】\r\n");
             //}
+
         }
 
         private void wl(string str)

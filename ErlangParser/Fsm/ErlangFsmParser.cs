@@ -20,7 +20,7 @@ namespace ErlangParserLib.Fsm
         public Stack<FsmStatus> status = new Stack<FsmStatus>();
         private string Context;
 
-        public List<string> words = new List<string>();
+        public string[] words;
 
         /// <summary>
         /// 解析文件
@@ -28,12 +28,7 @@ namespace ErlangParserLib.Fsm
         /// <returns></returns>
         public void Parser()
         {
-            MatchCollection ms = FsmCheck.regWorkParser.Matches(this.Context);
-
-            foreach(Match m in ms)
-            {
-                if(m.Success) this.words.Add("[" + m.Value + "]");
-            }
+            this.words = FsmCheck.regWorkParser.Split(this.Context);
         }
 
     }
