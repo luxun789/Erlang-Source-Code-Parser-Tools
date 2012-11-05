@@ -56,7 +56,7 @@
             this.lblFilepath.Name = "lblFilepath";
             this.lblFilepath.Size = new System.Drawing.Size(548, 23);
             this.lblFilepath.TabIndex = 1;
-            this.lblFilepath.Text = "D:\\workspace\\server\\src\\yg.erl";
+            this.lblFilepath.Text = "D:\\ygfs\\server\\src\\yg_server_sup.erl";
             this.lblFilepath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtResult
