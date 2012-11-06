@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using ErlangParserLib.Fsm;
+using Newtonsoft.Json;
 
 namespace ErlangParserTools
 {
@@ -21,18 +22,19 @@ namespace ErlangParserTools
             ErlangFsmParser o = ErlangFsmParser.Instance;
             o.Load(lblFilepath.Text);
             o.Parser();
+            wl(JsonConvert.SerializeObject(o.Efile, Formatting.Indented));
 
-            wl("Count:" + o.words.Count + "\r\n");
-            //wl(string.Join("|", o.words));
+            //wl("Count:" + o.words.Count + "\r\n");
+            ////wl(string.Join("|", o.words));
 
-            btnParser.Enabled = false;
-            int i = 0;
-            int cnt = (int)txtCount.Value;
-            foreach (string s in o.words)
-            {
-                if(i++ > cnt) break;
-                wi(s);
-            }
+            //btnParser.Enabled = false;
+            //int i = 0;
+            //int cnt = (int)txtCount.Value;
+            //foreach (string s in o.words)
+            //{
+            //    if(i++ > cnt) break;
+            //    wi(s);
+            //}
             btnParser.Enabled = true;
         }
 
