@@ -9,17 +9,24 @@ namespace ErlangParserLib.Fsm
         public static ErlangFsmParser Instance = new ErlangFsmParser();
 
         /// <summary>
-        /// 加载文件
+        /// 加载文件内容
         /// </summary>
         /// <param name="filename"></param>
         public void Load(string filename)
         {
-            Context = File.ReadAllText(filename);
+            this.Context = File.ReadAllText(filename);
         }
 
-        public Stack<FsmStatus> status = new Stack<FsmStatus>();
-        private string Context;
+        /// <summary>
+        /// 加载文本信息
+        /// </summary>
+        /// <param name="context"></param>
+        public void LoadContext(string context)
+        {
+            this.Context = context;
+        }
 
+        private string Context;
         public string[] words;
 
         /// <summary>
