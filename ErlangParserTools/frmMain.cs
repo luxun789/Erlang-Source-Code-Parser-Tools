@@ -15,7 +15,7 @@ namespace ErlangParserTools
         private void btnOpen_Click(object sender, EventArgs e)
         {
             txtResult.Text = string.Empty;
-            txtRegexStr.Text = FsmCheck.strWorkParser;
+            txtRegexStr.Text = FsmCheck.strLexParser;
             this.Refresh();
 
             ErlangFsmParser o = ErlangFsmParser.Instance;

@@ -96,6 +96,7 @@
             // 
             // txtCount
             // 
+            this.txtCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCount.Location = new System.Drawing.Point(585, 51);
             this.txtCount.Maximum = new decimal(new int[] {
             999999999,
@@ -124,8 +125,6 @@
             this.Controls.Add(this.lblFilepath);
             this.Controls.Add(this.btnParser);
             this.Controls.Add(this.btnOpen);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(750, 550);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
