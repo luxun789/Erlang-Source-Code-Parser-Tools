@@ -56,6 +56,7 @@ namespace ErlangParserLib.Fsm
                 elem.Index = m.Index;
                 elem.Context = m.Value;
 
+                //判断所在分组
                 foreach(string gs in groups)
                 {
                     if(m.Groups[gs].Success)
