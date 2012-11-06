@@ -41,10 +41,10 @@ namespace ErlangParserLib.Fsm
             foreach(Match c in mc)
             {
                 string s = c.Value;
-                //string s = c.Groups["Number"].Value;
+                //string s = c.Groups["Var"].Value;
                 if(s.Length > 0)
                 {
-                    this.words.Add(s);
+                    this.words.Add("[" + c.Index + "]" + s);
                 }
             }
         }
