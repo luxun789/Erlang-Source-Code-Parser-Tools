@@ -1,4 +1,6 @@
 ﻿using ErlangParserLib.Fsm;
+using System.Collections.Generic;
+
 namespace ErlangParserLib.Elements
 {
     /// <summary>
@@ -11,8 +13,12 @@ namespace ErlangParserLib.Elements
             this.EType = etype;
         }
 
-        public FsmStatus EType { get; private set; }
+        public FsmStatus EType { get; set; }
 
         public string Context {get; set;}
+
+        public long Index {get; set;}
+
+        public List<ErlangElement> Nodes = new List<ErlangElement>();
     }
 }
