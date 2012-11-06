@@ -70,9 +70,9 @@
             // 
             // txtResult
             // 
-            this.txtResult.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.ForeColor = System.Drawing.Color.White;
+            this.txtResult.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtResult.Location = new System.Drawing.Point(3, 3);
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(696, 390);

@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using ErlangParserLib.Fsm;
 using Newtonsoft.Json;
 using ErlangParserLib.Elements;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ErlangParserTools
 {
@@ -32,35 +34,33 @@ namespace ErlangParserTools
             btnParser.Enabled = false;
             int i = 0;
             int cnt = (int)txtCount.Value;
+            Dictionary<string, Color> colors = new Dictionary<string, Color>{
+                {"Var", Color.FromArgb(250, 250, 250)},
+                {"String", Color.FromArgb(250, 250, 70)},
+                {"Number", Color.FromArgb(175, 130, 255)},
+                {"Atom", Color.FromArgb(250, 250, 250)},
+                {"p", Color.FromArgb(220, 220, 220)},
+                {"Blank", Color.FromArgb(0, 0, 0)},
+                {"Other", Color.Red},
+                {"Comment", Color.FromArgb(100, 250, 100)}
+            };
             foreach (ErlangElement elem in o.Efile.Elements)
             {
-                if(i++ > cnt) break;
-                wi(elem.Context);
+                i = txtResult.Text.Length;
+                txtResult.AppendText(elem.Context);
+                txtResult.SelectionStart = i;
+                txtResult.SelectionLength = elem.Context.Length;
+                if (colors.ContainsKey(elem.GroupName))
+                {
+                    txtResult.SelectionColor = colors[elem.GroupName];
+                }
+                else
+                {
+                    txtResult.SelectionBackColor = txtResult.BackColor;
+                    txtResult.SelectionColor = txtResult.ForeColor;
+                }
             }
             btnParser.Enabled = true;
-        }
-
-        private bool isColor = false;
-        private void wi(string str)
-        {
-            if (str.Length <= 0) return;
-
-            int s = txtResult.TextLength;
-            txtResult.AppendText(str);
-
-            txtResult.SelectionStart = s;
-            txtResult.SelectionLength = str.Length;
-            if (isColor)
-            {
-                txtResult.SelectionColor = Color.LightGoldenrodYellow;
-                txtResult.SelectionBackColor = Color.Green;
-            }
-            else
-            {
-                txtResult.SelectionColor = Color.Blue;
-                txtResult.SelectionBackColor = Color.BlanchedAlmond;
-            }
-            isColor = !isColor;
         }
 
         private void wl(string str)
