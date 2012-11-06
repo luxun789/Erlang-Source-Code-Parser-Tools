@@ -35,7 +35,7 @@ namespace ErlangParserTools
             int i = 0;
             int cnt = (int)txtCount.Value;
             Dictionary<string, Color> colors = new Dictionary<string, Color>{
-                {"Var", Color.FromArgb(250, 250, 250)},
+                {"Var", Color.FromArgb(100, 100, 220)},
                 {"String", Color.FromArgb(250, 250, 70)},
                 {"Number", Color.FromArgb(175, 130, 255)},
                 {"Atom", Color.FromArgb(250, 250, 250)},
@@ -56,7 +56,6 @@ namespace ErlangParserTools
                 }
                 else
                 {
-                    txtResult.SelectionBackColor = txtResult.BackColor;
                     txtResult.SelectionColor = txtResult.ForeColor;
                 }
             }
