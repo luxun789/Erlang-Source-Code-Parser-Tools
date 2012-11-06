@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\Comment.cs" />
-    <Compile Include="Elements\ErlangDomTree.cs" />
     <Compile Include="Elements\ErlangElement.cs" />
     <Compile Include="Elements\ErlangFile.cs" />
     <Compile Include="Elements\ErlangFunction.cs" />

@@ -29,7 +29,6 @@ namespace ErlangParserLib.Fsm
             this.Context = context;
         }
 
-        public List<string> words = new List<string>();
         public ErlangFile Efile {get; set;}
 
         /// <summary>
@@ -41,9 +40,29 @@ namespace ErlangParserLib.Fsm
             this.Efile = new ErlangFile();
 
             Match m = FsmCheck.regWorkParser.Match(this.Context);
+
+            SortedList<int, ErlangElement> elements = new SortedList<int, ErlangElement>();
+
+            //解析匹配流
             while(m.Success)
             {
-                this.words.Add(m.Groups[0].Value);
+                string s = m.Value;
+                ErlangElement elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
+                elem.Index = m.Index;
+                elem.Context = m.Value;
+                if(m.Groups["Comment"].Success)
+                {
+                    elem.EType = FsmStatus.FSM_COMMENT;
+                }
+                else if(m.Groups["String"].Success)
+                {
+                    elem.EType = FsmStatus.FSM_STRING;
+                }
+                else if (m.Groups["Var"].Success)
+                {
+                    
+                }
+                Efile.Elements.Add(elem);
                 m = m.NextMatch();
             }
         }
