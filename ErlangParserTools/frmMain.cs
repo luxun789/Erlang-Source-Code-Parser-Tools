@@ -38,6 +38,7 @@ namespace ErlangParserTools
                 {"Var", Color.FromArgb(100, 100, 220)},
                 {"String", Color.FromArgb(250, 250, 70)},
                 {"Number", Color.FromArgb(175, 130, 255)},
+                {"Record", Color.FromArgb(50, 250, 50)},
                 {"Atom", Color.FromArgb(250, 250, 250)},
                 {"p", Color.FromArgb(220, 220, 220)},
                 {"Blank", Color.FromArgb(0, 0, 0)},
