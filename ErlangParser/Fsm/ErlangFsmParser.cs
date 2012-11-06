@@ -27,7 +27,7 @@ namespace ErlangParserLib.Fsm
         }
 
         private string Context;
-        public string[] words;
+        public List<string> words;
 
         /// <summary>
         /// 解析文件
@@ -35,7 +35,13 @@ namespace ErlangParserLib.Fsm
         /// <returns></returns>
         public void Parser()
         {
-            this.words = FsmCheck.regWorkParser.Split(this.Context);
+            MatchCollection mc = FsmCheck.regWorkParser.Matches(this.Context);
+
+            this.words = new List<string>();
+            foreach(Match c in mc)
+            {
+                this.words.Add(c.Value);
+            }
         }
 
     }

@@ -33,6 +33,8 @@
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.btnParser = new System.Windows.Forms.Button();
             this.txtRegexStr = new System.Windows.Forms.TextBox();
+            this.txtCount = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCount)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOpen
@@ -89,14 +91,34 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRegexStr.Location = new System.Drawing.Point(12, 51);
             this.txtRegexStr.Name = "txtRegexStr";
-            this.txtRegexStr.Size = new System.Drawing.Size(710, 21);
+            this.txtRegexStr.Size = new System.Drawing.Size(567, 21);
             this.txtRegexStr.TabIndex = 3;
+            // 
+            // txtCount
+            // 
+            this.txtCount.Location = new System.Drawing.Point(585, 51);
+            this.txtCount.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.txtCount.Name = "txtCount";
+            this.txtCount.Size = new System.Drawing.Size(137, 21);
+            this.txtCount.TabIndex = 4;
+            this.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCount.ThousandsSeparator = true;
+            this.txtCount.Value = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 512);
+            this.Controls.Add(this.txtCount);
             this.Controls.Add(this.txtRegexStr);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.lblFilepath);
@@ -108,6 +130,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Erlang分析器";
+            ((System.ComponentModel.ISupportInitialize)(this.txtCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,6 +143,7 @@
         private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.Button btnParser;
         private System.Windows.Forms.TextBox txtRegexStr;
+        private System.Windows.Forms.NumericUpDown txtCount;
     }
 }
 

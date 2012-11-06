@@ -22,12 +22,15 @@ namespace ErlangParserTools
             o.Load(lblFilepath.Text);
             o.Parser();
 
-            wl("Count:" + o.words.Length + "\r\n");
+            wl("Count:" + o.words.Count + "\r\n");
             //wl(string.Join("|", o.words));
 
             btnParser.Enabled = false;
+            int i = 0;
+            int cnt = (int)txtCount.Value;
             foreach (string s in o.words)
             {
+                if(i++ > cnt) break;
                 wi(s);
             }
             btnParser.Enabled = true;
@@ -46,7 +49,7 @@ namespace ErlangParserTools
             if (isColor)
             {
                 txtResult.SelectionColor = Color.LightGoldenrodYellow;
-                txtResult.SelectionBackColor = Color.Black;
+                txtResult.SelectionBackColor = Color.Green;
             }
             else
             {
