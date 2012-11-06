@@ -43,6 +43,11 @@ namespace ErlangParserLib.Fsm
 
             SortedList<int, ErlangElement> elements = new SortedList<int, ErlangElement>();
 
+            string[] groups = new string[]{
+                "Comment", "Var", "String", "Number", "Atom",
+                "p", "Blank", "Other"
+            };
+
             //解析匹配流
             while(m.Success)
             {
@@ -50,17 +55,14 @@ namespace ErlangParserLib.Fsm
                 ErlangElement elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
                 elem.Index = m.Index;
                 elem.Context = m.Value;
-                if(m.Groups["Comment"].Success)
+
+                foreach(string gs in groups)
                 {
-                    elem.EType = FsmStatus.FSM_COMMENT;
-                }
-                else if(m.Groups["String"].Success)
-                {
-                    elem.EType = FsmStatus.FSM_STRING;
-                }
-                else if (m.Groups["Var"].Success)
-                {
-                    
+                    if(m.Groups[gs].Success)
+                    {
+                        elem.GroupName = gs;
+                        break;
+                    }
                 }
                 Efile.Elements.Add(elem);
                 m = m.NextMatch();
