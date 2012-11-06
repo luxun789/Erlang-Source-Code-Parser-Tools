@@ -1,7 +1,5 @@
 ﻿%%%---------------------------------------
-%%% @Module  : data_pet
-%%% @Author  : ygzj
-%%% @Created : 2010.10.06
+%%% @Module  : test.txt
 %%% @Description:  灵兽配置
 %%%---------------------------------------
 -module(data_pet).
