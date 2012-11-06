@@ -40,7 +40,12 @@ namespace ErlangParserLib.Fsm
             this.words = new List<string>();
             foreach(Match c in mc)
             {
-                this.words.Add(c.Value);
+                string s = c.Value;
+                //string s = c.Groups["Number"].Value;
+                if(s.Length > 0)
+                {
+                    this.words.Add(s);
+                }
             }
         }
 

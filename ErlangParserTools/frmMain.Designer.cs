@@ -58,7 +58,7 @@
             this.lblFilepath.Name = "lblFilepath";
             this.lblFilepath.Size = new System.Drawing.Size(548, 23);
             this.lblFilepath.TabIndex = 1;
-            this.lblFilepath.Text = "D:\\ygfs\\server\\src\\data\\data_pet.erl";
+            this.lblFilepath.Text = "test.txt";
             this.lblFilepath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtResult
