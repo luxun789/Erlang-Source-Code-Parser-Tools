@@ -20,5 +20,7 @@ namespace ErlangParserLib.Elements
         public long Index {get; set;}
 
         public List<ErlangElement> Nodes = new List<ErlangElement>();
+
+        public string GroupName {get; set;}
     }
 }
