@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using ErlangParserLib.Fsm;
 
 namespace ErlangParserLib.Elements
 {
     /// <summary>
     /// Erlang文件基础类
     /// </summary>
-    public class ErlangFile
+    public class ErlangFile : ErlangElement
     {
-        /// <summary>
-        /// 文件中所有Erlang语法元素.
-        /// </summary>
-        public List<ErlangElement> Elements = new List<ErlangElement>();
+        public ErlangFile()
+            : base(FsmStatus.FSM_FILE)
+        {
+        }
     }
 }
