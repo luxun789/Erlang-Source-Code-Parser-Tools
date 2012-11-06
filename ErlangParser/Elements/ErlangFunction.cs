@@ -1,4 +1,5 @@
-﻿namespace ErlangParserLib.Elements
+﻿using ErlangParserLib.Fsm;
+namespace ErlangParserLib.Elements
 {
     public class ErlangFunction : ErlangElement
     {
@@ -8,7 +9,7 @@
         public string Name {get; set;}
 
         public ErlangFunction()
-            : base(ElementType.FUNCTION)
+            : base(FsmStatus.FSM_FUNCTION)
         {
         }
     }

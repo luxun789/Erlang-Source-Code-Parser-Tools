@@ -4,16 +4,13 @@ namespace ErlangParserLib.Fsm
 {
     public static class FsmCheck
     {
-        public static readonly string strWorkParser =
+        public static readonly string strLexParser =
 
             //行注释
             @"(?<Comment>%.+\n)|" +
 
             //字符串
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +
-
-            //关键字
-            @"(?<KeyWords>fun|)" +
 
             //变量
             @"(?<Var>([_A-Z][_a-zA-Z0-9]*))|" +
@@ -43,7 +40,7 @@ namespace ErlangParserLib.Fsm
         /// 词法分析器
         /// </summary>
         public static Regex regWorkParser = new Regex(
-            FsmCheck.strWorkParser, 
+            FsmCheck.strLexParser, 
             RegexOptions.Multiline|RegexOptions.ExplicitCapture
         );
     }

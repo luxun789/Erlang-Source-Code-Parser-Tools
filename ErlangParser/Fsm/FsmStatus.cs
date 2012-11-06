@@ -46,14 +46,24 @@
         FSM_TUPLE = 7,
 
         /// <summary>
+        /// 宏定义
+        /// </summary>
+        FSM_MACRO = 8,
+
+        /// <summary>
         /// 在宏变量中
         /// </summary>
-        FSM_MACROVARIABLES = 8,
+        FSM_MACROVARIABLES = 9,
 
         /// <summary>
         /// 在函数中
         /// </summary>
-        FSM_FUNCTION = 9,
+        FSM_FUNCTION = 10,
+
+        /// <summary>
+        /// 函数调用
+        /// </summary>
+        FSM_FUNCTION_CALL= 11,
 
         /// <summary>
         /// 末定义段.(暂时没有用)

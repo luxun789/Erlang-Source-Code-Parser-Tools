@@ -1,4 +1,6 @@
-﻿namespace ErlangParserLib.Elements
+﻿using ErlangParserLib.Fsm;
+
+namespace ErlangParserLib.Elements
 {
     public class Statement : ErlangElement
     {
@@ -13,7 +15,7 @@
         public string InnerText {get; set;}
 
         public Statement()
-            : base(ElementType.STATEMENT)
+            : base(FsmStatus.FSM_STATEMENT)
         {
         }
     }

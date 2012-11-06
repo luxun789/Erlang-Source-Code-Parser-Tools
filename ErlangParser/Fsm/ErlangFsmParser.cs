@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using ErlangParserLib.Elements;
 
 namespace ErlangParserLib.Fsm
 {
     public class ErlangFsmParser
     {
         public static ErlangFsmParser Instance = new ErlangFsmParser();
+
+        private string Context;
 
         /// <summary>
         /// 加载文件内容
@@ -26,8 +29,8 @@ namespace ErlangParserLib.Fsm
             this.Context = context;
         }
 
-        private string Context;
-        public List<string> words;
+        public List<string> words = new List<string>();
+        public ErlangFile Efile {get; set;}
 
         /// <summary>
         /// 解析文件
@@ -35,17 +38,13 @@ namespace ErlangParserLib.Fsm
         /// <returns></returns>
         public void Parser()
         {
-            MatchCollection mc = FsmCheck.regWorkParser.Matches(this.Context);
+            this.Efile = new ErlangFile();
 
-            this.words = new List<string>();
-            foreach(Match c in mc)
+            Match m = FsmCheck.regWorkParser.Match(this.Context);
+            while(m.Success)
             {
-                string s = c.Value;
-                //string s = c.Groups["Var"].Value;
-                if(s.Length > 0)
-                {
-                    this.words.Add("[" + c.Index + "]" + s);
-                }
+                this.words.Add(m.Groups[0].Value);
+                m = m.NextMatch();
             }
         }
 
