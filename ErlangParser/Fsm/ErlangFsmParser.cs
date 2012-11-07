@@ -43,11 +43,6 @@ namespace ErlangParserLib.Fsm
 
             SortedList<int, ErlangElement> elements = new SortedList<int, ErlangElement>();
 
-            string[] groups = new string[]{
-                "Comment", "Var", "String", "Number", "Atom",
-                "p", "Blank", "Other", "Record", "Macro"
-            };
-
             //解析匹配流
             while(m.Success)
             {
@@ -57,7 +52,7 @@ namespace ErlangParserLib.Fsm
                 elem.Context = m.Value;
 
                 //判断所在分组
-                foreach(string gs in groups)
+                foreach(string gs in FsmCheck.RegexGroups.Keys)
                 {
                     if(m.Groups[gs].Success)
                     {
