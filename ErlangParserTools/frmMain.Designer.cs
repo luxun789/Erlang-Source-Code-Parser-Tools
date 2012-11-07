@@ -48,7 +48,7 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(396, 12);
+            this.btnOpen.Location = new System.Drawing.Point(520, 12);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 0;
@@ -64,7 +64,7 @@
             this.lblFilepath.Location = new System.Drawing.Point(12, 12);
             this.lblFilepath.Name = "lblFilepath";
             this.lblFilepath.ReadOnly = true;
-            this.lblFilepath.Size = new System.Drawing.Size(378, 21);
+            this.lblFilepath.Size = new System.Drawing.Size(502, 21);
             this.lblFilepath.TabIndex = 1;
             // 
             // txtResult
@@ -78,7 +78,7 @@
             this.txtResult.Location = new System.Drawing.Point(3, 3);
             this.txtResult.Name = "txtResult";
             this.txtResult.ShowSelectionMargin = true;
-            this.txtResult.Size = new System.Drawing.Size(526, 325);
+            this.txtResult.Size = new System.Drawing.Size(526, 284);
             this.txtResult.TabIndex = 2;
             this.txtResult.TabStop = false;
             this.txtResult.Text = "";
@@ -86,7 +86,7 @@
             // btnParser
             // 
             this.btnParser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnParser.Location = new System.Drawing.Point(477, 12);
+            this.btnParser.Location = new System.Drawing.Point(601, 12);
             this.btnParser.Name = "btnParser";
             this.btnParser.Size = new System.Drawing.Size(75, 23);
             this.btnParser.TabIndex = 0;
@@ -103,7 +103,7 @@
             this.txtRegexStr.Name = "txtRegexStr";
             this.txtRegexStr.ReadOnly = true;
             this.txtRegexStr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRegexStr.Size = new System.Drawing.Size(540, 62);
+            this.txtRegexStr.Size = new System.Drawing.Size(664, 105);
             this.txtRegexStr.TabIndex = 3;
             // 
             // txtDomTree
@@ -113,7 +113,7 @@
             this.txtDomTree.Multiline = true;
             this.txtDomTree.Name = "txtDomTree";
             this.txtDomTree.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDomTree.Size = new System.Drawing.Size(526, 284);
+            this.txtDomTree.Size = new System.Drawing.Size(650, 316);
             this.txtDomTree.TabIndex = 5;
             // 
             // tcInfo
@@ -123,10 +123,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tcInfo.Controls.Add(this.tpJsonTree);
             this.tcInfo.Controls.Add(this.tpMatches);
-            this.tcInfo.Location = new System.Drawing.Point(12, 119);
+            this.tcInfo.Location = new System.Drawing.Point(12, 162);
             this.tcInfo.Name = "tcInfo";
             this.tcInfo.SelectedIndex = 0;
-            this.tcInfo.Size = new System.Drawing.Size(540, 316);
+            this.tcInfo.Size = new System.Drawing.Size(664, 348);
             this.tcInfo.TabIndex = 6;
             // 
             // tpJsonTree
@@ -135,7 +135,7 @@
             this.tpJsonTree.Location = new System.Drawing.Point(4, 22);
             this.tpJsonTree.Name = "tpJsonTree";
             this.tpJsonTree.Padding = new System.Windows.Forms.Padding(3);
-            this.tpJsonTree.Size = new System.Drawing.Size(532, 290);
+            this.tpJsonTree.Size = new System.Drawing.Size(656, 322);
             this.tpJsonTree.TabIndex = 0;
             this.tpJsonTree.Text = "分析树";
             this.tpJsonTree.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             this.tpMatches.Location = new System.Drawing.Point(4, 22);
             this.tpMatches.Name = "tpMatches";
             this.tpMatches.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMatches.Size = new System.Drawing.Size(532, 331);
+            this.tpMatches.Size = new System.Drawing.Size(532, 290);
             this.tpMatches.TabIndex = 1;
             this.tpMatches.Text = "着色匹配";
             this.tpMatches.UseVisualStyleBackColor = true;
@@ -155,9 +155,9 @@
             // 
             this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslPostion});
-            this.StatusBar.Location = new System.Drawing.Point(0, 438);
+            this.StatusBar.Location = new System.Drawing.Point(0, 513);
             this.StatusBar.Name = "StatusBar";
-            this.StatusBar.Size = new System.Drawing.Size(564, 22);
+            this.StatusBar.Size = new System.Drawing.Size(688, 22);
             this.StatusBar.TabIndex = 7;
             this.StatusBar.Text = "statusStrip1";
             // 
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 460);
+            this.ClientSize = new System.Drawing.Size(688, 535);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.tcInfo);
             this.Controls.Add(this.txtRegexStr);
