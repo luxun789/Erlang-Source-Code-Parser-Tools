@@ -13,7 +13,7 @@ namespace ErlangParserLib.Fsm
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +
 
             //记录
-            @"(?<Record>(\#[a-z][_a-zA-Z0-9]*\.[a-z][_a-zA-Z0-9]*))|" +
+            @"(?<Record>(#[a-z][_a-zA-Z0-9]*\.[a-z][_a-zA-Z0-9]*))|" +
 
             //变量
             @"(?<Var>([_A-Z][_a-zA-Z0-9]*))|" +

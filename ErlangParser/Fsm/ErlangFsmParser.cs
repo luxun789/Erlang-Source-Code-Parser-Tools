@@ -45,7 +45,7 @@ namespace ErlangParserLib.Fsm
 
             string[] groups = new string[]{
                 "Comment", "Var", "String", "Number", "Atom",
-                "p", "Blank", "Other"
+                "p", "Blank", "Other", "Record", "Macro"
             };
 
             //解析匹配流
