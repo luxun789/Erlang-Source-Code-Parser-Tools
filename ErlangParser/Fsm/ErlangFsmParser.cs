@@ -47,19 +47,22 @@ namespace ErlangParserLib.Fsm
             {
                 string s = m.Value;
                 ErlangElement elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
-                elem.Index = m.Index;
-                elem.Context = m.Value;
-
-                //判断所在分组
-                foreach (string gs in FsmCheck.RegexGroups.Keys)
+                if (m.Value.Length > 0)
                 {
-                    if (m.Groups[gs].Success)
+                    elem.Index = m.Index;
+                    elem.Context = m.Value;
+
+                    //判断所在分组
+                    foreach (string gs in FsmCheck.RegexGroups.Keys)
                     {
-                        elem.GroupName = gs;
-                        break;
+                        if (m.Groups[gs].Success)
+                        {
+                            elem.GroupName = gs;
+                            break;
+                        }
                     }
+                    Efile.Elements.Add(elem);
                 }
-                Efile.Elements.Add(elem);
                 m = m.NextMatch();
             }
         }

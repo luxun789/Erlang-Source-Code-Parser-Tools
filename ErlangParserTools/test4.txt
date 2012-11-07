@@ -2,7 +2,7 @@
 %%% @Module  : pp_chat
 %%% @Author  : ygzj
 %%% @Created : 2010.09.28
-%%% @Description:  聊天功能
+%%% @Description: 
 %%%--------------------------------------
 -module(pp_chat).
 -export([handle/3]).

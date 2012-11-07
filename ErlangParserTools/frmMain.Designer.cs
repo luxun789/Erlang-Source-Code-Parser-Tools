@@ -38,17 +38,20 @@
             this.tcInfo = new System.Windows.Forms.TabControl();
             this.tpJsonTree = new System.Windows.Forms.TabPage();
             this.tpMatches = new System.Windows.Forms.TabPage();
+            this.tpSource = new System.Windows.Forms.TabPage();
+            this.txtSource = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount)).BeginInit();
             this.tcInfo.SuspendLayout();
             this.tpJsonTree.SuspendLayout();
             this.tpMatches.SuspendLayout();
+            this.tpSource.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOpen.Enabled = false;
-            this.btnOpen.Location = new System.Drawing.Point(216, 12);
+            this.btnOpen.Location = new System.Drawing.Point(396, 12);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 0;
@@ -63,7 +66,7 @@
             this.lblFilepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFilepath.Location = new System.Drawing.Point(12, 12);
             this.lblFilepath.Name = "lblFilepath";
-            this.lblFilepath.Size = new System.Drawing.Size(198, 23);
+            this.lblFilepath.Size = new System.Drawing.Size(378, 23);
             this.lblFilepath.TabIndex = 1;
             this.lblFilepath.Text = "test4.txt";
             this.lblFilepath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -72,7 +75,7 @@
             // 
             this.txtResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtResult.Location = new System.Drawing.Point(3, 3);
             this.txtResult.Name = "txtResult";
@@ -84,7 +87,7 @@
             // btnParser
             // 
             this.btnParser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnParser.Location = new System.Drawing.Point(297, 12);
+            this.btnParser.Location = new System.Drawing.Point(477, 12);
             this.btnParser.Name = "btnParser";
             this.btnParser.Size = new System.Drawing.Size(75, 23);
             this.btnParser.TabIndex = 0;
@@ -98,13 +101,13 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRegexStr.Location = new System.Drawing.Point(12, 51);
             this.txtRegexStr.Name = "txtRegexStr";
-            this.txtRegexStr.Size = new System.Drawing.Size(267, 21);
+            this.txtRegexStr.Size = new System.Drawing.Size(447, 21);
             this.txtRegexStr.TabIndex = 3;
             // 
             // txtCount
             // 
             this.txtCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCount.Location = new System.Drawing.Point(285, 51);
+            this.txtCount.Location = new System.Drawing.Point(465, 51);
             this.txtCount.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -138,10 +141,11 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tcInfo.Controls.Add(this.tpJsonTree);
             this.tcInfo.Controls.Add(this.tpMatches);
+            this.tcInfo.Controls.Add(this.tpSource);
             this.tcInfo.Location = new System.Drawing.Point(12, 78);
             this.tcInfo.Name = "tcInfo";
             this.tcInfo.SelectedIndex = 0;
-            this.tcInfo.Size = new System.Drawing.Size(360, 172);
+            this.tcInfo.Size = new System.Drawing.Size(540, 370);
             this.tcInfo.TabIndex = 6;
             // 
             // tpJsonTree
@@ -166,11 +170,32 @@
             this.tpMatches.Text = "着色匹配";
             this.tpMatches.UseVisualStyleBackColor = true;
             // 
+            // tpSource
+            // 
+            this.tpSource.Controls.Add(this.txtSource);
+            this.tpSource.Location = new System.Drawing.Point(4, 22);
+            this.tpSource.Name = "tpSource";
+            this.tpSource.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSource.Size = new System.Drawing.Size(532, 344);
+            this.tpSource.TabIndex = 2;
+            this.tpSource.Text = "源文本";
+            this.tpSource.UseVisualStyleBackColor = true;
+            // 
+            // txtSource
+            // 
+            this.txtSource.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSource.Location = new System.Drawing.Point(3, 3);
+            this.txtSource.Multiline = true;
+            this.txtSource.Name = "txtSource";
+            this.txtSource.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSource.Size = new System.Drawing.Size(526, 338);
+            this.txtSource.TabIndex = 0;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 262);
+            this.ClientSize = new System.Drawing.Size(564, 460);
             this.Controls.Add(this.tcInfo);
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.txtRegexStr);
@@ -181,11 +206,14 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Erlang分析器";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtCount)).EndInit();
             this.tcInfo.ResumeLayout(false);
             this.tpJsonTree.ResumeLayout(false);
             this.tpJsonTree.PerformLayout();
             this.tpMatches.ResumeLayout(false);
+            this.tpSource.ResumeLayout(false);
+            this.tpSource.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,6 +231,8 @@
         private System.Windows.Forms.TabControl tcInfo;
         private System.Windows.Forms.TabPage tpJsonTree;
         private System.Windows.Forms.TabPage tpMatches;
+        private System.Windows.Forms.TabPage tpSource;
+        private System.Windows.Forms.TextBox txtSource;
     }
 }
 
