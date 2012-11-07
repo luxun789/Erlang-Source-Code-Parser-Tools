@@ -18,7 +18,7 @@ namespace ErlangParserLib.Fsm
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +
 
             //关键字
-            @"(?<Keywords>\b(fun|if|case|of|end)\b)|" +
+            @"(?<Keywords>\b(fun|if|case|of|end|when)\b)|" +
 
             //记录
             @"(?<Record>(#[a-z][_a-zA-Z0-9]*\.[a-z][_a-zA-Z0-9]*))|" +

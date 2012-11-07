@@ -91,7 +91,7 @@ handle(11073, Status, [Id]) ->
 			 %%io:format("pp_chat 65line [ ] ~n"),
 			 {ok,BinData} = pt_11:write(11073,[0, 0, 0, "", 0])
      end,
-     lib_send:send_to_sid(Status#player.other#player_other.pid_send,BinData);
+     lib_send:send_to_sid((Status#player.other)#player_other.pid_send,BinData);
 
 %%拜堂对白
 handle(11080, _Status, [Type,Msg]) ->

@@ -78,7 +78,7 @@
             this.txtResult.Location = new System.Drawing.Point(3, 3);
             this.txtResult.Name = "txtResult";
             this.txtResult.ShowSelectionMargin = true;
-            this.txtResult.Size = new System.Drawing.Size(526, 284);
+            this.txtResult.Size = new System.Drawing.Size(650, 316);
             this.txtResult.TabIndex = 2;
             this.txtResult.TabStop = false;
             this.txtResult.Text = "";
@@ -146,7 +146,7 @@
             this.tpMatches.Location = new System.Drawing.Point(4, 22);
             this.tpMatches.Name = "tpMatches";
             this.tpMatches.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMatches.Size = new System.Drawing.Size(532, 290);
+            this.tpMatches.Size = new System.Drawing.Size(656, 322);
             this.tpMatches.TabIndex = 1;
             this.tpMatches.Text = "着色匹配";
             this.tpMatches.UseVisualStyleBackColor = true;
