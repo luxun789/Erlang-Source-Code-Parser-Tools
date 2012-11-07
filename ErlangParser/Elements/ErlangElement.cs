@@ -17,7 +17,7 @@ namespace ErlangParserLib.Elements
 
         public string Context {get; set;}
 
-        public long Index {get; set;}
+        public int Index {get; set;}
 
         public List<ErlangElement> Elements = new List<ErlangElement>();
 

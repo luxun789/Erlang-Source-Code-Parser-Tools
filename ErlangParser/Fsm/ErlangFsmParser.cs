@@ -8,8 +8,7 @@ namespace ErlangParserLib.Fsm
     public class ErlangFsmParser
     {
         public static ErlangFsmParser Instance = new ErlangFsmParser();
-
-        private string Context;
+        public string Context { get; private set; }
 
         /// <summary>
         /// 加载文件内容
@@ -29,7 +28,7 @@ namespace ErlangParserLib.Fsm
             this.Context = context;
         }
 
-        public ErlangFile Efile {get; set;}
+        public ErlangFile Efile { get; set; }
 
         /// <summary>
         /// 解析文件
@@ -44,7 +43,7 @@ namespace ErlangParserLib.Fsm
             SortedList<int, ErlangElement> elements = new SortedList<int, ErlangElement>();
 
             //解析匹配流
-            while(m.Success)
+            while (m.Success)
             {
                 string s = m.Value;
                 ErlangElement elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
@@ -52,9 +51,9 @@ namespace ErlangParserLib.Fsm
                 elem.Context = m.Value;
 
                 //判断所在分组
-                foreach(string gs in FsmCheck.RegexGroups.Keys)
+                foreach (string gs in FsmCheck.RegexGroups.Keys)
                 {
-                    if(m.Groups[gs].Success)
+                    if (m.Groups[gs].Success)
                     {
                         elem.GroupName = gs;
                         break;

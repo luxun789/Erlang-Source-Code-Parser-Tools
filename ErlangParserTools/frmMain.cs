@@ -19,7 +19,7 @@ namespace ErlangParserTools
         {
             txtResult.Text = string.Empty;
             txtRegexStr.Text = FsmCheck.strLexParser;
-            txtResult.SelectionTabs = new int[]{24};
+            
             txtDomTree.Clear();
             this.Refresh();
 
@@ -34,11 +34,11 @@ namespace ErlangParserTools
             btnParser.Enabled = false;
             int i = 0;
             int cnt = (int)txtCount.Value;
+            txtResult.Text = o.Context;
+            txtResult.SelectionTabs = new int[] { 24 };
             foreach (ErlangElement elem in o.Efile.Elements)
             {
-                i = txtResult.Text.Length;
-                txtResult.AppendText(elem.Context);
-                txtResult.SelectionStart = i;
+                txtResult.SelectionStart = elem.Index;
                 txtResult.SelectionLength = elem.Context.Length;
                 if (FsmCheck.RegexGroups.ContainsKey(elem.GroupName))
                 {
