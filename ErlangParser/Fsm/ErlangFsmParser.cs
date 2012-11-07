@@ -17,6 +17,7 @@ namespace ErlangParserLib.Fsm
         public void Load(string filename)
         {
             this.Context = File.ReadAllText(filename);
+            this.Context = this.Context.Replace("\r\n", "\n");
         }
 
         /// <summary>
