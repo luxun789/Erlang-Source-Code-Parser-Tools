@@ -65,7 +65,7 @@
             this.lblFilepath.Name = "lblFilepath";
             this.lblFilepath.Size = new System.Drawing.Size(198, 23);
             this.lblFilepath.TabIndex = 1;
-            this.lblFilepath.Text = "test2.txt";
+            this.lblFilepath.Text = "test3.txt";
             this.lblFilepath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtResult
