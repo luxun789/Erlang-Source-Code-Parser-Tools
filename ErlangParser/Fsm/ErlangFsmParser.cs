@@ -57,6 +57,7 @@ namespace ErlangParserLib.Fsm
                     {
                         if (m.Groups[gs].Success)
                         {
+                            elem.Index = m.Groups[gs].Index;
                             elem.GroupName = gs;
                             break;
                         }
