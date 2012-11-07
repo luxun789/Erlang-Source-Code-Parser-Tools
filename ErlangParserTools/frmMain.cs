@@ -28,21 +28,15 @@ namespace ErlangParserTools
             {
                 lblFilepath.Text = ofd.FileName;
             }
-
-            op.Load(lblFilepath.Text);
-            op.Parser();
-            txtSource.Text = op.Context;
         }
 
         private void btnParser_Click(object sender, EventArgs e)
         {
-            ShowInfo(tcInfo.SelectedTab);
-        }
+            op.Load(lblFilepath.Text);
+            op.Parser();
 
-        private void ShowInfo(TabPage tp)
-        {
-            if (tp == tpJsonTree) ShowDom();
-            else if (tp == tpMatches) ShowMatch();
+            ShowDom();
+            ShowMatch();
         }
 
         private void ShowDom()
@@ -52,24 +46,17 @@ namespace ErlangParserTools
 
         private void ShowMatch()
         {
+            if (op.Efile == null) return;
+
             int i = 0;
 
-            txtResult.Clear();
+            txtResult.Text = op.Context;
             txtResult.SelectionTabs = new int[] { 24 };
             this.Refresh();
 
-            if(op.Efile == null) return;
-
             foreach (ErlangElement elem in op.Efile.Elements)
             {
-                i = txtResult.Text.Length;
-                txtResult.AppendText(elem.Context);
-                txtResult.SelectionStart = i;
-                if(i != elem.Index)
-                {
-                    elem.Index = i;
-                }
-
+                txtResult.SelectionStart = elem.Index;
                 txtResult.SelectionLength = elem.Context.Length;
                 if (FsmCheck.RegexGroups.ContainsKey(elem.GroupName))
                 {
