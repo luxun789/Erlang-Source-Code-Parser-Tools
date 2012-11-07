@@ -40,17 +40,19 @@
             this.tpMatches = new System.Windows.Forms.TabPage();
             this.tpSource = new System.Windows.Forms.TabPage();
             this.txtSource = new System.Windows.Forms.TextBox();
+            this.StatusBar = new System.Windows.Forms.StatusStrip();
+            this.tsslPostion = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.txtCount)).BeginInit();
             this.tcInfo.SuspendLayout();
             this.tpJsonTree.SuspendLayout();
             this.tpMatches.SuspendLayout();
             this.tpSource.SuspendLayout();
+            this.StatusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Enabled = false;
             this.btnOpen.Location = new System.Drawing.Point(396, 12);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
@@ -73,13 +75,15 @@
             // 
             // txtResult
             // 
+            this.txtResult.AcceptsTab = true;
             this.txtResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.txtResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtResult.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResult.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtResult.Location = new System.Drawing.Point(3, 3);
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(346, 140);
+            this.txtResult.Size = new System.Drawing.Size(526, 325);
             this.txtResult.TabIndex = 2;
             this.txtResult.TabStop = false;
             this.txtResult.Text = "";
@@ -93,7 +97,7 @@
             this.btnParser.TabIndex = 0;
             this.btnParser.Text = "解  析";
             this.btnParser.UseVisualStyleBackColor = true;
-            this.btnParser.Click += new System.EventHandler(this.btnOpen_Click);
+            this.btnParser.Click += new System.EventHandler(this.btnParser_Click);
             // 
             // txtRegexStr
             // 
@@ -145,7 +149,7 @@
             this.tcInfo.Location = new System.Drawing.Point(12, 78);
             this.tcInfo.Name = "tcInfo";
             this.tcInfo.SelectedIndex = 0;
-            this.tcInfo.Size = new System.Drawing.Size(540, 370);
+            this.tcInfo.Size = new System.Drawing.Size(540, 357);
             this.tcInfo.TabIndex = 6;
             // 
             // tpJsonTree
@@ -165,7 +169,7 @@
             this.tpMatches.Location = new System.Drawing.Point(4, 22);
             this.tpMatches.Name = "tpMatches";
             this.tpMatches.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMatches.Size = new System.Drawing.Size(532, 344);
+            this.tpMatches.Size = new System.Drawing.Size(532, 331);
             this.tpMatches.TabIndex = 1;
             this.tpMatches.Text = "着色匹配";
             this.tpMatches.UseVisualStyleBackColor = true;
@@ -191,11 +195,28 @@
             this.txtSource.Size = new System.Drawing.Size(526, 338);
             this.txtSource.TabIndex = 0;
             // 
+            // StatusBar
+            // 
+            this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsslPostion});
+            this.StatusBar.Location = new System.Drawing.Point(0, 438);
+            this.StatusBar.Name = "StatusBar";
+            this.StatusBar.Size = new System.Drawing.Size(564, 22);
+            this.StatusBar.TabIndex = 7;
+            this.StatusBar.Text = "statusStrip1";
+            // 
+            // tsslPostion
+            // 
+            this.tsslPostion.Name = "tsslPostion";
+            this.tsslPostion.Size = new System.Drawing.Size(102, 17);
+            this.tsslPostion.Text = "Line:0, Column:0";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 460);
+            this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.tcInfo);
             this.Controls.Add(this.txtCount);
             this.Controls.Add(this.txtRegexStr);
@@ -214,6 +235,8 @@
             this.tpMatches.ResumeLayout(false);
             this.tpSource.ResumeLayout(false);
             this.tpSource.PerformLayout();
+            this.StatusBar.ResumeLayout(false);
+            this.StatusBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,6 +256,8 @@
         private System.Windows.Forms.TabPage tpMatches;
         private System.Windows.Forms.TabPage tpSource;
         private System.Windows.Forms.TextBox txtSource;
+        private System.Windows.Forms.StatusStrip StatusBar;
+        private System.Windows.Forms.ToolStripStatusLabel tsslPostion;
     }
 }
 
