@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\Comment.cs" />
+    <Compile Include="Elements\ErlangComment.cs" />
     <Compile Include="Elements\ErlangElement.cs" />
     <Compile Include="Elements\ErlangFile.cs" />
     <Compile Include="Elements\ErlangFunction.cs" />

@@ -28,7 +28,7 @@ namespace ErlangParserLib.Elements
 
                 if(elem.Context.StartsWith("%"))
                 {
-                    Comment c = new Comment();
+                    ErlangComment c = new ErlangComment();
                     c.Context = elem.Context;
                     c.GroupName = elem.GroupName;
                     c.Index = elem.Index;
@@ -50,7 +50,12 @@ namespace ErlangParserLib.Elements
                         d.Context += edec.Context;
                     }
                     this.Elements.RemoveRange(i, j - i);
+                    d.Reorganization();
                     this.Elements.Insert(i, d);
+                }
+                else if(elem.GroupName.Equals("Function"))
+                {
+                    ErlangFunction f = new ErlangFunction();
                 }
 
                 prev = elem;

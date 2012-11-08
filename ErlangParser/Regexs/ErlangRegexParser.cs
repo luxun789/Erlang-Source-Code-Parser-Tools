@@ -39,7 +39,7 @@ namespace ErlangParserLib.Regexs
                 if(str.StartsWith("%"))
                 {
                     //注释
-                    Comment c = new Comment();
+                    ErlangComment c = new ErlangComment();
                     c.Context = m.Value;
                     efile.Elements.Add(c);
                 }
