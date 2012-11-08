@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ErlangParserLib.Fsm;
 using Newtonsoft.Json;
 
@@ -7,7 +8,7 @@ namespace ErlangParserLib.Elements
     /// <summary>
     /// Erlang元素基类
     /// </summary>
-    public class  ErlangElement
+    public class  ErlangElement : IDisposable
     {
         public ErlangElement(FsmStatus etype)
         {
@@ -33,6 +34,10 @@ namespace ErlangParserLib.Elements
         /// 数据重组
         /// </summary>
         public virtual void Reorganization()
+        {
+        }
+
+        void IDisposable.Dispose()
         {
         }
     }
