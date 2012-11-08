@@ -66,6 +66,11 @@
         FSM_FUNCTION_CALL= 11,
 
         /// <summary>
+        /// 声明部分
+        /// </summary>
+        FSM_DECLARATION = 12,
+
+        /// <summary>
         /// 末定义段.(暂时没有用)
         /// </summary>
         FSM_UNDEFINE = 32768

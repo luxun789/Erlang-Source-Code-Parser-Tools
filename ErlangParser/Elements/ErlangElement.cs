@@ -1,5 +1,5 @@
-﻿using ErlangParserLib.Fsm;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ErlangParserLib.Fsm;
 
 namespace ErlangParserLib.Elements
 {
@@ -22,5 +22,12 @@ namespace ErlangParserLib.Elements
         public List<ErlangElement> Elements = new List<ErlangElement>();
 
         public string GroupName {get; set;}
+
+        /// <summary>
+        /// 数据重组
+        /// </summary>
+        public virtual void Reorganization()
+        {
+        }
     }
 }

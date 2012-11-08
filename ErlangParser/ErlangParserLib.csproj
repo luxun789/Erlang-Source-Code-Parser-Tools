@@ -59,7 +59,7 @@
     <Compile Include="Regexs\ErlangRegexParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regexs\RegexUtils.cs" />
-    <Compile Include="Elements\Statement.cs" />
+    <Compile Include="Elements\ErlangDeclaration.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

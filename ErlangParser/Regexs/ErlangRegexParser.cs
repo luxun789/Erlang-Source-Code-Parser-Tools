@@ -46,7 +46,7 @@ namespace ErlangParserLib.Regexs
                 else if(str.StartsWith("-"))
                 {
                     //声明
-                    Statement  s = new Statement();
+                    Declaration  s = new Statement();
                     s.Context = m.Value;
                     s.Flag = m.Groups[1].Value;
                     s.InnerText = m.Groups[2].Value;

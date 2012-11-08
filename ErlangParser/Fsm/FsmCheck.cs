@@ -20,7 +20,7 @@ namespace ErlangParserLib.Fsm
             //关键字
             @"(?<Keywords>\b(fun|if|case|of|end|when)\b)|" +
 
-            //二进制关键字
+            //关键字(二进制流类型)
             @"(?<BinaryKeywords>(?<=\/)(" +
                 @"(little\-|big\-|native\-)*" +
                 @"(signed\-|unsigned\-)*" +
@@ -76,7 +76,7 @@ namespace ErlangParserLib.Fsm
                 {"Atom", Color.FromArgb(250, 250, 250)},
                 {"p", Color.FromArgb(220, 220, 220)},
                 {"Blank", Color.FromArgb(0, 0, 0)},
-                {"Comment", Color.FromArgb(100, 250, 100)},
+                {"Comment", Color.FromArgb(150, 150, 150)},
                 {"Other", Color.Red}
             };
 
