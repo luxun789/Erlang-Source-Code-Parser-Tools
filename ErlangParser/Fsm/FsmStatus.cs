@@ -66,9 +66,24 @@
         FSM_FUNCTION_CALL= 11,
 
         /// <summary>
-        /// 声明部分
+        /// 文件声明部分
         /// </summary>
         FSM_DECLARATION = 12,
+
+        /// <summary>
+        /// 函数头
+        /// </summary>
+        FSM_FUNCTION_HEAD = 13,
+
+        /// <summary>
+        /// 函数参数部分
+        /// </summary>
+        FSM_FUNCTION_PARAMS = 14,
+
+        /// <summary>
+        /// 函数主体
+        /// </summary>
+        FSM_FUNCTION_BODY = 15,
 
         /// <summary>
         /// 末定义段.(暂时没有用)

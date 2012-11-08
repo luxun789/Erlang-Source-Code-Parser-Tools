@@ -14,11 +14,12 @@ namespace ErlangParserLib.Fsm
             //行注释
             @"(?<Comment>%.+\n)|" +
 
-            //字符串
+            //字符串, 单引基元
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +
+            @"(?<String>\'(.|\n)*?(?<!\\)\')|" +
 
             //关键字
-            @"(?<Keywords>\b(fun|if|case|of|end|when)\b)|" +
+            @"(?<Keywords>\b(fun|if|case|of|end|when|true|false)\b)|" +
 
             //关键字(二进制流类型)
             @"(?<BinaryKeywords>(?<=\/)(" +
@@ -79,6 +80,38 @@ namespace ErlangParserLib.Fsm
                 {"Comment", Color.FromArgb(150, 150, 150)},
                 {"Other", Color.Red}
             };
+
+        /// <summary>
+        /// 语法栈
+        /// </summary>
+        public static string[][] StockChar = new string[][]{
+            new string[]{"[", "]"},
+            new string[]{"<<", ">>"},
+            new string[]{"{", "}"},
+            new string[]{"(", ")"},
+            new string[]{"fun", "end"},
+            new string[]{"if", "end"},
+            new string[]{"case", "end"},
+            new string[]{"<", ">"}
+        };
+
+        /// <summary>
+        /// 判断是否为堆栈处理字符
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>返回用于判断结构的子组</returns>
+        public static string[] IsStockChar(string str)
+        {
+            string[] ret = null;
+            foreach(string[] sl in StockChar)
+            {
+                if(sl[0].Equals(str)) {
+                    ret = sl;
+                    break;
+                }
+            }
+            return ret;
+        }
 
         /// <summary>
         /// 词法分析器

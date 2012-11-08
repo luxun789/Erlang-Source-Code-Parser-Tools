@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ErlangParserLib.Fsm;
 using Newtonsoft.Json;
 
@@ -28,7 +27,13 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 所有函数
         /// </summary>
+        [JsonIgnore()]
         public List<ErlangFunction> Functions = new List<ErlangFunction>();
+
+        /// <summary>
+        /// 函数组
+        /// </summary>
+        public Dictionary<string, List<ErlangFunction>> FuncionGroups = new Dictionary<string, List<ErlangFunction>>();
 
         /// <summary>
         /// 结构重组
@@ -43,6 +48,10 @@ namespace ErlangParserLib.Elements
             ErlangElement elem = null;
             while (i < this.Elements.Count)
             {
+                //跳过空元素
+                //i += base.SkipBlank(this.Elements, i);
+
+                //获取元素
                 elem = this.Elements[i];
                 if (elem.Context.StartsWith("%"))
                 {
@@ -69,10 +78,25 @@ namespace ErlangParserLib.Elements
                 {
                     using (ErlangFunction f = new ErlangFunction())
                     {
-                        //len = f.Reorganization(this.Elements, i);
+                        len = f.Reorganization(this.Elements, i);
+                        this.Elements.RemoveRange(i, len);
+                        this.Elements.Insert(i, f);
+                        this.Functions.Add(f);
+
+                        //函数分组
+                        List<ErlangFunction> funs = null;
+                        if(!this.FuncionGroups.ContainsKey(f.Name))
+                        {
+                            funs = new List<ErlangFunction>();
+                            this.FuncionGroups.Add(f.Name, funs);
+                        }
+                        else
+                        {
+                            funs = this.FuncionGroups[f.Name];
+                        }
+                        funs.Add(f);
                     }
                 }
-
                 prev = elem;
                 i++;
             }
