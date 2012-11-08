@@ -2,9 +2,9 @@
 
 namespace ErlangParserLib.Elements
 {
-    public class Comment : ErlangElement
+    public class ErlangComment : ErlangElement
     {
-        public Comment()
+        public ErlangComment()
             : base(FsmStatus.FSM_COMMENT)
         {
         }
