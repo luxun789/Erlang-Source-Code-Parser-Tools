@@ -36,7 +36,7 @@ namespace ErlangParserLib.Elements
                 }
                 else if(elem.Context.Equals("-"))
                 {
-                    Declaration d = new Declaration();
+                    ErlangDeclaration d = new ErlangDeclaration();
                     d.Index = elem.Index;
                     int j = 0;
                     for(j = i; j < this.Elements.Count; j ++)

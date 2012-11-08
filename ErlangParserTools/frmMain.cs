@@ -34,6 +34,7 @@ namespace ErlangParserTools
         {
             op.Load(lblFilepath.Text);
             op.Parser();
+            op.Efile.Reorganization();
 
             ShowDom();
             ShowMatch();
@@ -47,8 +48,6 @@ namespace ErlangParserTools
         private void ShowMatch()
         {
             if (op.Efile == null) return;
-
-            int i = 0;
 
             txtResult.Text = op.Context;
             txtResult.SelectionTabs = new int[] { 24 };
