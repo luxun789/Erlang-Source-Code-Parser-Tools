@@ -2,20 +2,27 @@
 
 namespace ErlangParserLib.Elements
 {
-    public class Statement : ErlangElement
+    public class ErlangDeclaration : ErlangElement
     {
         /// <summary>
         /// 标识
         /// </summary>
-        public string Flag { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// 内嵌内容
         /// </summary>
         public string InnerText {get; set;}
 
-        public Statement()
-            : base(FsmStatus.FSM_STATEMENT)
+        public ErlangDeclaration()
+            : base(FsmStatus.FSM_DECLARATION)
+        {
+        }
+
+        /// <summary>
+        /// 声明重组
+        /// </summary>
+        public override void Reorganization()
         {
         }
     }
