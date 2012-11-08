@@ -16,6 +16,7 @@ namespace ErlangParserLib.Elements
             this.Context = string.Empty;
             this.Index = -1;
             this.GroupName = string.Empty;
+            this.Elements = new List<ErlangElement>();
         }
 
         [JsonIgnore()]
@@ -26,15 +27,28 @@ namespace ErlangParserLib.Elements
         [JsonIgnore()]
         public int Index {get; set;}
 
-        public List<ErlangElement> Elements = new List<ErlangElement>();
+        [JsonIgnore()]
+        public List<ErlangElement> Elements {get; set;}
 
+        [JsonIgnore()]
         public string GroupName {get; set;}
 
         /// <summary>
-        /// 数据重组
+        /// 元素重组
         /// </summary>
-        public virtual void Reorganization()
+        /// <param name="elements"></param>
+        /// <returns></returns>
+        public virtual int Reorganization(IList<ErlangElement> elements)
         {
+            return Reorganization(elements, 0);
+        }
+
+        /// <summary>
+        /// 元素重组
+        /// </summary>
+        public virtual int Reorganization(IList<ErlangElement> elements, int startIndex)
+        {
+            return 1;
         }
 
         void IDisposable.Dispose()

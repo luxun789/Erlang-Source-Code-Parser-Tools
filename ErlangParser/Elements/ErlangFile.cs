@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ErlangParserLib.Fsm;
+using Newtonsoft.Json;
 
 namespace ErlangParserLib.Elements
 {
@@ -32,25 +33,25 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 结构重组
         /// </summary>
-        public override void Reorganization()
+        public void Reorganization()
         {
             if (this.Elements == null) return;
 
             int i = 0;
+            int len = 0;
             ErlangElement prev = null;
             ErlangElement elem = null;
             while (i < this.Elements.Count)
             {
                 elem = this.Elements[i];
-
                 if (elem.Context.StartsWith("%"))
                 {
                     using (ErlangComment c = new ErlangComment())
                     {
-                        c.Context = elem.Context;
-                        c.GroupName = elem.GroupName;
-                        c.Index = elem.Index;
-                        this.Elements[i] = c;
+                        len = c.Reorganization(this.Elements, i);
+
+                        this.Elements.RemoveRange(i, len);
+                        this.Elements.Insert(i, c);
                         this.Comments.Add(c);
                     }
                 }
@@ -58,20 +59,8 @@ namespace ErlangParserLib.Elements
                 {
                     using (ErlangDeclaration d = new ErlangDeclaration())
                     {
-                        d.Index = elem.Index;
-                        int j = 0;
-                        for (j = i; j < this.Elements.Count; j++)
-                        {
-                            using (ErlangElement edec = this.Elements[j])
-                            {
-                                d.Elements.Add(edec);
-                                d.Context += edec.Context;
-
-                                if (edec.Context.Equals(".")) break;
-                            }
-                        }
-                        this.Elements.RemoveRange(i, j - i);
-                        d.Reorganization();
+                        len = d.Reorganization(this.Elements, i);
+                        this.Elements.RemoveRange(i, len);
                         this.Elements.Insert(i, d);
                         this.Declarations.Add(d);
                     }
@@ -80,12 +69,14 @@ namespace ErlangParserLib.Elements
                 {
                     using (ErlangFunction f = new ErlangFunction())
                     {
+                        //len = f.Reorganization(this.Elements, i);
                     }
                 }
 
                 prev = elem;
                 i++;
             }
+
         }
     }
 }

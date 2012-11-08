@@ -40,8 +40,7 @@ namespace ErlangParserLib.Fsm
             this.Efile = new ErlangFile();
 
             Match m = FsmCheck.regWorkParser.Match(this.Context);
-
-            SortedList<int, ErlangElement> elements = new SortedList<int, ErlangElement>();
+            List<ErlangElement> elements = new List<ErlangElement>();
 
             //解析匹配流
             while (m.Success)
