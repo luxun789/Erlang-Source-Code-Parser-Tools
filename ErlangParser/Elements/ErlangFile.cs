@@ -7,7 +7,7 @@ namespace ErlangParserLib.Elements
     /// <summary>
     /// Erlang文件基础类
     /// </summary>
-    public class ErlangFile : ErlangElement, IDisposable
+    public class ErlangFile : ErlangElement
     {
         public ErlangFile()
             : base(FsmStatus.FSM_FILE)
@@ -23,6 +23,11 @@ namespace ErlangParserLib.Elements
         /// 所有的声明
         /// </summary>
         public List<ErlangDeclaration> Declarations = new List<ErlangDeclaration>();
+
+        /// <summary>
+        /// 所有函数
+        /// </summary>
+        public List<ErlangFunction> Functions = new List<ErlangFunction>();
 
         /// <summary>
         /// 结构重组
@@ -81,10 +86,6 @@ namespace ErlangParserLib.Elements
                 prev = elem;
                 i++;
             }
-        }
-
-        void IDisposable.Dispose()
-        {
         }
     }
 }
