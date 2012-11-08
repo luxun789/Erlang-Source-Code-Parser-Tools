@@ -20,6 +20,14 @@ namespace ErlangParserLib.Fsm
             //关键字
             @"(?<Keywords>\b(fun|if|case|of|end|when)\b)|" +
 
+            //二进制关键字
+            @"(?<BinaryKeywords>(?<=\/)(" +
+                @"(little\-|big\-|native\-)*" +
+                @"(signed\-|unsigned\-)*" +
+                @"(integer|float|binary|byte|bits|bitstring)" +
+                @"(\-unit)*" +
+            @"))|" +
+
             //记录
             @"(?<Record>(#[a-z][_a-zA-Z0-9]*\.[a-z][_a-zA-Z0-9]*))|" +
 
@@ -29,17 +37,23 @@ namespace ErlangParserLib.Fsm
             //数值
             @"(?<Number>(\d+(\.\d)*[eE]\d)|(\d+\.\d+)|(\d+))|" +
 
-            //基元
+            //函数
+            @"(?<Function>(?<!\:)([a-z]\w*?(?=\()))|" +
+
+            //模块调用
+            @"(?<ModuleCall>([a-z]{1}\w*?(?=\:)))|" +
+
+            //元子
             @"(?<Atom>(\w+))|" +
 
             //分隔符(长度:3)
             @"(?<p>(\=\/\=)|(\=\:\=))|" +
 
             //分隔符(长度:2)
-            @"(?<p>(\+\+)|(\-\-)|(\=\=)|(\/\=)|(\=\<)|(\>\=)|(\<\<)|(\>\>)|(\-\>))|" +
+            @"(?<p>(\+\+)|(\-\-)|(\=\=)|(\/\=)|(\=\<)|(\<\-)|(\|\|)|(\<\=)|(\>\=)|(\<\<)|(\>\>)|(\-\>))|" +
 
             //分隔符(长度:1)
-            @"(?<p>[\#\>\<\|\.\,\;\:\{\}\[\]\(\)\+\-\*\/\=\!\?])|" +
+            @"(?<p>[\>\<\|\.\,\;\:\{\}\[\]\(\)\+\-\*\/\=\!\?])|" +
 
             //间隔(空格, \t, \r, \n)
             @"(?<Blank>\s*)|" +
@@ -55,20 +69,23 @@ namespace ErlangParserLib.Fsm
                 {"String", Color.FromArgb(250, 250, 70)},
                 {"Number", Color.FromArgb(175, 130, 255)},
                 {"Keywords", Color.FromArgb(175, 255, 255)},
+                {"BinaryKeywords", Color.FromArgb(255, 30, 30)},
                 {"Record", Color.FromArgb(180, 50, 50)},
+                {"Function", Color.FromArgb(30, 250, 30)},
+                {"ModuleCall", Color.FromArgb(250, 250, 0)},
                 {"Atom", Color.FromArgb(250, 250, 250)},
                 {"p", Color.FromArgb(220, 220, 220)},
                 {"Blank", Color.FromArgb(0, 0, 0)},
-                {"Other", Color.Red},
-                {"Comment", Color.FromArgb(100, 250, 100)}
+                {"Comment", Color.FromArgb(100, 250, 100)},
+                {"Other", Color.Red}
             };
 
         /// <summary>
         /// 词法分析器
         /// </summary>
         public static Regex regWorkParser = new Regex(
-            FsmCheck.strLexParser, 
-            RegexOptions.Multiline|RegexOptions.ExplicitCapture
+            FsmCheck.strLexParser,
+            RegexOptions.Multiline | RegexOptions.ExplicitCapture
         );
     }
 }
