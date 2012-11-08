@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using ErlangParserLib.Elements;
 using ErlangParserLib.Fsm;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace ErlangParserTools
 {
@@ -30,6 +31,11 @@ namespace ErlangParserTools
             }
         }
 
+        /// <summary>
+        /// 语法解析
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnParser_Click(object sender, EventArgs e)
         {
             op.Load(lblFilepath.Text);
@@ -40,11 +46,17 @@ namespace ErlangParserTools
             ShowMatch();
         }
 
+        /// <summary>
+        /// 语法树
+        /// </summary>
         private void ShowDom()
         {
             txtDomTree.Text = JsonConvert.SerializeObject(op.Efile, Formatting.Indented);
         }
 
+        /// <summary>
+        /// 语法匹配
+        /// </summary>
         private void ShowMatch()
         {
             if (op.Efile == null) return;
@@ -53,20 +65,36 @@ namespace ErlangParserTools
             txtResult.SelectionTabs = new int[] { 24 };
             this.Refresh();
 
-            foreach (ErlangElement elem in op.Efile.Elements)
+            SetColor(op.Efile.Elements);
+
+        }
+
+        /// <summary>
+        /// 语法着色
+        /// </summary>
+        /// <param name="elems"></param>
+        private void SetColor(List<ErlangElement> elems)
+        {
+            foreach (ErlangElement elem in elems)
             {
-                txtResult.SelectionStart = elem.Index;
-                txtResult.SelectionLength = elem.Context.Length;
-                if (FsmCheck.RegexGroups.ContainsKey(elem.GroupName))
+                if (elem.Elements != null && elem.Elements.Count > 0)
                 {
-                    txtResult.SelectionColor = FsmCheck.RegexGroups[elem.GroupName];
+                    SetColor(elem.Elements);
                 }
-                else
+                else if(elem.GroupName.Length > 0)
                 {
-                    txtResult.SelectionColor = txtResult.ForeColor;
+                    txtResult.SelectionStart = elem.Index;
+                    txtResult.SelectionLength = elem.Context.Length;
+                    if (FsmCheck.RegexGroups.ContainsKey(elem.GroupName))
+                    {
+                        txtResult.SelectionColor = FsmCheck.RegexGroups[elem.GroupName];
+                    }
+                    else
+                    {
+                        txtResult.SelectionColor = txtResult.ForeColor;
+                    }
                 }
             }
-
         }
 
         private void frmMain_Load(object sender, EventArgs e)

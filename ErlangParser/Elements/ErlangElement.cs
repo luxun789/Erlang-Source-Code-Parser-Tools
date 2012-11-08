@@ -11,6 +11,9 @@ namespace ErlangParserLib.Elements
         public ErlangElement(FsmStatus etype)
         {
             this.EType = etype;
+            this.Context = string.Empty;
+            this.Index = -1;
+            this.GroupName = string.Empty;
         }
 
         public FsmStatus EType { get; set; }

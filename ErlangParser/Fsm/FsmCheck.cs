@@ -38,7 +38,7 @@ namespace ErlangParserLib.Fsm
             @"(?<Number>(\d+(\.\d)*[eE]\d)|(\d+\.\d+)|(\d+))|" +
 
             //函数
-            @"(?<Function>(?<!\:)([a-z]\w*?(?=\()))|" +
+            @"(?<Function>(?<![\:\-])([a-z]\w*?(?=\()))|" +
 
             //模块调用
             @"(?<ModuleCall>([a-z]{1}\w*?(?=\:)))|" +

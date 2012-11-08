@@ -41,11 +41,16 @@ namespace ErlangParserLib.Elements
                     int j = 0;
                     for(j = i; j < this.Elements.Count; j ++)
                     {
-                        ErlangElement edec = this.Elements[i];
+                        ErlangElement edec = this.Elements[j];
                         d.Elements.Add(edec);
-                        if(edec.Context.Equals(".")) break;
+                        if(edec.Context.Equals("."))
+                        {
+                            break;
+                        }
+                        d.Context += edec.Context;
                     }
-                    this.Elements.RemoveRange(i, j - i + 1);
+                    this.Elements.RemoveRange(i, j - i);
+                    this.Elements.Insert(i, d);
                 }
 
                 prev = elem;
