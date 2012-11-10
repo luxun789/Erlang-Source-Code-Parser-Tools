@@ -9,6 +9,7 @@ namespace ErlangParserLib.Fsm
     {
         public static ErlangFsmParser Instance = new ErlangFsmParser();
         public string Context { get; private set; }
+        public string Filename { get; private set; }
 
         /// <summary>
         /// 加载文件内容
@@ -16,6 +17,7 @@ namespace ErlangParserLib.Fsm
         /// <param name="filename"></param>
         public void Load(string filename)
         {
+            this.Filename = filename;
             this.Context = File.ReadAllText(filename);
             this.Context = this.Context.Replace("\r\n", "\n");
         }
@@ -58,30 +60,27 @@ namespace ErlangParserLib.Fsm
             {
                 cnode = GetElemByMatch(m);
                 pc = GetStockChar(cnode);
-                if(pc.Length > 0)
+                if (pc.Length > 0)
                 {
                     fnode.Elements.Add(cnode);
                     pElem.Push(cnode);
                     pChar.Push(pc);
                     fnode = cnode;
                 }
+                else if (cnode.Context == pc)
+                {
+                    pc = pChar.Pop();
+                    fnode = pElem.Pop();
+                    fnode.Elements.Add(cnode);
+                }
                 else
                 {
-                    pc = pChar.Peek();
-                    if(cnode.Context == pc)
-                    {
-                        pChar.Pop();
-                        fnode = pElem.Pop();
-                        fnode.Elements.Add(cnode);
-                    }
-                    else
-                    {
-                        fnode.Elements.Add(cnode);
-                    }
+                    fnode.Elements.Add(cnode);
                 }
 
                 m = m.NextMatch();
             }
+            Efile.Context = this.Filename;
         }
 
         /// <summary>
@@ -118,9 +117,10 @@ namespace ErlangParserLib.Fsm
         {
             string ret = string.Empty;
             string str = elem.Context;
-            foreach(string[] sl in FsmCheck.StockChar)
+            foreach (string[] sl in FsmCheck.StockChar)
             {
-                if(sl[0].Equals(str)) {
+                if (sl[0].Equals(str))
+                {
                     ret = sl[1];
                     break;
                 }
