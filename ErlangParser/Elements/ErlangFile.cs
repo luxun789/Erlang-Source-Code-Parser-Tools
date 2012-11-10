@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using ErlangParserLib.Fsm;
-using Newtonsoft.Json;
 
 namespace ErlangParserLib.Elements
 {
@@ -27,7 +26,6 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 所有函数
         /// </summary>
-        [JsonIgnore()]
         public List<ErlangFunction> Functions = new List<ErlangFunction>();
 
         /// <summary>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ErlangParserLib.Fsm;
-using Newtonsoft.Json;
 
 namespace ErlangParserLib.Elements
 {
@@ -19,18 +18,14 @@ namespace ErlangParserLib.Elements
             this.Elements = new List<ErlangElement>();
         }
 
-        [JsonIgnore()]
         public FsmStatus EType { get; set; }
 
         public string Context {get; set;}
 
-        [JsonIgnore()]
         public int Index {get; set;}
 
-        //[JsonIgnore()]
         public List<ErlangElement> Elements {get; set;}
 
-        [JsonIgnore()]
         public string GroupName {get; set;}
 
         void IDisposable.Dispose()
