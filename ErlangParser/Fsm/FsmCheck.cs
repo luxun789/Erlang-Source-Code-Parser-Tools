@@ -91,8 +91,7 @@ namespace ErlangParserLib.Fsm
             new string[]{"(", ")"},
             new string[]{"fun", "end"},
             new string[]{"if", "end"},
-            new string[]{"case", "end"},
-            new string[]{"<", ">"}
+            new string[]{"case", "end"}
         };
 
         /// <summary>

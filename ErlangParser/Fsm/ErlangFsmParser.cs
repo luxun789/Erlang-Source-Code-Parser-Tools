@@ -44,7 +44,6 @@ namespace ErlangParserLib.Fsm
             Match m = FsmCheck.regWorkParser.Match(this.Context);
 
             Stack<string> pChar = new Stack<string>();
-            Stack<ErlangElement> pElem = new Stack<ErlangElement>();
 
             ErlangElement fnode;
             ErlangElement cnode;
@@ -52,30 +51,34 @@ namespace ErlangParserLib.Fsm
             string pc = string.Empty;
 
             pChar.Push("root");
-            pElem.Push(Efile);
+            fnode = Efile;
 
             //解析匹配流
-            fnode = Efile;
             while (m.Success)
             {
                 cnode = GetElemByMatch(m);
                 pc = GetStockChar(cnode);
+
                 if (pc.Length > 0)
                 {
-                    fnode.Elements.Add(cnode);
-                    pElem.Push(cnode);
+                    //入栈
                     pChar.Push(pc);
+                    fnode.Elements.Add(cnode);
+                    cnode.PrevNode = fnode;
                     fnode = cnode;
                 }
-                else if (cnode.Context == pc)
+                else if (cnode.Context == pChar.Peek())
                 {
+                    //出栈
                     pc = pChar.Pop();
-                    fnode = pElem.Pop();
+                    fnode = fnode.PrevNode;
                     fnode.Elements.Add(cnode);
                 }
                 else
                 {
+                    //添加子元素
                     fnode.Elements.Add(cnode);
+                    cnode.PrevNode = fnode;
                 }
 
                 m = m.NextMatch();

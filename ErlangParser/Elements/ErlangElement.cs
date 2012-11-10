@@ -20,6 +20,8 @@ namespace ErlangParserLib.Elements
 
         public FsmStatus EType { get; set; }
 
+        public ErlangElement PrevNode { get; set; }
+
         public string Context {get; set;}
 
         public int Index {get; set;}
