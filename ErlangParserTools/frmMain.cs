@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using ErlangParserLib.Elements;
 using ErlangParserLib.Fsm;
-using System.Collections.Generic;
 
 namespace ErlangParserTools
 {
@@ -40,16 +40,24 @@ namespace ErlangParserTools
             op.Load(lblFilepath.Text);
             op.Parser();
 
-            ShowDom();
+            tvwDom.Nodes.Add("+");
+            ShowDom(op.Efile, tvwDom.Nodes[0]);
             ShowMatch();
         }
 
         /// <summary>
         /// 语法树
         /// </summary>
-        private void ShowDom()
+        private void ShowDom(ErlangElement root, TreeNode rnode)
         {
-            //txtDomTree.Text = JsonConvert.SerializeObject(op.Efile, Formatting.Indented);
+            TreeNode c = rnode.Nodes.Add(root.Context);
+            if (root.Elements != null)
+            {
+                foreach (ErlangElement ch in root.Elements)
+                {
+                    ShowDom(ch, c);
+                }
+            }
         }
 
         /// <summary>
@@ -79,7 +87,7 @@ namespace ErlangParserTools
                 {
                     SetColor(elem.Elements);
                 }
-                else if(elem.GroupName.Length > 0)
+                else if (elem.GroupName.Length > 0)
                 {
                     txtResult.SelectionStart = elem.Index;
                     txtResult.SelectionLength = elem.Context.Length;
