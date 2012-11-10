@@ -46,45 +46,62 @@ namespace ErlangParserLib.Fsm
 
             pChar.Push("root");
             pElem.Push(Efile);
+
             ErlangElement fnode;
+            ErlangElement cnode;
 
             //解析匹配流
+            fnode = Efile;
             while (m.Success)
             {
-                fnode = pElem.Peek();
-                
+                cnode = GetElemByMatch(m);
                 m = m.NextMatch();
             }
         }
 
+        /// <summary>
+        /// 根据匹配内容, 得到erlang元素
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
         private ErlangElement GetElemByMatch(Match m)
         {
-            ErlangElement elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
-            string s = m.Value;
-            if (m.Value.Length > 0)
-            {
-                //elem.Index = m.Index;
-                elem.Context = m.Value;
+            ErlangElement elem = null;
 
-                //判断所在分组
-                foreach (string gs in FsmCheck.RegexGroups.Keys)
-                {
-                    if (m.Groups[gs].Success)
-                    {
-                        elem.Index = m.Groups[gs].Index;
-                        elem.GroupName = gs;
-                        break;
-                    }
-                }
-            }
-            else
+            foreach (string gs in FsmCheck.RegexGroups.Keys)
             {
-                elem = null;
+                //判断所在分组
+                if (m.Groups[gs].Success)
+                {
+                    elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
+                    elem.Index = m.Groups[gs].Index;
+                    elem.GroupName = gs;
+                    elem.Context = m.Value;
+                    break;
+                }
             }
 
             return elem;
         }
 
+        /// <summary>
+        /// 判断是否为堆栈处理字符
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns>返回用于判断结构的子组</returns>
+        public static string[] GetStockChar(ErlangElement elem)
+        {
+            string[] ret = null;
+            string str = elem.Context;
+            foreach(string[] sl in FsmCheck.StockChar)
+            {
+                if(sl[0].Equals(str)) {
+                    ret = sl;
+                    break;
+                }
+            }
+            return ret;
+        }
 
     }
 }

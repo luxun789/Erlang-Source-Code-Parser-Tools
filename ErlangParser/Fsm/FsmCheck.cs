@@ -96,24 +96,6 @@ namespace ErlangParserLib.Fsm
         };
 
         /// <summary>
-        /// 判断是否为堆栈处理字符
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns>返回用于判断结构的子组</returns>
-        public static string[] IsStockChar(string str)
-        {
-            string[] ret = null;
-            foreach(string[] sl in StockChar)
-            {
-                if(sl[0].Equals(str)) {
-                    ret = sl;
-                    break;
-                }
-            }
-            return ret;
-        }
-
-        /// <summary>
         /// 词法分析器
         /// </summary>
         public static Regex regWorkParser = new Regex(
