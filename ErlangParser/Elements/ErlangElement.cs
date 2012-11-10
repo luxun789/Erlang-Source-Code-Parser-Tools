@@ -38,7 +38,7 @@ namespace ErlangParserLib.Elements
         /// </summary>
         /// <param name="elements"></param>
         /// <returns></returns>
-        public virtual int Reorganization(IList<ErlangElement> elements)
+        public virtual int Reorganization(List<ErlangElement> elements)
         {
             return Reorganization(elements, 0);
         }

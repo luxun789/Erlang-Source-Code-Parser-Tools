@@ -10,7 +10,7 @@ namespace ErlangParserLib.Elements
         {
         }
 
-        public override int Reorganization(IList<ErlangElement> elements, int startIndex)
+        public override int Reorganization(List<ErlangElement> elements, int startIndex)
         {
             int len = 0;
 

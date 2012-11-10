@@ -27,7 +27,7 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 声明重组
         /// </summary>
-        public override int Reorganization(IList<ErlangElement> elements, int startIndex)
+        public override int Reorganization(List<ErlangElement> elements, int startIndex)
         {
             int len = 0;
             ErlangElement elem = elements[startIndex];
