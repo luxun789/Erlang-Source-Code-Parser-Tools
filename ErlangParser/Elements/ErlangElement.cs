@@ -27,7 +27,7 @@ namespace ErlangParserLib.Elements
         [JsonIgnore()]
         public int Index {get; set;}
 
-        [JsonIgnore()]
+        //[JsonIgnore()]
         public List<ErlangElement> Elements {get; set;}
 
         [JsonIgnore()]
