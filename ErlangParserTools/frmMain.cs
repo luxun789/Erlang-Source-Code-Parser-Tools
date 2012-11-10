@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using ErlangParserLib.Elements;
 using ErlangParserLib.Fsm;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace ErlangParserTools
@@ -50,7 +49,7 @@ namespace ErlangParserTools
         /// </summary>
         private void ShowDom()
         {
-            txtDomTree.Text = JsonConvert.SerializeObject(op.Efile, Formatting.Indented);
+            //txtDomTree.Text = JsonConvert.SerializeObject(op.Efile, Formatting.Indented);
         }
 
         /// <summary>
