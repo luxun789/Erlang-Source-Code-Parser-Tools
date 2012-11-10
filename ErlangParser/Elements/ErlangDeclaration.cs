@@ -24,26 +24,5 @@ namespace ErlangParserLib.Elements
             this.GroupName = "Declaration";
         }
 
-        /// <summary>
-        /// 声明重组
-        /// </summary>
-        public override int Reorganization(List<ErlangElement> elements, int startIndex)
-        {
-            int len = 0;
-            ErlangElement elem = elements[startIndex];
-            this.Index = elem.Index;
-            for (int i = startIndex; i < elements.Count; i++, len++)
-            {
-                elem = elements[i];
-                if (!elem.GroupName.Equals("Blank"))
-                {
-                    this.Elements.Add(elem);
-                    this.Context += elem.Context;
-                }
-                if (elem.Context.Equals(".")) break;
-            }
-
-            return len;
-        }
     }
 }

@@ -40,7 +40,6 @@ namespace ErlangParserTools
         {
             op.Load(lblFilepath.Text);
             op.Parser();
-            op.Efile.Reorganization();
 
             ShowDom();
             ShowMatch();

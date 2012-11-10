@@ -29,7 +29,7 @@ namespace ErlangParserLib.Fsm
             this.Context = context;
         }
 
-        public ErlangFile Efile { get; set; }
+        public ErlangElement Efile { get; set; }
 
         /// <summary>
         /// 解析文件
@@ -40,32 +40,49 @@ namespace ErlangParserLib.Fsm
             this.Efile = new ErlangFile();
 
             Match m = FsmCheck.regWorkParser.Match(this.Context);
-            List<ErlangElement> elements = new List<ErlangElement>();
+
+            Stack<string> pChar = new Stack<string>();
+            Stack<ErlangElement> pElem = new Stack<ErlangElement>();
+
+            pChar.Push("root");
+            pElem.Push(Efile);
+            ErlangElement fnode;
 
             //解析匹配流
             while (m.Success)
             {
-                string s = m.Value;
-                ErlangElement elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
-                if (m.Value.Length > 0)
-                {
-                    elem.Index = m.Index;
-                    elem.Context = m.Value;
-
-                    //判断所在分组
-                    foreach (string gs in FsmCheck.RegexGroups.Keys)
-                    {
-                        if (m.Groups[gs].Success)
-                        {
-                            elem.Index = m.Groups[gs].Index;
-                            elem.GroupName = gs;
-                            break;
-                        }
-                    }
-                    Efile.Elements.Add(elem);
-                }
+                fnode = pElem.Peek();
+                
                 m = m.NextMatch();
             }
+        }
+
+        private ErlangElement GetElemByMatch(Match m)
+        {
+            ErlangElement elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
+            string s = m.Value;
+            if (m.Value.Length > 0)
+            {
+                //elem.Index = m.Index;
+                elem.Context = m.Value;
+
+                //判断所在分组
+                foreach (string gs in FsmCheck.RegexGroups.Keys)
+                {
+                    if (m.Groups[gs].Success)
+                    {
+                        elem.Index = m.Groups[gs].Index;
+                        elem.GroupName = gs;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                elem = null;
+            }
+
+            return elem;
         }
 
 
