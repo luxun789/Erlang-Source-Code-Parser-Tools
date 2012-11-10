@@ -48,9 +48,6 @@ namespace ErlangParserLib.Elements
             ErlangElement elem = null;
             while (i < this.Elements.Count)
             {
-                //跳过空元素
-                //i += base.SkipBlank(this.Elements, i);
-
                 //获取元素
                 elem = this.Elements[i];
                 if (elem.Context.StartsWith("%"))
