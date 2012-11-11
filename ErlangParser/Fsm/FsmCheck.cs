@@ -69,21 +69,21 @@ namespace ErlangParserLib.Fsm
         /// 正则匹配组名
         /// </summary>
         public static Dictionary<string, Color> RegexGroups = new Dictionary<string, Color>{
-                {"Var", Color.FromArgb(100, 100, 220)},
-                {"Macro", Color.FromArgb(100, 220, 220)},
-                {"String", Color.FromArgb(250, 250, 70)},
-                {"Number", Color.FromArgb(175, 130, 255)},
-                {"Keywords", Color.FromArgb(175, 255, 255)},
-                {"BinaryKeywords", Color.FromArgb(255, 30, 30)},
-                {"Record", Color.FromArgb(180, 50, 50)},
-                {"Function", Color.FromArgb(30, 250, 30)},
-                {"ModuleCall", Color.FromArgb(250, 250, 0)},
-                {"Atom", Color.FromArgb(250, 250, 250)},
-                {"p", Color.FromArgb(220, 220, 220)},
-                {"Blank", Color.FromArgb(0, 0, 0)},
-                {"Comment", Color.FromArgb(150, 150, 150)},
-                {"Other", Color.Red}
-            };
+            {"Var", Color.FromArgb(100, 100, 220)},
+            {"Macro", Color.FromArgb(100, 220, 220)},
+            {"String", Color.FromArgb(250, 250, 70)},
+            {"Number", Color.FromArgb(175, 130, 255)},
+            {"Keywords", Color.FromArgb(175, 255, 255)},
+            {"BinaryKeywords", Color.FromArgb(255, 30, 30)},
+            {"Record", Color.FromArgb(180, 50, 50)},
+            {"Function", Color.FromArgb(30, 250, 30)},
+            {"ModuleCall", Color.FromArgb(250, 250, 0)},
+            {"Atom", Color.FromArgb(250, 250, 250)},
+            {"p", Color.FromArgb(220, 220, 220)},
+            {"Blank", Color.FromArgb(0, 0, 0)},
+            {"Comment", Color.FromArgb(150, 150, 150)},
+            {"Other", Color.Red}
+        };
 
         /// <summary>
         /// 语法栈
