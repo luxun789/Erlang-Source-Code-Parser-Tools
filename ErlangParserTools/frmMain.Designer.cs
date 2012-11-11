@@ -34,17 +34,17 @@
             this.btnParser = new System.Windows.Forms.Button();
             this.txtRegexStr = new System.Windows.Forms.TextBox();
             this.tcInfo = new System.Windows.Forms.TabControl();
+            this.tpRegex = new System.Windows.Forms.TabPage();
+            this.tpJsonTree = new System.Windows.Forms.TabPage();
+            this.tvwDom = new System.Windows.Forms.TreeView();
             this.tpMatches = new System.Windows.Forms.TabPage();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.tsslPostion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tpJsonTree = new System.Windows.Forms.TabPage();
-            this.tvwDom = new System.Windows.Forms.TreeView();
-            this.tpRegex = new System.Windows.Forms.TabPage();
             this.tcInfo.SuspendLayout();
+            this.tpRegex.SuspendLayout();
+            this.tpJsonTree.SuspendLayout();
             this.tpMatches.SuspendLayout();
             this.StatusBar.SuspendLayout();
-            this.tpJsonTree.SuspendLayout();
-            this.tpRegex.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOpen
@@ -99,7 +99,9 @@
             // 
             // txtRegexStr
             // 
+            this.txtRegexStr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
             this.txtRegexStr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRegexStr.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtRegexStr.Location = new System.Drawing.Point(3, 3);
             this.txtRegexStr.Multiline = true;
             this.txtRegexStr.Name = "txtRegexStr";
@@ -121,6 +123,39 @@
             this.tcInfo.SelectedIndex = 0;
             this.tcInfo.Size = new System.Drawing.Size(664, 469);
             this.tcInfo.TabIndex = 6;
+            // 
+            // tpRegex
+            // 
+            this.tpRegex.Controls.Add(this.txtRegexStr);
+            this.tpRegex.Location = new System.Drawing.Point(4, 22);
+            this.tpRegex.Name = "tpRegex";
+            this.tpRegex.Padding = new System.Windows.Forms.Padding(3);
+            this.tpRegex.Size = new System.Drawing.Size(656, 443);
+            this.tpRegex.TabIndex = 2;
+            this.tpRegex.Text = "正则式";
+            this.tpRegex.UseVisualStyleBackColor = true;
+            // 
+            // tpJsonTree
+            // 
+            this.tpJsonTree.Controls.Add(this.tvwDom);
+            this.tpJsonTree.Location = new System.Drawing.Point(4, 22);
+            this.tpJsonTree.Name = "tpJsonTree";
+            this.tpJsonTree.Padding = new System.Windows.Forms.Padding(3);
+            this.tpJsonTree.Size = new System.Drawing.Size(656, 443);
+            this.tpJsonTree.TabIndex = 0;
+            this.tpJsonTree.Text = "分析树";
+            this.tpJsonTree.UseVisualStyleBackColor = true;
+            // 
+            // tvwDom
+            // 
+            this.tvwDom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.tvwDom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvwDom.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tvwDom.LineColor = System.Drawing.Color.WhiteSmoke;
+            this.tvwDom.Location = new System.Drawing.Point(3, 3);
+            this.tvwDom.Name = "tvwDom";
+            this.tvwDom.Size = new System.Drawing.Size(650, 437);
+            this.tvwDom.TabIndex = 0;
             // 
             // tpMatches
             // 
@@ -149,36 +184,6 @@
             this.tsslPostion.Size = new System.Drawing.Size(102, 17);
             this.tsslPostion.Text = "Line:0, Column:0";
             // 
-            // tpJsonTree
-            // 
-            this.tpJsonTree.Controls.Add(this.tvwDom);
-            this.tpJsonTree.Location = new System.Drawing.Point(4, 22);
-            this.tpJsonTree.Name = "tpJsonTree";
-            this.tpJsonTree.Padding = new System.Windows.Forms.Padding(3);
-            this.tpJsonTree.Size = new System.Drawing.Size(656, 443);
-            this.tpJsonTree.TabIndex = 0;
-            this.tpJsonTree.Text = "分析树";
-            this.tpJsonTree.UseVisualStyleBackColor = true;
-            // 
-            // tvwDom
-            // 
-            this.tvwDom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvwDom.Location = new System.Drawing.Point(3, 3);
-            this.tvwDom.Name = "tvwDom";
-            this.tvwDom.Size = new System.Drawing.Size(650, 437);
-            this.tvwDom.TabIndex = 0;
-            // 
-            // tpRegex
-            // 
-            this.tpRegex.Controls.Add(this.txtRegexStr);
-            this.tpRegex.Location = new System.Drawing.Point(4, 22);
-            this.tpRegex.Name = "tpRegex";
-            this.tpRegex.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRegex.Size = new System.Drawing.Size(656, 443);
-            this.tpRegex.TabIndex = 2;
-            this.tpRegex.Text = "正则式";
-            this.tpRegex.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -195,12 +200,12 @@
             this.Text = "Erlang分析器";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.tcInfo.ResumeLayout(false);
+            this.tpRegex.ResumeLayout(false);
+            this.tpRegex.PerformLayout();
+            this.tpJsonTree.ResumeLayout(false);
             this.tpMatches.ResumeLayout(false);
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
-            this.tpJsonTree.ResumeLayout(false);
-            this.tpRegex.ResumeLayout(false);
-            this.tpRegex.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

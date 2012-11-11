@@ -35,6 +35,9 @@ namespace ErlangParserLib.Fsm
             //变量
             @"(?<Var>([_A-Z][_a-zA-Z0-9]*))|" +
 
+            //宏
+            @"(?<Macro>(\?\w+))" +
+
             //数值
             @"(?<Number>(\d+(\.\d)*[eE]\d)|(\d+\.\d+)|(\d+))|" +
 
@@ -67,6 +70,7 @@ namespace ErlangParserLib.Fsm
         /// </summary>
         public static Dictionary<string, Color> RegexGroups = new Dictionary<string, Color>{
                 {"Var", Color.FromArgb(100, 100, 220)},
+                {"Macro", Color.FromArgb(100, 220, 220)},
                 {"String", Color.FromArgb(250, 250, 70)},
                 {"Number", Color.FromArgb(175, 130, 255)},
                 {"Keywords", Color.FromArgb(175, 255, 255)},

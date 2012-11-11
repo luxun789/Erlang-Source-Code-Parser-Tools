@@ -40,8 +40,13 @@ namespace ErlangParserTools
             op.Load(lblFilepath.Text);
             op.Parser();
 
-            tvwDom.Nodes.Add("+");
-            ShowDom(op.Efile, tvwDom.Nodes[0]);
+            tvwDom.Nodes.Clear();
+            TreeNode root =  tvwDom.Nodes.Add("+");
+            foreach(ErlangElement elem in op.Efile.Elements)
+            {
+                ShowDom(elem, root);
+            }
+            tvwDom.ExpandAll();
             ShowMatch();
         }
 
@@ -51,6 +56,10 @@ namespace ErlangParserTools
         private void ShowDom(ErlangElement root, TreeNode rnode)
         {
             TreeNode c = rnode.Nodes.Add(root.Context);
+            if (FsmCheck.RegexGroups.ContainsKey(root.GroupName))
+            {
+                c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
+            }
             if (root.Elements != null)
             {
                 foreach (ErlangElement ch in root.Elements)
