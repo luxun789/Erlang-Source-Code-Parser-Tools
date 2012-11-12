@@ -15,7 +15,7 @@ namespace ErlangParserLib.Elements
         public string InnerText { get; set; }
 
         public ErlangDeclaration()
-            : base(FsmStatus.FSM_DECLARATION)
+            : base()
         {
         }
 

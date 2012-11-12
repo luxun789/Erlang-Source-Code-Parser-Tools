@@ -5,8 +5,8 @@ namespace ErlangParserLib.Elements
 {
     public class ErlangComment : ErlangElement
     {
-        public ErlangComment()
-            : base(FsmStatus.FSM_COMMENT)
+        public ErlangComment(IErlangElement source)
+            : base()
         {
         }
 

@@ -8,9 +8,10 @@ namespace ErlangParserLib.Elements
     /// </summary>
     public class ErlangFile : ErlangElement
     {
-        public ErlangFile()
-            : base(FsmStatus.FSM_FILE)
+        public ErlangFile() :
+            base()
         {
+            this.EType = FsmStatus.FSM_FILE;
         }
 
         /// <summary>
@@ -34,4 +35,5 @@ namespace ErlangParserLib.Elements
         public Dictionary<string, List<ErlangFunction>> FuncionGroups = new Dictionary<string, List<ErlangFunction>>();
 
     }
+
 }

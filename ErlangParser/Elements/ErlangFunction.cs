@@ -10,10 +10,6 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public string Name { get; set; }
 
-        public ErlangFunction()
-            : base(FsmStatus.FSM_FUNCTION)
-        {
-        }
     }
 
 }
