@@ -86,6 +86,29 @@ namespace ErlangParserLib.Fsm
             Efile.Context = this.Filename;
         }
 
+        public ErlangFile ParserToFile(ErlangElement elem)
+        {
+            ErlangFile efile = new ErlangFile();
+
+            CopyElement(elem, efile);
+
+            return efile;
+        }
+
+        /// <summary>
+        /// 复制成生一个新结点
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="desc"></param>
+        public void CopyElement(IErlangElement source, IErlangElement desc)
+        {
+            desc.Context = source.Context;
+            desc.Elements = source.Elements;
+            desc.Index = source.Index;
+            desc.GroupName = source.GroupName;
+            desc.PrevNode = source.PrevNode;
+        }
+
         /// <summary>
         /// 根据匹配内容, 得到erlang元素
         /// </summary>
@@ -100,7 +123,7 @@ namespace ErlangParserLib.Fsm
                 //判断所在分组
                 if (m.Groups[gs].Success)
                 {
-                    elem = new ErlangElement(FsmStatus.FSM_UNDEFINE);
+                    elem = new ErlangElement();
                     elem.Index = m.Groups[gs].Index;
                     elem.GroupName = gs;
                     elem.Context = m.Value;

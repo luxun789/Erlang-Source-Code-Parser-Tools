@@ -22,7 +22,7 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 所有的声明
         /// </summary>
-        public List<ErlangDeclaration> Declarations = new List<ErlangDeclaration>();
+        public Dictionary<string, ErlangDeclaration> Declarations = new Dictionary<string, ErlangDeclaration>();
 
         /// <summary>
         /// 所有函数
