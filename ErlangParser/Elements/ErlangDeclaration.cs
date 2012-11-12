@@ -19,7 +19,5 @@ namespace ErlangParserLib.Elements
         {
         }
 
-
-
     }
 }
