@@ -12,10 +12,10 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="etype"></param>
-        public ErlangElement(FsmStatus etype)
+        /// <param name="eType"></param>
+        public ErlangElement(FsmStatus eType)
         {
-            this.EType = etype;
+            this.EType = eType;
             this.Context = string.Empty;
             this.Index = -1;
             this.GroupName = string.Empty;
