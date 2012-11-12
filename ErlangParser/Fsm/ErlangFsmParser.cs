@@ -91,6 +91,7 @@ namespace ErlangParserLib.Fsm
             ErlangFile efile = new ErlangFile();
 
             CopyElement(elem, efile);
+            efile.Repo();
 
             return efile;
         }

@@ -34,6 +34,14 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public Dictionary<string, List<ErlangFunction>> FuncionGroups = new Dictionary<string, List<ErlangFunction>>();
 
+        /// <summary>
+        /// 元素重组
+        /// </summary>
+        public void Repo()
+        {
+            
+        }
+
     }
 
 }
