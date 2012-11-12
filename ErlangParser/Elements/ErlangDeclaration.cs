@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ErlangParserLib.Fsm;
+﻿using ErlangParserLib.Fsm;
 
 namespace ErlangParserLib.Elements
 {
@@ -18,8 +17,9 @@ namespace ErlangParserLib.Elements
         public ErlangDeclaration()
             : base(FsmStatus.FSM_DECLARATION)
         {
-            this.GroupName = "Declaration";
         }
+
+
 
     }
 }
