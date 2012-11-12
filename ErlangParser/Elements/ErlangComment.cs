@@ -9,5 +9,7 @@ namespace ErlangParserLib.Elements
             : base(FsmStatus.FSM_COMMENT)
         {
         }
+
+
     }
 }
