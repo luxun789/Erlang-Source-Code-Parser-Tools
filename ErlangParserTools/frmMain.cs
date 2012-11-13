@@ -88,7 +88,7 @@ namespace ErlangParserTools
         /// 语法着色
         /// </summary>
         /// <param name="elems"></param>
-        private void SetColor(List<ErlangElement> elems)
+        private void SetColor(List<IErlangElement> elems)
         {
             foreach (ErlangElement elem in elems)
             {
