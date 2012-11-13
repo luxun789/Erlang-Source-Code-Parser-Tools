@@ -53,6 +53,8 @@ namespace ErlangParserLib.Fsm
             pChar.Push("root");
             fnode = Efile;
 
+            IErlangElement prev;
+
             //解析匹配流
             while (m.Success)
             {
@@ -64,21 +66,21 @@ namespace ErlangParserLib.Fsm
                     //入栈
                     pChar.Push(pc);
                     fnode.Elements.Add(cnode);
-                    cnode.PrevNode = fnode;
+                    cnode.Parent = fnode;
                     fnode = cnode;
                 }
                 else if (cnode.Context == pChar.Peek())
                 {
                     //出栈
                     pc = pChar.Pop();
-                    fnode = fnode.PrevNode;
+                    fnode = fnode.Parent;
                     fnode.Elements.Add(cnode);
                 }
                 else
                 {
                     //添加子元素
                     fnode.Elements.Add(cnode);
-                    cnode.PrevNode = fnode;
+                    cnode.Parent = fnode;
                 }
 
                 m = m.NextMatch();
@@ -90,24 +92,10 @@ namespace ErlangParserLib.Fsm
         {
             ErlangFile efile = new ErlangFile();
 
-            CopyElement(elem, efile);
+            elem.CopyTo(efile);
             efile.Repo();
 
             return efile;
-        }
-
-        /// <summary>
-        /// 复制成生一个新结点
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="desc"></param>
-        public void CopyElement(IErlangElement source, IErlangElement desc)
-        {
-            desc.Context = source.Context;
-            desc.Elements = source.Elements;
-            desc.Index = source.Index;
-            desc.GroupName = source.GroupName;
-            desc.PrevNode = source.PrevNode;
         }
 
         /// <summary>

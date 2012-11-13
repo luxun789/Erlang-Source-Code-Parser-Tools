@@ -45,6 +45,12 @@ namespace ErlangParserLib.Elements
             {
                 ErlangElement elem = this.Elements[i];
 
+                if(elem.Context.StartsWith("%"))
+                {
+                    ErlangComment c  = new ErlangComment();
+                    elem.CopyTo(c);
+                    this.Comments.Add(c);
+                }
                 i++;
             }
         }

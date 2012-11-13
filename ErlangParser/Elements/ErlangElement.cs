@@ -27,9 +27,19 @@ namespace ErlangParserLib.Elements
         public FsmStatus EType { get; set; }
 
         /// <summary>
-        /// 当前元素的你结点
+        /// 父结点
         /// </summary>
-        public ErlangElement PrevNode { get; set; }
+        public IErlangElement Parent { get; set; }
+
+        /// <summary>
+        /// 上一个结点
+        /// </summary>
+        public IErlangElement Prev {get; set;}
+
+        /// <summary>
+        /// 下一个结点
+        /// </summary>
+        public IErlangElement Next {get; set;}
 
         /// <summary>
         /// 元素内容
