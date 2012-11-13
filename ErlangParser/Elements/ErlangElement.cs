@@ -18,7 +18,7 @@ namespace ErlangParserLib.Elements
             this.Index = -1;
             this.EType = FsmStatus.FSM_UNDEFINE;
             this.GroupName = string.Empty;
-            this.Elements = new List<ErlangElement>();
+            this.Elements = new List<IErlangElement>();
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 子结点列表
         /// </summary>
-        public List<ErlangElement> Elements {get; set;}
+        public List<IErlangElement> Elements {get; set;}
 
         /// <summary>
         /// 元素的分组名称

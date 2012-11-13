@@ -41,7 +41,7 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 子结点列表
         /// </summary>
-        List<ErlangElement> Elements { get; set; }
+        List<IErlangElement> Elements { get; set; }
 
         /// <summary>
         /// 元素的分组名称

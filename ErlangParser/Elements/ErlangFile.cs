@@ -7,7 +7,7 @@ namespace ErlangParserLib.Elements
     /// <summary>
     /// Erlang文件基础类
     /// </summary>
-    public class ErlangFile : ErlangElement, IConvertible
+    public class ErlangFile : ErlangElement
     {
         public ErlangFile() :
             base()
@@ -43,7 +43,7 @@ namespace ErlangParserLib.Elements
             int i = 0;
             while(i < this.Elements.Count)
             {
-                ErlangElement elem = this.Elements[i];
+                ErlangElement elem = this.Elements[i] as ErlangElement;
 
                 if(elem.Context.StartsWith("%"))
                 {

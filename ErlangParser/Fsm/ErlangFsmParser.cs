@@ -53,7 +53,7 @@ namespace ErlangParserLib.Fsm
             pChar.Push("root");
             fnode = Efile;
 
-            IErlangElement prev;
+            IErlangElement prev = this.Efile as IErlangElement;
 
             //解析匹配流
             while (m.Success)
@@ -73,7 +73,7 @@ namespace ErlangParserLib.Fsm
                 {
                     //出栈
                     pc = pChar.Pop();
-                    fnode = fnode.Parent;
+                    fnode = fnode.Parent as ErlangElement;
                     fnode.Elements.Add(cnode);
                 }
                 else
@@ -83,6 +83,12 @@ namespace ErlangParserLib.Fsm
                     cnode.Parent = fnode;
                 }
 
+                if(prev != null)
+                {
+                    prev.Next = cnode;
+                    cnode.Prev = prev;
+                }
+                prev = cnode;
                 m = m.NextMatch();
             }
             Efile.Context = this.Filename;
