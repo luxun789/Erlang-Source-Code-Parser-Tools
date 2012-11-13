@@ -94,16 +94,6 @@ namespace ErlangParserLib.Fsm
             Efile.Context = this.Filename;
         }
 
-        public ErlangFile ParserToFile(ErlangElement elem)
-        {
-            ErlangFile efile = new ErlangFile();
-
-            elem.CopyTo(efile);
-            efile.Repo();
-
-            return efile;
-        }
-
         /// <summary>
         /// 根据匹配内容, 得到erlang元素
         /// </summary>
