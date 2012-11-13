@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using ErlangParserLib.Fsm;
+using System;
 
 namespace ErlangParserLib.Elements
 {
     /// <summary>
     /// Erlang文件基础类
     /// </summary>
-    public class ErlangFile : ErlangElement
+    public class ErlangFile : ErlangElement, IConvertible
     {
         public ErlangFile() :
             base()
@@ -39,7 +40,13 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public void Repo()
         {
-            
+            int i = 0;
+            while(i < this.Elements.Count)
+            {
+                ErlangElement elem = this.Elements[i];
+
+                i++;
+            }
         }
 
     }
