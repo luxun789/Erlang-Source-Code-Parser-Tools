@@ -83,6 +83,7 @@ namespace ErlangParserLib.Fsm
                     cnode.Parent = fnode;
                 }
 
+                //构建线索表
                 if(prev != null)
                 {
                     prev.Next = cnode;
