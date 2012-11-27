@@ -39,7 +39,9 @@ namespace ErlangParserLib.Fsm
             @"(?<Macro>(\?\w+))" +
 
             //数值
-            @"(?<Number>(\d+(\.\d)*[eE]\d)|(\d+\.\d+)|(\d+))|" +
+            @"(?<Number>(\d+(\.\d)*[eE]\d))|"+
+            @"(?<Number>(\d+\.\d+))|" +
+            @"(?<Number>(\d+))|" +
 
             //函数
             @"(?<Function>(?<![\:\-])([a-z]\w*?(?=\()))|" +
