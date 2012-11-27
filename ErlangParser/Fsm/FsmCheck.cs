@@ -70,7 +70,7 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 正则匹配组名
         /// </summary>
-        public static Dictionary<string, Color> RegexGroups = new Dictionary<string, Color>{
+        public static readonly Dictionary<string, Color> RegexGroups = new Dictionary<string, Color>{
             {"Var", Color.FromArgb(100, 100, 220)},
             {"Macro", Color.FromArgb(100, 220, 220)},
             {"String", Color.FromArgb(250, 250, 70)},
@@ -90,7 +90,7 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 语法栈
         /// </summary>
-        public static string[][] StockChar = new string[][]{
+        public static readonly string[][] StockChar = new string[][]{
             new string[]{"[", "]"},
             new string[]{"<<", ">>"},
             new string[]{"{", "}"},
@@ -103,7 +103,7 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 词法分析器
         /// </summary>
-        public static Regex regWorkParser = new Regex(
+        public static readonly Regex regWorkParser = new Regex(
             FsmCheck.strLexParser,
             RegexOptions.Multiline | RegexOptions.ExplicitCapture
         );
