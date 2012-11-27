@@ -41,7 +41,8 @@ namespace ErlangParserLib.Fsm
         {
             this.Efile = new ErlangFile();
 
-            Match m = FsmCheck.regWorkParser.Match(this.Context);
+            string context = this.Context.Replace("\\\\", "\\\xFF");
+            Match m = FsmCheck.regWorkParser.Match(context);
 
             Stack<string> pChar = new Stack<string>();
 
@@ -112,7 +113,7 @@ namespace ErlangParserLib.Fsm
                     elem = new ErlangElement();
                     elem.Index = m.Groups[gs].Index;
                     elem.GroupName = gs;
-                    elem.Context = m.Value;
+                    elem.Context = m.Value.Replace("\\\xFF", "\\\\");
                     break;
                 }
             }
