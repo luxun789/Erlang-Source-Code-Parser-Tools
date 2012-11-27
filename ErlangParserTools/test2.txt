@@ -189,5 +189,5 @@ write(10040 ,Code) ->
 	{ok,pt:pack(10040,Data)};
 
 write(Cmd, _R) ->
-?INFO_MSG("~s_errorcmd_[~p] ",[misc:time_format(yg_timer:now()), Cmd]),
+?INFO_MSG("~s_errorcmd\\\\_[~p] ",[misc:time_format(yg_timer:now()), Cmd]),
     {ok, pt:pack(0, <<>>)}.
