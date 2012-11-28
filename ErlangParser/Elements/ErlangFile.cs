@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using ErlangParserLib.Fsm;
-using System;
 
 namespace ErlangParserLib.Elements
 {

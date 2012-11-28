@@ -45,6 +45,40 @@ namespace ErlangParserLib.Fsm
         }
 
         /// <summary>
+        /// 行号标识
+        /// </summary>
+        private Stack<int> lines_flag = new Stack<int>();
+
+        /// <summary>
+        /// 行号解析
+        /// </summary>
+        /// <param name="context"></param>
+        private void LinesParser(ref string context)
+        {
+            lines_flag.Clear();
+            foreach(Match m in FsmCheck.regLines.Matches(context))
+            {
+                lines_flag.Push(m.Index);
+            }
+        }
+
+        /// <summary>
+        /// 获取行号
+        /// </summary>
+        /// <param name="index">行号</param>
+        private int GetLineNo(int index)
+        {
+            int ret = -1;
+
+            while(lines_flag.Peek() >= index)
+            {
+                lines_flag.Pop();
+            }
+            ret = lines_flag.Peek();
+            return ret;
+        }
+
+        /// <summary>
         /// 解析文件
         /// </summary>
         /// <returns></returns>
@@ -53,19 +87,21 @@ namespace ErlangParserLib.Fsm
             this.Efile = new ErlangFile();
 
             string context = this.Context.Replace(FsmCheck.remean_char, FsmCheck.repalce_char);
+
+            LinesParser(ref context);
+
             Match m = FsmCheck.regWorkParser.Match(context);
 
-            Stack<string> pChar = new Stack<string>();
+            ErlangElement fnode;        //父结点
+            ErlangElement cnode;       //当前结点
 
-            ErlangElement fnode;
-            ErlangElement cnode;
-
-            string pc = string.Empty;
+            Stack<string> pChar = new Stack<string>();         //语法层次栈
+            string pc = string.Empty;                                   //弹栈用字符.
 
             pChar.Push("root");
             fnode = Efile;
 
-            IErlangElement prev = this.Efile as IErlangElement;
+            IErlangElement prev = this.Efile as IErlangElement; //前一个结点
 
             //解析匹配流
             while (m.Success)
@@ -125,6 +161,7 @@ namespace ErlangParserLib.Fsm
                     elem.Index = m.Groups[gs].Index;
                     elem.GroupName = gs;
                     elem.Context = m.Value.Replace("\\\xFF", "\\\\");
+                    elem.Line = GetLineNo(elem.Index);
                     break;
                 }
             }
@@ -133,7 +170,7 @@ namespace ErlangParserLib.Fsm
         }
 
         /// <summary>
-        /// 判断是否为堆栈边界, 如果是则返回弹栈字符.
+        /// 判断是否为入栈边界, 如果是则返回弹栈字符.
         /// </summary>
         /// <param name="elem"></param>
         /// <returns>返回</returns>
@@ -141,13 +178,10 @@ namespace ErlangParserLib.Fsm
         {
             string ret = string.Empty;
             string str = elem.Context;
-            foreach (string[] sl in FsmCheck.StockChar)
+
+            if(FsmCheck.StockChar.ContainsKey(str))
             {
-                if (sl[0].Equals(str))
-                {
-                    ret = sl[1];
-                    break;
-                }
+                ret = FsmCheck.StockChar[str];
             }
             return ret;
         }

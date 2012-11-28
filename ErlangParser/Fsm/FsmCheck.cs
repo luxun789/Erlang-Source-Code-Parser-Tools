@@ -90,14 +90,14 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 语法栈
         /// </summary>
-        public static readonly string[][] StockChar = new string[][]{
-            new string[]{"[", "]"},
-            new string[]{"<<", ">>"},
-            new string[]{"{", "}"},
-            new string[]{"(", ")"},
-            new string[]{"fun", "end"},
-            new string[]{"if", "end"},
-            new string[]{"case", "end"}
+        public static readonly Dictionary<string, string> StockChar = new Dictionary<string, string>{
+            {"[", "]"},
+            {"<<", ">>"},
+            {"{", "}"},
+            {"(", ")"},
+            {"fun", "end"},
+            {"if", "end"},
+            {"case", "end"}
         };
 
         /// <summary>
