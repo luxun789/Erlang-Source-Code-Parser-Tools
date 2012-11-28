@@ -47,5 +47,10 @@ namespace ErlangParserLib.Elements
         /// 元素的分组名称
         /// </summary>
         string GroupName { get; set; }
+
+        /// <summary>
+        /// 当前元素在原文件中的行位置
+        /// </summary>
+        int Line {get; set;}
     }
 }
