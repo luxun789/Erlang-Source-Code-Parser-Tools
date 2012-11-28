@@ -1,6 +1,6 @@
-﻿using System.Text.RegularExpressions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace ErlangParserLib.Fsm
 {

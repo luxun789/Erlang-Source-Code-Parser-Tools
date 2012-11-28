@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ErlangParserLib.Elements.ErlangComment" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Elements\ErlangComment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Elements.ErlangDeclaration" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Elements\ErlangDeclaration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Elements.ErlangElement" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAgAAAAAAAAAQQAAAAAAAEEAAAAEBAAABAAE=</HashCode>
+      <FileName>Elements\ErlangElement.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ErlangParserLib.Elements.ErlangFile" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAQAAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Elements\ErlangFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Elements.ErlangFunction" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Elements\ErlangFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Elements.FontStyle">
+    <Position X="13.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Elements\FontStyle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Files.IncludeFile" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\IncludeFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Files.ModuleFile" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Files\ModuleFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Fsm.ErlangFsmParser">
+    <Position X="12" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEggAAUAgAAQAAAAAAEAAAAASIABAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Fsm\ErlangFsmParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Fsm.FsmCheck">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAACAAAQAAAAAAAAAAAIAAARAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Fsm\FsmCheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlangParserLib.Fsm.Utils">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Fsm\Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ErlangParserLib.Elements.IErlangElement">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAgAAAAAAAAAQQAAAAAAAEEAAAAEAAAABAAE=</HashCode>
+      <FileName>Elements\IErlangElement.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ErlangParserLib.Fsm.FsmStatus">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAIAEAJAIgAAAAAAAAAAAAEAGACCACgAEAAAAQAAA=</HashCode>
+      <FileName>Fsm\FsmStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
