@@ -107,5 +107,15 @@ namespace ErlangParserLib.Fsm
             FsmCheck.strLexParser,
             RegexOptions.Multiline | RegexOptions.ExplicitCapture
         );
+
+        /// <summary>
+        /// 二次转义符替代字符
+        /// </summary>
+        public static readonly string repalce_char = "\\\xFF";
+
+        /// <summary>
+        /// 二次转义符
+        /// </summary>
+        public static readonly string remean_char = "\\\\";
     }
 }

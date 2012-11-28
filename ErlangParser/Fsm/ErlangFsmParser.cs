@@ -8,8 +8,21 @@ namespace ErlangParserLib.Fsm
     public class ErlangFsmParser
     {
         public static ErlangFsmParser Instance = new ErlangFsmParser();
+
+        /// <summary>
+        /// 加载的文件内容
+        /// </summary>
         public string Context { get; private set; }
+
+        /// <summary>
+        /// 加载的文件路径
+        /// </summary>
         public string Filename { get; private set; }
+
+        /// <summary>
+        /// 解析后的文件类
+        /// </summary>
+        public ErlangElement Efile { get; set; }
 
         /// <summary>
         /// 加载文件内容
@@ -31,8 +44,6 @@ namespace ErlangParserLib.Fsm
             this.Context = context;
         }
 
-        public ErlangElement Efile { get; set; }
-
         /// <summary>
         /// 解析文件
         /// </summary>
@@ -41,7 +52,7 @@ namespace ErlangParserLib.Fsm
         {
             this.Efile = new ErlangFile();
 
-            string context = this.Context.Replace("\\\\", "\\\xFF");
+            string context = this.Context.Replace(FsmCheck.remean_char, FsmCheck.repalce_char);
             Match m = FsmCheck.regWorkParser.Match(context);
 
             Stack<string> pChar = new Stack<string>();
