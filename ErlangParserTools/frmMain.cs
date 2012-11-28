@@ -41,7 +41,8 @@ namespace ErlangParserTools
             op.Parser();
 
             tvwDom.Nodes.Clear();
-            TreeNode root =  tvwDom.Nodes.Add("+");
+            TreeNode root =  tvwDom.Nodes.Add("[LineNumber, Index]:Context");
+
             foreach(ErlangElement elem in op.Efile.Elements)
             {
                 ShowDom(elem, root);
@@ -55,7 +56,7 @@ namespace ErlangParserTools
         /// </summary>
         private void ShowDom(ErlangElement root, TreeNode rnode)
         {
-            TreeNode c = rnode.Nodes.Add(root.Context);
+            TreeNode c = rnode.Nodes.Add("[" + root.Line + ", " + root.Index + "]:" + root.Context);
             if (FsmCheck.RegexGroups.ContainsKey(root.GroupName))
             {
                 c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
