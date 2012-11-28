@@ -47,7 +47,8 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 行号标识
         /// </summary>
-        private Stack<int> lines_flag = new Stack<int>();
+        private Queue<int> lines_flag = new Queue<int>();
+        private int lineNo = 1;
 
         /// <summary>
         /// 行号解析
@@ -56,10 +57,12 @@ namespace ErlangParserLib.Fsm
         private void LinesParser(ref string context)
         {
             lines_flag.Clear();
+            lineNo = 1;
             foreach(Match m in FsmCheck.regLines.Matches(context))
             {
-                lines_flag.Push(m.Index);
+                lines_flag.Enqueue(m.Index);
             }
+            lines_flag.Enqueue(int.MaxValue);
         }
 
         /// <summary>
@@ -70,11 +73,12 @@ namespace ErlangParserLib.Fsm
         {
             int ret = -1;
 
-            while(lines_flag.Peek() >= index)
+            while(lines_flag.Peek() <= index)
             {
-                lines_flag.Pop();
+                lines_flag.Dequeue();
+                lineNo ++;
             }
-            ret = lines_flag.Peek();
+            ret = lineNo;
             return ret;
         }
 
@@ -87,7 +91,6 @@ namespace ErlangParserLib.Fsm
             this.Efile = new ErlangFile();
 
             string context = this.Context.Replace(FsmCheck.remean_char, FsmCheck.repalce_char);
-
             LinesParser(ref context);
 
             Match m = FsmCheck.regWorkParser.Match(context);
@@ -160,7 +163,7 @@ namespace ErlangParserLib.Fsm
                     elem = new ErlangElement();
                     elem.Index = m.Groups[gs].Index;
                     elem.GroupName = gs;
-                    elem.Context = m.Value.Replace("\\\xFF", "\\\\");
+                    elem.Context = m.Value.Replace(FsmCheck.repalce_char, FsmCheck.remean_char);
                     elem.Line = GetLineNo(elem.Index);
                     break;
                 }
