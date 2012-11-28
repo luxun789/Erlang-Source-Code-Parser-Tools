@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using ErlangParserLib.Fsm;
-
-namespace ErlangParserLib.Elements
+﻿namespace ErlangParserLib.Elements
 {
     public class ErlangFunction : ErlangElement
     {

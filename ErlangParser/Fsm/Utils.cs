@@ -18,6 +18,7 @@ namespace ErlangParserLib.Fsm
             desc.Parent = source.Parent;
             desc.Next = source.Next;
             desc.Prev = source.Prev;
+            desc.Index = source.Index;
         }
 
     }

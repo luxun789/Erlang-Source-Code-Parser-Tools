@@ -109,6 +109,14 @@ namespace ErlangParserLib.Fsm
         );
 
         /// <summary>
+        /// 行分析器
+        /// </summary>
+        public static readonly Regex regLines = new Regex(
+            "\n",
+            RegexOptions.Multiline
+        );
+
+        /// <summary>
         /// 二次转义符替代字符
         /// </summary>
         public static readonly string repalce_char = "\\\xFF";
