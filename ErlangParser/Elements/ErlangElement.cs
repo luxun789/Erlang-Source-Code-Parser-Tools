@@ -61,6 +61,11 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public string GroupName {get; set;}
 
+        /// <summary>
+        /// 当前元素在原文件中的行位置
+        /// </summary>
+        public int Line {get; set;}
+
         void IDisposable.Dispose()
         {
         }
