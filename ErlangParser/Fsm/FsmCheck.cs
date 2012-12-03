@@ -36,7 +36,7 @@ namespace ErlangParserLib.Fsm
             @"(?<Var>([_A-Z][_a-zA-Z0-9]*))|" +
 
             //宏
-            @"(?<Macro>(\?\w+))" +
+                @"(?<Macro>(\?\w+))" +
 
             //数值
             @"(?<Number>(\d+(\.\d)*[eE]\d))|"+
