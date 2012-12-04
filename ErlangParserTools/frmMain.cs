@@ -115,7 +115,7 @@ namespace ErlangParserTools
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            txtRegexStr.Text = FsmCheck.strLexParser;
+            txtRegexStr.Text = FsmCheck.strLexParser.Replace("(?", "\r\n(?");
         }
     }
 
