@@ -12,7 +12,7 @@ namespace ErlangParserLib.Fsm
         public static readonly string strLexParser =
 
             //行注释
-            @"(?:<Comment>%.+\n)|" +
+            @"(?<Comment>%.+\n)|" +
 
             //字符串, 单引基元
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +

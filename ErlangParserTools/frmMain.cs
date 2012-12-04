@@ -57,6 +57,7 @@ namespace ErlangParserTools
         private void ShowDom(ErlangElement root, TreeNode rnode)
         {
             TreeNode c = rnode.Nodes.Add("[" + root.Line + ", " + root.Index + "]:" + root.Context);
+            c.Tag = root;
             if (FsmCheck.RegexGroups.ContainsKey(root.GroupName))
             {
                 c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
@@ -77,11 +78,14 @@ namespace ErlangParserTools
         {
             if (op.Efile == null) return;
 
+            txtResult.HideSelection = true;
+
             txtResult.Text = op.Context;
             txtResult.SelectionTabs = new int[] { 24 };
             this.Refresh();
-
             SetColor(op.Efile.Elements);
+
+            txtResult.HideSelection = false;
 
         }
 
@@ -115,7 +119,27 @@ namespace ErlangParserTools
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            txtRegexStr.Text = FsmCheck.strLexParser.Replace("(?", "\r\n(?");
+        }
+
+        private void btnViewRegex_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(FsmCheck.strLexParser.Replace("(?", "\r\n(?"));
+        }
+
+        private void tvwDom_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            TreeNode ndcur = e.Node;
+            IErlangElement elem = e.Node.Tag as IErlangElement;
+            if(elem == null)
+            {
+                return;
+            }
+
+            txtResult.SelectionStart = elem.Index - 200 > 0? elem.Index - 200: 0;
+            txtResult.ScrollToCaret();
+
+            txtResult.SelectionStart = elem.Index;
+            txtResult.SelectionLength = elem.Context.Length;
         }
     }
 
