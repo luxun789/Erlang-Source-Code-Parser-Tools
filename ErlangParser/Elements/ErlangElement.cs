@@ -7,7 +7,7 @@ namespace ErlangParserLib.Elements
     /// <summary>
     /// Erlang元素基类
     /// </summary>
-    public class  ErlangElement : IDisposable, IErlangElement
+    public class ErlangElement : IDisposable, IErlangElement
     {
         /// <summary>
         /// 构造函数
@@ -34,41 +34,50 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 上一个结点
         /// </summary>
-        public IErlangElement Prev {get; set;}
+        public IErlangElement Prev { get; set; }
 
         /// <summary>
         /// 下一个结点
         /// </summary>
-        public IErlangElement Next {get; set;}
+        public IErlangElement Next { get; set; }
 
         /// <summary>
         /// 元素内容
         /// </summary>
-        public string Context {get; set;}
+        public string Context { get; set; }
 
         /// <summary>
         /// 当前元素在原文件中的位置
         /// </summary>
-        public int Index {get; set;}
+        public int Index { get; set; }
 
         /// <summary>
         /// 子结点列表
         /// </summary>
-        public List<IErlangElement> Elements {get; set;}
+        public List<IErlangElement> Elements { get; set; }
 
         /// <summary>
         /// 元素的分组名称
         /// </summary>
-        public string GroupName {get; set;}
+        public string GroupName { get; set; }
 
         /// <summary>
         /// 当前元素在原文件中的行位置
         /// </summary>
-        public int Line {get; set;}
+        public int Line { get; set; }
 
         void IDisposable.Dispose()
         {
         }
+
+        /// <summary>
+        /// 重组元素
+        /// </summary>
+        public void Repo()
+        {
+            return;
+        }
+
     }
 
 }
