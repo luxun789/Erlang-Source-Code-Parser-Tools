@@ -22,7 +22,7 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 解析后的文件类
         /// </summary>
-        public ErlangElement Efile { get; set; }
+        public ErlangFile Efile { get; set; }
 
         /// <summary>
         /// 加载文件内容
@@ -144,6 +144,7 @@ namespace ErlangParserLib.Fsm
                 m = m.NextMatch();
             }
             Efile.Context = this.Filename;
+            this.Efile.Repo();
         }
 
         /// <summary>
