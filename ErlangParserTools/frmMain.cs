@@ -83,25 +83,11 @@ namespace ErlangParserTools
             txtResult.Text = op.Context;
             txtResult.SelectionTabs = new int[] { 24 };
             this.Refresh();
-            SetColor(op.Efile.Elements);
 
-            txtResult.HideSelection = false;
-
-        }
-
-        /// <summary>
-        /// 语法着色
-        /// </summary>
-        /// <param name="elems"></param>
-        private void SetColor(List<IErlangElement> elems)
-        {
-            foreach (ErlangElement elem in elems)
+            IErlangElement elem = op.Efile;
+            while (elem != null)
             {
-                if (elem.Elements != null && elem.Elements.Count > 0)
-                {
-                    SetColor(elem.Elements);
-                }
-                else if (elem.GroupName.Length > 0)
+                if (elem.GroupName.Length > 0)
                 {
                     txtResult.SelectionStart = elem.Index;
                     txtResult.SelectionLength = elem.Context.Length;
@@ -114,7 +100,20 @@ namespace ErlangParserTools
                         txtResult.SelectionColor = txtResult.ForeColor;
                     }
                 }
+                elem = elem.Next;
             }
+
+            txtResult.HideSelection = false;
+
+        }
+
+        /// <summary>
+        /// 语法着色
+        /// </summary>
+        /// <param name="elems"></param>
+        private void SetColor(List<IErlangElement> elems)
+        {
+            
         }
 
         private void frmMain_Load(object sender, EventArgs e)
