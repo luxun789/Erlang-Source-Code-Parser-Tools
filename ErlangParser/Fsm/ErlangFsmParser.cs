@@ -136,6 +136,8 @@ namespace ErlangParserLib.Fsm
 
                             //回溯处理
                             if(ss.IsPrev) goto LoopStart;
+
+                            //添加元素
                             fnode.Elements.Add(cnode);
                             cnode.Parent = fnode;
                             hasPop = true;
