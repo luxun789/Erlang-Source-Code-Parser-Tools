@@ -52,5 +52,10 @@ namespace ErlangParserLib.Elements
         /// 当前元素在原文件中的行位置
         /// </summary>
         int Line {get; set;}
+
+        /// <summary>
+        /// 重组元素
+        /// </summary>
+        void Repo(List<IErlangElement> elems, int index);
     }
 }

@@ -144,7 +144,7 @@ namespace ErlangParserLib.Fsm
                 m = m.NextMatch();
             }
             Efile.Context = this.Filename;
-            this.Efile.Repo();
+            this.Efile.Repo(this.Efile.Elements, 0);
         }
 
         /// <summary>

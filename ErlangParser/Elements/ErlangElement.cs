@@ -73,7 +73,7 @@ namespace ErlangParserLib.Elements
         /// <summary>
         /// 重组元素
         /// </summary>
-        public void Repo()
+        public virtual void Repo(List<IErlangElement> elems, int index)
         {
             return;
         }
