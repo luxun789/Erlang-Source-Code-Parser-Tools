@@ -25,11 +25,6 @@ namespace ErlangParserLib.Elements
         public Dictionary<string, ErlangDeclaration> Declarations = new Dictionary<string, ErlangDeclaration>();
 
         /// <summary>
-        /// 所有函数
-        /// </summary>
-        public List<ErlangFunction> Functions = new List<ErlangFunction>();
-
-        /// <summary>
         /// 函数组
         /// </summary>
         public Dictionary<string, List<ErlangFunction>> FuncionGroups = new Dictionary<string, List<ErlangFunction>>();
@@ -39,21 +34,21 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public void Repo()
         {
-            int i = 0;
-            while(i < this.Elements.Count)
+            IErlangElement elem = this.Next;
+            while (elem != null)
             {
-                ErlangElement elem = this.Elements[i] as ErlangElement;
-
-                if(elem.Context.StartsWith("%"))
+                if (elem.Context.StartsWith("%"))
                 {
                     //重组注释
-                    ErlangComment c  = new ErlangComment();
+                    ErlangComment c = new ErlangComment();
                     elem.CopyTo(c);
                     this.Comments.Add(c);
-                    this.Elements.RemoveAt(i);
-                    this.Elements.Insert(i, c);
+                    int index = this.Elements.IndexOf(elem);
+                    this.Elements.RemoveAt(index);
+                    this.Elements.Insert(index, c);
+
                 }
-                i++;
+                elem = elem.Next;
             }
         }
 
