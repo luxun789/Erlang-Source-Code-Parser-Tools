@@ -107,19 +107,6 @@ namespace ErlangParserTools
 
         }
 
-        /// <summary>
-        /// 语法着色
-        /// </summary>
-        /// <param name="elems"></param>
-        private void SetColor(List<IErlangElement> elems)
-        {
-            
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-        }
-
         private void btnViewRegex_Click(object sender, EventArgs e)
         {
             MessageBox.Show(FsmCheck.strLexParser.Replace("(?", "\r\n(?"));

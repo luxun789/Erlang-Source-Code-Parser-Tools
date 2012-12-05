@@ -170,7 +170,6 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Erlang分析器";
-            this.Load += new System.EventHandler(this.frmMain_Load);
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
