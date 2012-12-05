@@ -77,7 +77,7 @@
             this.txtResult.Location = new System.Drawing.Point(0, 0);
             this.txtResult.Name = "txtResult";
             this.txtResult.ShowSelectionMargin = true;
-            this.txtResult.Size = new System.Drawing.Size(482, 466);
+            this.txtResult.Size = new System.Drawing.Size(417, 466);
             this.txtResult.TabIndex = 2;
             this.txtResult.TabStop = false;
             this.txtResult.Text = "";
@@ -101,7 +101,7 @@
             this.tvwDom.LineColor = System.Drawing.Color.WhiteSmoke;
             this.tvwDom.Location = new System.Drawing.Point(0, 0);
             this.tvwDom.Name = "tvwDom";
-            this.tvwDom.Size = new System.Drawing.Size(178, 466);
+            this.tvwDom.Size = new System.Drawing.Size(243, 466);
             this.tvwDom.TabIndex = 0;
             this.tvwDom.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvwDom_NodeMouseClick);
             // 
@@ -141,7 +141,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tvwDom);
             this.splitContainer1.Size = new System.Drawing.Size(664, 466);
-            this.splitContainer1.SplitterDistance = 482;
+            this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.TabIndex = 8;
             // 
             // btnViewRegex
@@ -170,6 +170,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Erlang分析器";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);

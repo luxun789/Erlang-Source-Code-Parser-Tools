@@ -41,7 +41,7 @@ namespace ErlangParserTools
             op.Parser();
 
             tvwDom.Nodes.Clear();
-            TreeNode root =  tvwDom.Nodes.Add("[LineNumber, Index]:Context");
+            TreeNode root =  tvwDom.Nodes.Add("[Type: LineNumber, Index]:Context");
 
             foreach(ErlangElement elem in op.Efile.Elements)
             {
@@ -56,7 +56,7 @@ namespace ErlangParserTools
         /// </summary>
         private void ShowDom(ErlangElement root, TreeNode rnode)
         {
-            TreeNode c = rnode.Nodes.Add("[" + root.Line + ", " + root.Index + "]:" + root.Context);
+            TreeNode c = rnode.Nodes.Add("[" + root.GroupName + ":" + root.Line + ", " + root.Index + "]:" + root.Context);
             c.Tag = root;
             if (FsmCheck.RegexGroups.ContainsKey(root.GroupName))
             {
@@ -126,6 +126,11 @@ namespace ErlangParserTools
 
             txtResult.SelectionStart = elem.Index;
             txtResult.SelectionLength = elem.Context.Length;
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
