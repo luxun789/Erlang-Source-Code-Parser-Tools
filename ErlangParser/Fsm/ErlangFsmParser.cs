@@ -110,9 +110,11 @@ namespace ErlangParserLib.Fsm
             while (m.Success)
             {
                 cnode = GetElemByMatch(m);
+
+            LoopStart: { };
                 pc = GetStockChar(cnode);
 
-                if (pc.Count > 0)
+                if (pc != null)
                 {
                     //入栈
                     pChar.Push(pc);
@@ -122,23 +124,25 @@ namespace ErlangParserLib.Fsm
                 }
                 else
                 {
-                    bool has = false;
+                    bool hasPop = false;
                     List<SyntaxStock> pCharItem = pChar.Peek();
                     foreach(SyntaxStock ss in pChar.Peek())
                     {
                         if (ss.Value.Equals(cnode.Context))
                         {
                             //出栈
-                            if(ss.IsPop)
-                            {
-                                pc = pChar.Pop();
-                            }
+                            pc = pChar.Pop();
                             fnode = fnode.Parent as ErlangElement;
+
+                            //回溯处理
+                            if(ss.IsPrev) goto LoopStart;
                             fnode.Elements.Add(cnode);
-                            has = true;
+                            cnode.Parent = fnode;
+                            hasPop = true;
+                            break;
                         }
                     }
-                    if(has)
+                    if(!hasPop)
                     {
                         //添加子元素
                         fnode.Elements.Add(cnode);
