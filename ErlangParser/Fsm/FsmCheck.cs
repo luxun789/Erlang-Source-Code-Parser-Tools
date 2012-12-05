@@ -18,14 +18,14 @@ namespace ErlangParserLib.Fsm
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +
             @"(?<String>\'(.|\n)*?(?<!\\)\')|" +
             //关键字
-            @"(?<Keywords>\b(fun|if|case|of|end|when|true|false)\b)|" +
+            @"(?<Keywords>\b(fun|if|case|of|end|when|true|false|receive|after|begin|try)\b)|" +
 
             //关键字(二进制流类型)
             @"(?<BinaryKeywords>(?<=\/)(" +
-                @"(little\-|big\-|native\-)*" +
-                @"(signed\-|unsigned\-)*" +
+                @"(little\-|big\-|native\-){0, 1}" +
+                @"(signed\-|unsigned\-){0, 1}" +
                 @"(integer|float|binary|byte|bits|bitstring)" +
-                @"(\-unit)*" +
+                @"(\-unit){0, 1}" +
             @"))|" +
 
             //记录
@@ -35,7 +35,7 @@ namespace ErlangParserLib.Fsm
             @"(?<Var>([_A-Z][_a-zA-Z0-9]*))|" +
 
             //宏
-                @"(?<Macro>(\?\w+))" +
+            @"(?<Macro>(\?\w+))" +
 
             //数值
             @"(?<Number>(\d+(\.\d)*[eE]\d))|"+
@@ -96,7 +96,8 @@ namespace ErlangParserLib.Fsm
             {"(", ")"},
             {"fun", "end"},
             {"if", "end"},
-            {"case", "end"}
+            {"case", "end"},
+            {"receive", "end"}
         };
 
         /// <summary>
