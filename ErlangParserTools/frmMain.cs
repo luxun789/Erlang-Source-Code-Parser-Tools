@@ -41,9 +41,9 @@ namespace ErlangParserTools
             op.Parser();
 
             tvwDom.Nodes.Clear();
-            TreeNode root =  tvwDom.Nodes.Add("[Type: LineNumber, Index]:Context");
+            TreeNode root = tvwDom.Nodes.Add("[Type: LineNumber, Index]:Context");
 
-            foreach(ErlangElement elem in op.Efile.Elements)
+            foreach (ErlangElement elem in op.Efile.Elements)
             {
                 ShowDom(elem, root);
             }
@@ -60,7 +60,10 @@ namespace ErlangParserTools
             c.Tag = root;
             if (FsmCheck.RegexGroups.ContainsKey(root.GroupName))
             {
-                c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
+                if ("Blank".IndexOf(root.GroupName) <= 0)
+                {
+                    c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
+                }
             }
             if (root.Elements != null)
             {
@@ -116,12 +119,12 @@ namespace ErlangParserTools
         {
             TreeNode ndcur = e.Node;
             IErlangElement elem = e.Node.Tag as IErlangElement;
-            if(elem == null)
+            if (elem == null)
             {
                 return;
             }
 
-            txtResult.SelectionStart = elem.Index - 200 > 0? elem.Index - 200: 0;
+            txtResult.SelectionStart = elem.Index - 200 > 0 ? elem.Index - 200 : 0;
             txtResult.ScrollToCaret();
 
             txtResult.SelectionStart = elem.Index;
