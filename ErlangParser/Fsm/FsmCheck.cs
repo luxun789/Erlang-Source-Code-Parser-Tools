@@ -12,13 +12,13 @@ namespace ErlangParserLib.Fsm
         public static readonly string strLexParser =
 
             //行注释
-            @"(?<Comment>%.+\n)|" +
+            @"(?<Comment>(%.+\n)+)|" +
 
             //字符串, 单引基元
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +
             @"(?<String>\'(.|\n)*?(?<!\\)\')|" +
             //关键字
-            @"(?<Keywords>\b(fun|if|case|of|end|when|true|false|receive|after|begin|try)\b)|" +
+            @"(?<Keywords>\b(fun|if|case|of|end|when|true|false|receive|after|begin|try|catch)\b)|" +
 
             //关键字(二进制流类型)
             @"(?<BinaryKeywords>(?<=\/)(" +
@@ -38,7 +38,7 @@ namespace ErlangParserLib.Fsm
             @"(?<Macro>(\?\w+))" +
 
             //数值
-            @"(?<Number>(\d+(\.\d)*[eE]\d))|"+
+            @"(?<Number>(\d+(\.\d)*[eE]\d))|" +
             @"(?<Number>(\d+\.\d+))|" +
             @"(?<Number>(\d+))|" +
 
@@ -89,16 +89,24 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 语法栈
         /// </summary>
-        public static readonly Dictionary<string, string> StockChar = new Dictionary<string, string>{
-            {"[", "]"},
-            {"<<", ">>"},
-            {"{", "}"},
-            {"(", ")"},
-            {"fun", "end"},
-            {"if", "end"},
-            {"case", "end"},
-            {"receive", "end"}
-        };
+        public static readonly Dictionary<string, List<SyntaxStock>> StockChar = 
+            new Dictionary<string, List<SyntaxStock>>{
+                {"[", new List<SyntaxStock>{ new SyntaxStock{Value= "]", IsPop=true}}},
+                {"<<", new List<SyntaxStock>{ new SyntaxStock{Value= ">>", IsPop=true}}},
+                {"{", new List<SyntaxStock>{ new SyntaxStock{Value= "}", IsPop=true}}},
+                {"(", new List<SyntaxStock>{ new SyntaxStock{Value= "}", IsPop=true}}},
+                {"fun", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
+                {"if", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
+                {"case", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
+                {"of", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=false}}},
+                {"receive", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
+                {"->", new List<SyntaxStock>{
+                            new SyntaxStock{Value= ",", IsPop=true},
+                            new SyntaxStock{Value= ";", IsPop=true},
+                            new SyntaxStock{Value= "end", IsPop=false}
+                        }
+                }
+            };
 
         /// <summary>
         /// 词法分析器

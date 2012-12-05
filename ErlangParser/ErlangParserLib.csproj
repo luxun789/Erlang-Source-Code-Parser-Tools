@@ -52,6 +52,7 @@
     <Compile Include="Fsm\ErlangFsmParser.cs" />
     <Compile Include="Fsm\FsmCheck.cs" />
     <Compile Include="Fsm\FsmStatus.cs" />
+    <Compile Include="Fsm\SyntaxStock.cs" />
     <Compile Include="Fsm\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Elements\ErlangDeclaration.cs" />

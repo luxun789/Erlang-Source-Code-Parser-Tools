@@ -58,7 +58,7 @@ namespace ErlangParserLib.Fsm
         {
             lines_flag.Clear();
             lineNo = 1;
-            foreach(Match m in FsmCheck.regLines.Matches(context))
+            foreach (Match m in FsmCheck.regLines.Matches(context))
             {
                 lines_flag.Enqueue(m.Index);
             }
@@ -73,10 +73,10 @@ namespace ErlangParserLib.Fsm
         {
             int ret = -1;
 
-            while(lines_flag.Peek() <= index)
+            while (lines_flag.Peek() <= index)
             {
                 lines_flag.Dequeue();
-                lineNo ++;
+                lineNo++;
             }
             ret = lineNo;
             return ret;
@@ -98,10 +98,10 @@ namespace ErlangParserLib.Fsm
             ErlangElement fnode;        //父结点
             ErlangElement cnode;       //当前结点
 
-            Stack<string> pChar = new Stack<string>();         //语法层次栈
-            string pc = string.Empty;                                   //弹栈用字符.
+            Stack<List<SyntaxStock>> pChar = new Stack<List<SyntaxStock>>();         //语法层次栈
+            List<SyntaxStock> pc = new List<SyntaxStock>();                                    //弹栈用字符.
 
-            pChar.Push("root");
+            pChar.Push(new List<SyntaxStock>());
             fnode = Efile;
 
             IErlangElement prev = this.Efile as IErlangElement; //前一个结点
@@ -112,7 +112,7 @@ namespace ErlangParserLib.Fsm
                 cnode = GetElemByMatch(m);
                 pc = GetStockChar(cnode);
 
-                if (pc.Length > 0)
+                if (pc.Count > 0)
                 {
                     //入栈
                     pChar.Push(pc);
@@ -120,18 +120,30 @@ namespace ErlangParserLib.Fsm
                     cnode.Parent = fnode;
                     fnode = cnode;
                 }
-                else if (cnode.Context == pChar.Peek())
-                {
-                    //出栈
-                    pc = pChar.Pop();
-                    fnode = fnode.Parent as ErlangElement;
-                    fnode.Elements.Add(cnode);
-                }
                 else
                 {
-                    //添加子元素
-                    fnode.Elements.Add(cnode);
-                    cnode.Parent = fnode;
+                    bool has = false;
+                    List<SyntaxStock> pCharItem = pChar.Peek();
+                    foreach(SyntaxStock ss in pChar.Peek())
+                    {
+                        if (ss.Value.Equals(cnode.Context))
+                        {
+                            //出栈
+                            if(ss.IsPop)
+                            {
+                                pc = pChar.Pop();
+                            }
+                            fnode = fnode.Parent as ErlangElement;
+                            fnode.Elements.Add(cnode);
+                            has = true;
+                        }
+                    }
+                    if(has)
+                    {
+                        //添加子元素
+                        fnode.Elements.Add(cnode);
+                        cnode.Parent = fnode;
+                    }
                 }
 
                 //构建线索表
@@ -178,12 +190,12 @@ namespace ErlangParserLib.Fsm
         /// </summary>
         /// <param name="elem"></param>
         /// <returns>返回</returns>
-        public static string GetStockChar(ErlangElement elem)
+        public static List<SyntaxStock> GetStockChar(ErlangElement elem)
         {
-            string ret = string.Empty;
+            List<SyntaxStock> ret = null;
             string str = elem.Context;
 
-            if(FsmCheck.StockChar.ContainsKey(str))
+            if (FsmCheck.StockChar.ContainsKey(str))
             {
                 ret = FsmCheck.StockChar[str];
             }

@@ -27,7 +27,6 @@ namespace ErlangParserLib.Elements
                 {
                     //重组注释
                     ErlangComment c = new ErlangComment();
-                    elem.CopyTo(c);
                     c.Repo(this.Elements, i);
                     this.Elements.Insert(i, c);
                 }
