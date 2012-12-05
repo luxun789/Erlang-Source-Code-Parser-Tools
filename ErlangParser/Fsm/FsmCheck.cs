@@ -91,19 +91,19 @@ namespace ErlangParserLib.Fsm
         /// </summary>
         public static readonly Dictionary<string, List<SyntaxStock>> StockChar = 
             new Dictionary<string, List<SyntaxStock>>{
-                {"[", new List<SyntaxStock>{ new SyntaxStock{Value= "]", IsPop=true}}},
-                {"<<", new List<SyntaxStock>{ new SyntaxStock{Value= ">>", IsPop=true}}},
-                {"{", new List<SyntaxStock>{ new SyntaxStock{Value= "}", IsPop=true}}},
-                {"(", new List<SyntaxStock>{ new SyntaxStock{Value= "}", IsPop=true}}},
-                {"fun", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
-                {"if", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
-                {"case", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
-                {"of", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=false}}},
-                {"receive", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPop=true}}},
+                {"[", new List<SyntaxStock>{ new SyntaxStock{Value= "]", IsPrev=false}}},
+                {"<<", new List<SyntaxStock>{ new SyntaxStock{Value= ">>", IsPrev=false}}},
+                {"{", new List<SyntaxStock>{ new SyntaxStock{Value= "}", IsPrev=false}}},
+                {"(", new List<SyntaxStock>{ new SyntaxStock{Value= ")", IsPrev=false}}},
+                {"fun", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=false}}},
+                {"if", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=false}}},
+                {"case", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=false}}},
+                {"of", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=true}}},
+                {"receive", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=true}}},
                 {"->", new List<SyntaxStock>{
-                            new SyntaxStock{Value= ",", IsPop=true},
-                            new SyntaxStock{Value= ";", IsPop=true},
-                            new SyntaxStock{Value= "end", IsPop=false}
+                            new SyntaxStock{Value= ",", IsPrev=false},
+                            new SyntaxStock{Value= ";", IsPrev=false},
+                            new SyntaxStock{Value= "end", IsPrev=true}
                         }
                 }
             };
