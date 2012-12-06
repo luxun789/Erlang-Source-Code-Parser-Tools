@@ -31,11 +31,12 @@ namespace ErlangParserLib.Fsm
             //记录
             @"(?<Record>(#[a-z][_a-zA-Z0-9]*\.[a-z][_a-zA-Z0-9]*))|" +
 
+            //宏
+            @"(?<Macro>(\?[_A-Z][_a-zA-Z0-9]*))|" +
+            @"(?<MacroDef>(?<=\-define\()([_A-Z][_a-zA-Z0-9]*))|" +
+
             //变量
             @"(?<Var>([_A-Z][_a-zA-Z0-9]*))|" +
-
-            //宏
-            @"(?<Macro>(\?\w+))" +
 
             //数值
             @"(?<Number>(\d+(\.\d)*[eE]\d))|" +
@@ -72,16 +73,17 @@ namespace ErlangParserLib.Fsm
         public static readonly Dictionary<string, Color> RegexGroups = new Dictionary<string, Color>{
             {"Var", Color.FromArgb(100, 100, 220)},
             {"Macro", Color.FromArgb(100, 220, 220)},
+            {"MacroDef", Color.FromArgb(100, 220, 220)},
             {"String", Color.FromArgb(250, 250, 70)},
             {"Number", Color.FromArgb(175, 130, 255)},
-            {"Keywords", Color.FromArgb(175, 255, 255)},
+            {"Keywords", Color.FromArgb(0, 0, 255)},
             {"BinaryKeywords", Color.FromArgb(255, 30, 30)},
             {"Record", Color.FromArgb(180, 50, 50)},
             {"Function", Color.FromArgb(30, 250, 30)},
             {"ModuleCall", Color.FromArgb(250, 250, 0)},
-            {"Atom", Color.FromArgb(250, 250, 250)},
+            {"Atom", Color.FromArgb(255, 250, 250)},
             {"p", Color.FromArgb(220, 220, 220)},
-            {"Blank", Color.FromArgb(0, 0, 0)},
+            {"Blank", Color.FromArgb(30, 30, 30)},
             {"Comment", Color.FromArgb(150, 150, 150)},
             {"Other", Color.Red}
         };
@@ -89,7 +91,7 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 语法栈
         /// </summary>
-        public static readonly Dictionary<string, List<SyntaxStock>> StockChar = 
+        public static readonly Dictionary<string, List<SyntaxStock>> StockChar =
             new Dictionary<string, List<SyntaxStock>>{
                 {"[", new List<SyntaxStock>{ new SyntaxStock{Value= "]", IsPrev=false}}},
                 {"<<", new List<SyntaxStock>{ new SyntaxStock{Value= ">>", IsPrev=false}}},
@@ -105,7 +107,9 @@ namespace ErlangParserLib.Fsm
                             new SyntaxStock{Value= ";", IsPrev=false},
                             new SyntaxStock{Value= "end", IsPrev=true}
                         }
-                }
+                },
+                {"try", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=false}}},
+                {"after", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=true}}}
             };
 
         /// <summary>
