@@ -17,8 +17,12 @@ namespace ErlangParserLib.Fsm
             //字符串, 单引基元
             @"(?<String>""(.|\n)*?(?<!\\)"")|" +
             @"(?<String>\'(.|\n)*?(?<!\\)\')|" +
+
             //关键字
-            @"(?<Keywords>\b(fun|if|case|of|end|when|true|false|receive|after|begin|try|catch)\b)|" +
+            @"(?<Keywords>\b(" +
+                "fun|if|case|of|end|when|true|false|" +
+                "receive|after|begin|try|catch|throw" +
+            ")\b)|" +
 
             //关键字(二进制流类型)
             @"(?<BinaryKeywords>(?<=\/)(" +
@@ -102,14 +106,17 @@ namespace ErlangParserLib.Fsm
                 {"case", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=false}}},
                 {"of", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=true}}},
                 {"receive", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=true}}},
-                {"->", new List<SyntaxStock>{
-                            new SyntaxStock{Value= ",", IsPrev=false},
-                            new SyntaxStock{Value= ";", IsPrev=false},
-                            new SyntaxStock{Value= "end", IsPrev=true}
-                        }
+                {"->", 
+                    new List<SyntaxStock>{
+                        new SyntaxStock{Value= ",", IsPrev=false},
+                        new SyntaxStock{Value= ";", IsPrev=false},
+                        new SyntaxStock{Value= "end", IsPrev=true}
+                    }
                 },
                 {"try", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=false}}},
-                {"after", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=true}}}
+                {"after", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=true}}},
+                {"catch", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=true}}},
+                {"when", new List<SyntaxStock>{new SyntaxStock{Value="->", IsPrev=true}}}
             };
 
         /// <summary>
