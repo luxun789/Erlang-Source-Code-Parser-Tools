@@ -33,13 +33,14 @@ namespace ErlangParserLib.Elements
             for (; i < elems.Count; i++)
             {
                 elem = elems[i];
-
-                this.Context += elem.Context;
                 this.Elements.Add(elem);
 
                 if (elem.Context == ".") break;
             }
-            this.Name = elems[index + 1].Context;
+            if(this.Elements.Count > 0)
+            {
+                this.Name = this.Elements[0].Context;
+            }
             elems.RemoveRange(index, i - index + 1);
         }
     }
