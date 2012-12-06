@@ -57,5 +57,6 @@ namespace ErlangParserLib.Elements
         /// 重组元素
         /// </summary>
         void Repo(List<IErlangElement> elems, int index);
+
     }
 }
