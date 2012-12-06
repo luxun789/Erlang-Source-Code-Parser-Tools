@@ -30,6 +30,13 @@ namespace ErlangParserLib.Elements
                     c.Repo(this.Elements, i);
                     this.Elements.Insert(i, c);
                 }
+                else if(elem.Context.Equals("-"))
+                {
+                    //重组定义
+                    ErlangDeclaration d = new ErlangDeclaration();
+                    d.Repo(this.Elements, i);
+                    this.Elements.Insert(i, d);
+                }
                 i ++;
             }
         }
