@@ -41,7 +41,7 @@ namespace ErlangParserLib.Elements
             {
                 this.Name = this.Elements[0].Context;
             }
-            elems.RemoveRange(index, i - index + 1);
+            elems.RemoveRange(index, this.Elements.Count);
         }
     }
 }
