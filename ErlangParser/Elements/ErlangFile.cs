@@ -39,6 +39,12 @@ namespace ErlangParserLib.Elements
                     d.Repo(elems, i);
                     elems.Insert(i, d);
                 }
+                else if(elem.GroupName == "Function")
+                {
+                    ErlangFunction f = new ErlangFunction();
+                    f.Repo(elems, i);
+                    elems.Insert(i, f);
+                }
                 i ++;
             }
         }
