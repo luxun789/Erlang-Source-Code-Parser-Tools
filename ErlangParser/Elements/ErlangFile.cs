@@ -20,22 +20,24 @@ namespace ErlangParserLib.Elements
         public override void Repo(List<IErlangElement> elems, int index)
         {
             int i = 0;
-            IErlangElement elem = this.Elements[0];
+            IErlangElement elem = elems[index];
+            i = index;
             while (i < this.Elements.Count)
             {
+                elem = elems[i];
                 if (elem.Context.StartsWith("%"))
                 {
                     //重组注释
                     ErlangComment c = new ErlangComment();
-                    c.Repo(this.Elements, i);
-                    this.Elements.Insert(i, c);
+                    c.Repo(elems, i);
+                    elems.Insert(i, c);
                 }
                 else if(elem.Context.Equals("-"))
                 {
                     //重组定义
                     ErlangDeclaration d = new ErlangDeclaration();
-                    d.Repo(this.Elements, i);
-                    this.Elements.Insert(i, d);
+                    d.Repo(elems, i);
+                    elems.Insert(i, d);
                 }
                 i ++;
             }
