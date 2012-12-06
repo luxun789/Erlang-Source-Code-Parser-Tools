@@ -1,5 +1,5 @@
-﻿using ErlangParserLib.Fsm;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ErlangParserLib.Fsm;
 
 namespace ErlangParserLib.Elements
 {
@@ -11,28 +11,36 @@ namespace ErlangParserLib.Elements
         public string Name { get; set; }
 
         /// <summary>
-        /// 内嵌内容
+        /// 构造函数
         /// </summary>
-        public string InnerText { get; set; }
-
         public ErlangDeclaration()
             : base()
         {
+            this.EType = FsmStatus.FSM_DECLARATION;
         }
 
+        /// <summary>
+        /// 重组标识
+        /// </summary>
+        /// <param name="elems"></param>
+        /// <param name="index"></param>
         public override void Repo(List<IErlangElement> elems, int index)
         {
-            int count = 1;
-            for (int i = index; i < elems.Count; i++, count++)
+            int i = index + 1;
+            IErlangElement elem = elems[index];
+            elem.CopyTo(this);
+
+            for (; i < elems.Count; i++)
             {
-                IErlangElement elem = elems[i];
-                if (elem.Context == ".")
-                {
-                    break;
-                }
+                elem = elems[i];
+
+                this.Context += elem.Context;
                 this.Elements.Add(elem);
+
+                if (elem.Context == ".") break;
             }
-            elems.RemoveRange(index, count);
+            this.Name = elems[index + 1].Context;
+            elems.RemoveRange(index, i - index + 1);
         }
     }
 }
