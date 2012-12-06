@@ -56,13 +56,17 @@ namespace ErlangParserTools
         /// </summary>
         private void ShowDom(ErlangElement root, TreeNode rnode)
         {
-            TreeNode c = rnode.Nodes.Add("[" + root.GroupName + ":" + root.Line + ", " + root.Index + "]:" + root.Context);
-            c.Tag = root;
+            TreeNode c = null;
             if (FsmCheck.RegexGroups.ContainsKey(root.GroupName))
             {
-                if ("Blank".IndexOf(root.GroupName) <= 0)
+                if(root.GroupName != "Blank")
                 {
+                    c = new TreeNode(
+                        "[" + root.GroupName + ":" + root.Line + ", " + root.Index + "]:" + root.Context
+                    );
+                    c.Tag = root;
                     c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
+                    rnode.Nodes.Add(c);
                 }
             }
             if (root.Elements != null)
