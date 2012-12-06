@@ -26,7 +26,8 @@ namespace ErlangParserLib.Fsm
                 "andalso|orelse| " +
                 "bsl|bsr|bnot|band|and|bxor|bor|" +
                 "not|and|xor|or|" + 
-                "try|catch|throw|" +
+                "try|catch|" +
+                //"throw|exit|" +
                 "div|rem|let|cond" +
                 "query" +
             ")\b)|" +
