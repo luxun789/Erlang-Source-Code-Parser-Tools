@@ -3,7 +3,7 @@
     /// <summary>
     /// Erlang语法解析FSM状态
     /// </summary>
-    public enum FsmStatus
+    public enum FsmStatus : ushort
     {
         /// <summary>
         /// 初始值, 或无状态(仅在包模式下可用)
@@ -61,33 +61,28 @@
         FSM_FUNCTION = 10,
 
         /// <summary>
+        /// 形参表
+        /// </summary>
+        FSM_FUNCTION_ARGUMENTS = 11,
+
+        /// <summary>
         /// 函数调用
         /// </summary>
-        FSM_FUNCTION_CALL= 11,
+        FSM_FUNCTION_CALL= 12,
+
+        /// <summary>
+        /// 实参表
+        /// </summary>
+        FSM_FUNCTION_PARAMETERS = 13,
 
         /// <summary>
         /// 文件声明部分
         /// </summary>
-        FSM_DECLARATION = 12,
-
-        /// <summary>
-        /// 函数头
-        /// </summary>
-        FSM_FUNCTION_HEAD = 13,
-
-        /// <summary>
-        /// 函数参数部分
-        /// </summary>
-        FSM_FUNCTION_PARAMS = 14,
-
-        /// <summary>
-        /// 函数主体
-        /// </summary>
-        FSM_FUNCTION_BODY = 15,
+        FSM_DECLARATION = 14,
 
         /// <summary>
         /// 末定义段.(暂时没有用)
         /// </summary>
-        FSM_UNDEFINE = 32768
+        FSM_UNDEFINE = 65535
     }
 }

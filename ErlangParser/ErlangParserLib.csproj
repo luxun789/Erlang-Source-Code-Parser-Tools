@@ -33,11 +33,13 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=10.0.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -45,7 +47,9 @@
     <Compile Include="Elements\ErlangElement.cs" />
     <Compile Include="Elements\ErlangFile.cs" />
     <Compile Include="Elements\ErlangFunction.cs" />
+    <Compile Include="Elements\ErlangFunctionArguments.cs" />
     <Compile Include="Elements\IErlangElement.cs" />
+    <Compile Include="Elements\ErlangFunctionParameters.cs" />
     <Compile Include="Files\IncludeFile.cs" />
     <Compile Include="Files\ModuleFile.cs" />
     <Compile Include="Elements\FontStyle.cs" />

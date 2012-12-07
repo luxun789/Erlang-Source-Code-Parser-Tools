@@ -16,6 +16,7 @@ namespace ErlangParserLib.Elements
             elem.CopyTo(this);
 
             int i = index + 1;
+
             for (; i < elems.Count; i++)
             {
                 elem = elems[i];
