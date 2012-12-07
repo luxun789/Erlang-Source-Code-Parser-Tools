@@ -15,8 +15,8 @@ namespace ErlangParserLib.Elements
         }
 
         public List<ErlangComment> Comments = new List<ErlangComment>();
-        public Dictionary<string, ErlangDeclaration> Declarations = new Dictionary<string,ErlangDeclaration>();
-        public Dictionary<string, ErlangFunction> Funcations = new Dictionary<string,ErlangFunction>();
+        public Dictionary<string, ErlangDeclaration> Declarations = new Dictionary<string, ErlangDeclaration>();
+        public Dictionary<string, ErlangFunction> Funcations = new Dictionary<string, ErlangFunction>();
 
         /// <summary>
         /// 元素重组
@@ -54,7 +54,7 @@ namespace ErlangParserLib.Elements
                     f.Repo(elems, i);
                     elems.Insert(i, f);
 
-
+                    this.Funcations.Add(f.Name + "/" + f.Arguments.Elements.Count, f);
                 }
                 i ++;
             }
