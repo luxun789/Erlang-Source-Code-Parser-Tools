@@ -12,6 +12,11 @@ namespace ErlangParserLib.Elements
             this.EType = Fsm.FsmStatus.FSM_FUNCTION_ARGUMENTS;
         }
 
+        /// <summary>
+        /// 重组形参表
+        /// </summary>
+        /// <param name="elems"></param>
+        /// <param name="index"></param>
         public override void Repo(List<IErlangElement> elems, int index)
         {
             int i = index;
