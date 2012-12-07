@@ -132,15 +132,20 @@ namespace ErlangParserLib.Fsm
                         {
                             //出栈
                             pc = pChar.Pop();
-                            fnode = fnode.Parent as ErlangElement;
 
                             //回溯处理
-                            if(ss.IsPrev) goto LoopStart;
+                            if(ss.IsPrev) {
+                                fnode = fnode.Parent as ErlangElement;
+                                goto LoopStart;
+                            }
 
                             //添加元素
                             fnode.Elements.Add(cnode);
                             cnode.Parent = fnode;
                             hasPop = true;
+
+                            fnode = fnode.Parent as ErlangElement;
+
                             break;
                         }
                     }

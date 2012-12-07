@@ -48,6 +48,7 @@
     <Compile Include="Elements\ErlangFile.cs" />
     <Compile Include="Elements\ErlangFunction.cs" />
     <Compile Include="Elements\ErlangFunctionArguments.cs" />
+    <Compile Include="Elements\ErlangList.cs" />
     <Compile Include="Elements\IErlangElement.cs" />
     <Compile Include="Elements\ErlangFunctionParameters.cs" />
     <Compile Include="Files\IncludeFile.cs" />
