@@ -10,6 +10,11 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// 形参表
+        /// </summary>
+        public ErlangFunctionArguments Arguments {get; set;}
+
         public override void Repo(List<IErlangElement> elems, int index)
         {
             IErlangElement elem = elems[index] as IErlangElement;
@@ -17,11 +22,17 @@ namespace ErlangParserLib.Elements
 
             int i = index + 1;
 
+            this.Arguments = new ErlangFunctionArguments();
             for (; i < elems.Count; i++)
             {
                 elem = elems[i];
                 this.Elements.Add(elem);
-                if(elem.Context == ";" || elem.Context == ".")
+                if(elem.Context == "(")
+                {
+                    //生成形参表
+                    this.Arguments.Repo(elems, i);
+                }
+                else if(elem.Context == ";" || elem.Context == ".")
                 {
                     break;
                 }
@@ -30,6 +41,7 @@ namespace ErlangParserLib.Elements
             {
                 this.Name = this.Context;
             }
+            
             elems.RemoveRange(index, this.Elements.Count);
         }
 
