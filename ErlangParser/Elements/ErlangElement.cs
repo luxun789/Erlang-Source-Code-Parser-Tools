@@ -66,7 +66,7 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public int Line { get; set; }
 
-        void IDisposable.Dispose()
+        void Dispose()
         {
         }
 
