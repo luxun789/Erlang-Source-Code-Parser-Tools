@@ -30,7 +30,7 @@ namespace ErlangParserLib.Elements
                 if(elem.Context == "(")
                 {
                     //生成形参表
-                    this.Arguments.Repo(elems, i);
+                    this.Arguments.Repo(elem.Elements, 0);
                 }
                 else if(elem.Context == ";" || elem.Context == ".")
                 {
@@ -39,6 +39,7 @@ namespace ErlangParserLib.Elements
             }
             if(this.Elements.Count > 0)
             {
+                this.Context += "/" + this.Arguments.Elements.Count;
                 this.Name = this.Context;
             }
             

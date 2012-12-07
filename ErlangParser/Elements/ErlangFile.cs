@@ -15,8 +15,8 @@ namespace ErlangParserLib.Elements
         }
 
         public List<ErlangComment> Comments = new List<ErlangComment>();
-        public Dictionary<string, ErlangDeclaration> Declarations = new Dictionary<string, ErlangDeclaration>();
-        public Dictionary<string, ErlangFunction> Funcations = new Dictionary<string, ErlangFunction>();
+        public Dictionary<string, List<ErlangDeclaration>> Declarations = new Dictionary<string, List<ErlangDeclaration>>();
+        public Dictionary<string, List<ErlangFunction>> Funcations = new Dictionary<string, List<ErlangFunction>>();
 
         /// <summary>
         /// 元素重组
@@ -45,7 +45,11 @@ namespace ErlangParserLib.Elements
                     d.Repo(elems, i);
                     elems.Insert(i, d);
 
-                    this.Declarations.Add(d.Name, d);
+                    if(!this.Declarations.ContainsKey(d.Name))
+                    {
+                        this.Declarations.Add(d.Name, new List<ErlangDeclaration>());
+                    }
+                    this.Declarations[d.Name].Add(d);
                 }
                 else if(elem.GroupName == "Function")
                 {
@@ -54,7 +58,12 @@ namespace ErlangParserLib.Elements
                     f.Repo(elems, i);
                     elems.Insert(i, f);
 
-                    this.Funcations.Add(f.Name + "/" + f.Arguments.Elements.Count, f);
+                    string key = f.Name + "/" + f.Arguments.Elements.Count;
+                    if(!this.Funcations.ContainsKey(key))
+                    {
+                        this.Funcations.Add(key, new List<ErlangFunction>());
+                    }
+                    this.Funcations[key].Add(f);
                 }
                 i ++;
             }

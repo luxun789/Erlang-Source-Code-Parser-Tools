@@ -6,6 +6,9 @@ namespace ErlangParserLib.Elements
     /// </summary>
     public class ErlangFunctionArguments : ErlangElement
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public ErlangFunctionArguments()
             :base()
         {
@@ -24,13 +27,9 @@ namespace ErlangParserLib.Elements
             for(; i < elems.Count; i ++)
             {
                 elem = elems[i];
-                if(elem.Context != ",")
+                if(elem.Context != "," && elem.GroupName != "Blank")
                 {
                     this.Elements.Add(elem);
-                }
-                if(elem.Context.Equals(")"))
-                {
-                    break;
                 }
             }
         }
