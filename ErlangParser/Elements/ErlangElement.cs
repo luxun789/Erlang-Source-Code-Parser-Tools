@@ -66,10 +66,6 @@ namespace ErlangParserLib.Elements
         /// </summary>
         public int Line { get; set; }
 
-        void Dispose()
-        {
-        }
-
         /// <summary>
         /// 重组元素
         /// </summary>
@@ -78,6 +74,19 @@ namespace ErlangParserLib.Elements
             return;
         }
 
+        void IDisposable.Dispose()
+        {
+        }
+
+        /// <summary>
+        /// 所有IErlangElement都是ErlangElemenet对象.
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns></returns>
+        public bool IsTypeOf(IErlangElement elem)
+        {
+            return true;
+        }
     }
 
 }

@@ -58,5 +58,12 @@ namespace ErlangParserLib.Elements
         /// </summary>
         void Repo(List<IErlangElement> elems, int index);
 
+        /// <summary>
+        /// 判断是否为当前元素类型
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns></returns>
+        bool IsTypeOf(IErlangElement elem);
+
     }
 }

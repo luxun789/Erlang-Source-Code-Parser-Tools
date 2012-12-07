@@ -14,6 +14,10 @@ namespace ErlangParserLib.Elements
             this.EType = FsmStatus.FSM_FILE;
         }
 
+        public List<ErlangComment> Comments = new List<ErlangComment>();
+        public Dictionary<string, ErlangDeclaration> Declarations = new Dictionary<string,ErlangDeclaration>();
+        public Dictionary<string, ErlangFunction> Funcations = new Dictionary<string,ErlangFunction>();
+
         /// <summary>
         /// 元素重组
         /// </summary>
@@ -31,6 +35,8 @@ namespace ErlangParserLib.Elements
                     ErlangComment c = new ErlangComment();
                     c.Repo(elems, i);
                     elems.Insert(i, c);
+
+                    this.Comments.Add(c);
                 }
                 else if(elem.Context.Equals("-"))
                 {
@@ -38,12 +44,17 @@ namespace ErlangParserLib.Elements
                     ErlangDeclaration d = new ErlangDeclaration();
                     d.Repo(elems, i);
                     elems.Insert(i, d);
+
+                    this.Declarations.Add(d.Name, d);
                 }
                 else if(elem.GroupName == "Function")
                 {
+                    //重组函数
                     ErlangFunction f = new ErlangFunction();
                     f.Repo(elems, i);
                     elems.Insert(i, f);
+
+
                 }
                 i ++;
             }
