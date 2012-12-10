@@ -37,7 +37,7 @@ namespace ErlangParserLib.Statement
 
                 if (elem.Context == ".") break;
             }
-            elems.RemoveRange(index, this.Elements.Count);
+            elems.RemoveRange(index, this.Elements.Count + 1);
 
             if(this.Elements.Count > 0)
             {
