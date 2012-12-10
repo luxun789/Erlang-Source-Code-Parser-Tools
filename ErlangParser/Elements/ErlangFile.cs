@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ErlangParserLib.Fsm;
+using Newtonsoft.Json;
 
 namespace ErlangParserLib.Statement
 {
@@ -14,8 +15,13 @@ namespace ErlangParserLib.Statement
             this.EType = FsmStatus.FSM_FILE;
         }
 
+        [JsonIgnore()]
         public List<ErlangComment> Comments = new List<ErlangComment>();
+
+        [JsonIgnore()]
         public Dictionary<string, List<ErlangDeclaration>> Declarations = new Dictionary<string, List<ErlangDeclaration>>();
+
+        [JsonIgnore()]
         public Dictionary<string, List<ErlangFunction>> Funcations = new Dictionary<string, List<ErlangFunction>>();
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ErlangParserLib.Fsm;
+using Newtonsoft.Json;
 
 namespace ErlangParserLib.Statement
 {
@@ -29,16 +30,19 @@ namespace ErlangParserLib.Statement
         /// <summary>
         /// 父结点
         /// </summary>
+        [JsonIgnore()]
         public IErlangElement Parent { get; set; }
 
         /// <summary>
         /// 上一个结点
         /// </summary>
+        [JsonIgnore()]
         public IErlangElement Prev { get; set; }
 
         /// <summary>
         /// 下一个结点
         /// </summary>
+        [JsonIgnore()]
         public IErlangElement Next { get; set; }
 
         /// <summary>
