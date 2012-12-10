@@ -49,6 +49,7 @@
     <Compile Include="Elements\ErlangFunction.cs" />
     <Compile Include="Elements\ErlangFunctionArguments.cs" />
     <Compile Include="Elements\ErlangList.cs" />
+    <Compile Include="Statement\ErlangWhenStatement.cs" />
     <Compile Include="Elements\IErlangElement.cs" />
     <Compile Include="Elements\ErlangFunctionParameters.cs" />
     <Compile Include="Files\IncludeFile.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Fsm\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Elements\ErlangDeclaration.cs" />
+    <Compile Include="Statement\StatementBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

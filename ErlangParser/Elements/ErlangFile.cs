@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ErlangParserLib.Fsm;
 
-namespace ErlangParserLib.Elements
+namespace ErlangParserLib.Statement
 {
     /// <summary>
     /// Erlang文件基础类

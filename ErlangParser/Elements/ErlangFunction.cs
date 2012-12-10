@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ErlangParserLib.Fsm;
 
-namespace ErlangParserLib.Elements
+namespace ErlangParserLib.Statement
 {
     public class ErlangFunction : ErlangElement
     {
@@ -32,6 +32,13 @@ namespace ErlangParserLib.Elements
                     //生成形参表
                     this.Arguments.Repo(elem.Elements, 0);
                 }
+                else if(elem.Context == "when")
+                {
+                    //when子句
+                    ErlangWhenStatement ws = new ErlangWhenStatement();
+                    ws.Repo(elems, i);
+                    this.Elements.Add(ws);
+                }
                 else if(elem.Context == ";" || elem.Context == ".")
                 {
                     break;
@@ -43,7 +50,7 @@ namespace ErlangParserLib.Elements
                 this.Name = this.Context;
             }
 
-            elems.RemoveRange(index, this.Elements.Count);
+            elems.RemoveRange(index, this.Elements.Count + 1);
         }
 
     }

@@ -1,4 +1,4 @@
-﻿using ErlangParserLib.Elements;
+﻿using ErlangParserLib.Statement;
 
 namespace ErlangParserLib.Fsm
 {

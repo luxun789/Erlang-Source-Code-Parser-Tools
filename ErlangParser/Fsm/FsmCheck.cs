@@ -113,11 +113,24 @@ namespace ErlangParserLib.Fsm
                 {"if", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=false}}},
                 {"case", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=false}}},
                 {"of", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=true}}},
-                {"receive", new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=true}}},
+                {"receive", 
+                    //new List<SyntaxStock>{ new SyntaxStock{Value= "end", IsPrev=true}}},
+                    new List<SyntaxStock>{
+                        new SyntaxStock{Value=",", IsPrev=false},
+                        new SyntaxStock{Value=";", IsPrev=true},
+                        new SyntaxStock{Value=".", IsPrev=true},
+                    }
+                },
                 {"try", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=false}}},
                 {"after", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=true}}},
                 {"catch", new List<SyntaxStock>{new SyntaxStock{Value="end", IsPrev=true}}},
-                {"when", new List<SyntaxStock>{new SyntaxStock{Value="->", IsPrev=true}}},
+                {"!", 
+                    new List<SyntaxStock>{
+                        new SyntaxStock{Value=",", IsPrev=false},
+                        new SyntaxStock{Value=";", IsPrev=true},
+                        new SyntaxStock{Value=".", IsPrev=true},
+                    }
+                },
                 {"->", 
                     new List<SyntaxStock>{
                         new SyntaxStock{Value= ".", IsPrev=false},

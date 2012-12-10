@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace ErlangParserLib.Elements
+namespace ErlangParserLib.Statement
 {
     public class ErlangList : ErlangElement
     {

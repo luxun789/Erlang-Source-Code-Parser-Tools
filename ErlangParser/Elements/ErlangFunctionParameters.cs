@@ -1,4 +1,4 @@
-﻿namespace ErlangParserLib.Elements
+﻿namespace ErlangParserLib.Statement
 {
     /// <summary>
     /// 实参表

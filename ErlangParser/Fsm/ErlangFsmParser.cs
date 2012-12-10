@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
-using ErlangParserLib.Elements;
+using ErlangParserLib.Statement;
 
 namespace ErlangParserLib.Fsm
 {

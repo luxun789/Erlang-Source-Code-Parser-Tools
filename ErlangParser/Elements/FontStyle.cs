@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace ErlangParserLib.Elements
+namespace ErlangParserLib.Statement
 {
     public class FontStyle
     {

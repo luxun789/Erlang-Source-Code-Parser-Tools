@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ErlangParserLib.Fsm;
 
-namespace ErlangParserLib.Elements
+namespace ErlangParserLib.Statement
 {
     /// <summary>
     /// Erlang元素基类
