@@ -37,11 +37,14 @@ namespace ErlangParserLib.Elements
 
                 if (elem.Context == ".") break;
             }
+            elems.RemoveRange(index, this.Elements.Count);
+
             if(this.Elements.Count > 0)
             {
                 this.Name = this.Elements[0].Context;
+                this.Context += this.Name;
+                this.Elements.RemoveAt(0);
             }
-            elems.RemoveRange(index, this.Elements.Count);
         }
     }
 }
