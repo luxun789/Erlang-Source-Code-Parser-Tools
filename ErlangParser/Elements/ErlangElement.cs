@@ -25,6 +25,7 @@ namespace ErlangParserLib.Statement
         /// <summary>
         /// erlang元素类型
         /// </summary>
+        [JsonIgnore()]
         public FsmStatus EType { get; set; }
 
         /// <summary>
@@ -53,6 +54,7 @@ namespace ErlangParserLib.Statement
         /// <summary>
         /// 当前元素在原文件中的位置
         /// </summary>
+        [JsonIgnore()]
         public int Index { get; set; }
 
         /// <summary>
@@ -63,11 +65,13 @@ namespace ErlangParserLib.Statement
         /// <summary>
         /// 元素的分组名称
         /// </summary>
+        [JsonIgnore()]
         public string GroupName { get; set; }
 
         /// <summary>
         /// 当前元素在原文件中的行位置
         /// </summary>
+        [JsonIgnore()]
         public int Line { get; set; }
 
         /// <summary>
