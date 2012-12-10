@@ -42,7 +42,7 @@ namespace ErlangParserLib.Elements
                 this.Context += "/" + this.Arguments.Elements.Count;
                 this.Name = this.Context;
             }
-            
+
             elems.RemoveRange(index, this.Elements.Count);
         }
 
