@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using ErlangParserLib.Elements;
+using ErlangParserLib.Statement;
 using ErlangParserLib.Fsm;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace ErlangParserTools
 {
@@ -48,6 +50,15 @@ namespace ErlangParserTools
             }
             tvwDom.ExpandAll();
             ShowMatch();
+
+            OutToFile();
+        }
+
+        private void OutToFile()
+        {
+            File.WriteAllText(this.op.Filename + ".json",
+                JsonConvert.SerializeObject(op.Efile, Formatting.Indented)
+            );
         }
 
         /// <summary>
@@ -58,15 +69,12 @@ namespace ErlangParserTools
             TreeNode c = null;
             if (FsmCheck.RegexGroups.ContainsKey(root.GroupName))
             {
-                if(root.GroupName != "Blank")
-                {
-                    c = new TreeNode(
-                        "[" + root.GroupName + ":" + root.Line + ", " + root.Index + "]:" + root.Context
-                    );
-                    c.Tag = root;
-                    c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
-                    rnode.Nodes.Add(c);
-                }
+                c = new TreeNode(
+                    "[" + root.GroupName + ":" + root.Line + ", " + root.Index + "]:" + root.Context
+                );
+                c.Tag = root;
+                c.ForeColor = FsmCheck.RegexGroups[root.GroupName];
+                rnode.Nodes.Add(c);
             }
             if (root.Elements != null)
             {
