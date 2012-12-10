@@ -11,14 +11,13 @@ namespace ErlangParserLib.Statement
             IErlangElement elem = elems[index];
             elem.CopyTo(this);
 
-            for(; i < elems.Count && !elem.Context.Equals("->"); i++)
+            for(; i < elems.Count ; i++)
             {
                 elem = elems[i];
+                if(elem.Context.Equals("->")) break;
                 this.Elements.Add(elem);
             }
             elems.RemoveRange(index, this.Elements.Count);
-
-            base.Repo(elems, index);
         }
     }
 }
