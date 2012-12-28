@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
-using ErlangParserLib.Statement;
-using ErlangParserLib.Fsm;
 using System.IO;
+using System.Windows.Forms;
+using ErlangParserLib.Fsm;
+using ErlangParserLib.Statement;
 using Newtonsoft.Json;
 
 namespace ErlangParserTools
