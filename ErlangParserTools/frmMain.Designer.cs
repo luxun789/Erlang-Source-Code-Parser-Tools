@@ -57,8 +57,8 @@
             // 
             // lblFilepath
             // 
-            this.lblFilepath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFilepath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFilepath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFilepath.Location = new System.Drawing.Point(12, 12);
             this.lblFilepath.Name = "lblFilepath";
@@ -107,29 +107,29 @@
             // 
             // StatusBar
             // 
-            this.StatusBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.StatusBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.StatusBar.Dock = System.Windows.Forms.DockStyle.None;
             this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslPostion});
             this.StatusBar.Location = new System.Drawing.Point(0, 513);
             this.StatusBar.Name = "StatusBar";
-            this.StatusBar.Size = new System.Drawing.Size(119, 22);
+            this.StatusBar.Size = new System.Drawing.Size(118, 22);
             this.StatusBar.TabIndex = 7;
             this.StatusBar.Text = "statusStrip1";
             // 
             // tsslPostion
             // 
             this.tsslPostion.Name = "tsslPostion";
-            this.tsslPostion.Size = new System.Drawing.Size(102, 17);
+            this.tsslPostion.Size = new System.Drawing.Size(101, 17);
             this.tsslPostion.Text = "Line:0, Column:0";
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(12, 41);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -169,7 +169,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Erlang分析器";
+            this.Text = "Erlang语法树DOM分析器";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
