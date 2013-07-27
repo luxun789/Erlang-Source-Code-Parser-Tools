@@ -20,7 +20,7 @@ namespace ErlangParserLib.Fsm
 
             //关键字
             @"(?<Keywords>\b(" +
-                "fun|if|case|of|end|when|" +
+                "if|case|of|end|when|" +
                 "true|false|" +
                 "receive|after|begin|" +
                 "andalso|orelse| " +
@@ -31,6 +31,8 @@ namespace ErlangParserLib.Fsm
                 "div|rem|let|cond" +
                 "query" +
             ")\b)|" +
+
+            @"(?<Function>\b(fun)\b)" +
 
             //关键字(二进制流类型)
             @"(?<BinaryKeywords>(?<=\/)(" +
