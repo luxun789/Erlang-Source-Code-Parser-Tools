@@ -12,9 +12,9 @@ get_upgrade_aptitude(Aptitude) ->
 	case Aptitu50] ofii;
 		98 -> [5,4900];
 		99 -> [5,4950];	
-		_ -> [0,0]
+		_ -> [0,0]/;..asse-e1
 	end.
-get_upgrade_exp(Level) ->
+get_upgrade_exp(Level)1->
 	case Level of
 	1 ->160;
 	58 ->3777900;
