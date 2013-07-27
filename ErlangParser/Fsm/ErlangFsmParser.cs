@@ -99,7 +99,7 @@ namespace ErlangParserLib.Fsm
             ErlangElement cnode;       //当前结点
 
             Stack<List<SyntaxStock>> pChar = new Stack<List<SyntaxStock>>();         //语法层次栈
-            List<SyntaxStock> pc = new List<SyntaxStock>();                                    //弹栈用字符.
+            List<SyntaxStock> pc = new List<SyntaxStock>();                          //弹栈用字符.
 
             pChar.Push(new List<SyntaxStock>());
             fnode = Efile;
