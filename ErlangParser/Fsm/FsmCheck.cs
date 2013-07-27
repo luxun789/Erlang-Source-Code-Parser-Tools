@@ -32,7 +32,7 @@ namespace ErlangParserLib.Fsm
                 "query" +
             ")\b)|" +
 
-            @"(?<Function>\b(fun)\b)" +
+            @"(?<AnonymousFunction>\b(fun)\b)" +
 
             //关键字(二进制流类型)
             @"(?<BinaryKeywords>(?<=\/)(" +
