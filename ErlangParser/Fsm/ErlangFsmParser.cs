@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using ErlangParserLib.Statement;
+using System.Threading.Tasks;
 
 namespace ErlangParserLib.Fsm
 {
@@ -85,6 +86,15 @@ namespace ErlangParserLib.Fsm
         /// <summary>
         /// 解析文件
         /// </summary>
+        public async void ParserAsync()
+        {
+            Parser();
+            await Task.Delay(1);
+        }
+
+        /// <summary>
+        /// 解析文件
+        /// </summary>
         /// <returns></returns>
         public void Parser()
         {
@@ -126,7 +136,7 @@ namespace ErlangParserLib.Fsm
                 {
                     bool hasPop = false;
                     List<SyntaxStock> pCharItem = pChar.Peek();
-                    foreach(SyntaxStock ss in pChar.Peek())
+                    foreach (SyntaxStock ss in pChar.Peek())
                     {
                         if (ss.Value.Equals(cnode.Context))
                         {
@@ -135,7 +145,8 @@ namespace ErlangParserLib.Fsm
                             fnode = fnode.Parent as ErlangElement;
 
                             //回溯处理
-                            if(ss.IsPrev) {
+                            if (ss.IsPrev)
+                            {
                                 goto LoopStart;
                             }
 
@@ -147,7 +158,7 @@ namespace ErlangParserLib.Fsm
                             break;
                         }
                     }
-                    if(!hasPop)
+                    if (!hasPop)
                     {
                         //添加子元素
                         fnode.Elements.Add(cnode);
@@ -156,7 +167,7 @@ namespace ErlangParserLib.Fsm
                 }
 
                 //构建线索表
-                if(prev != null)
+                if (prev != null)
                 {
                     prev.Next = cnode;
                     cnode.Prev = prev;
